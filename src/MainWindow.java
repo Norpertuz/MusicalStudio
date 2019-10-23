@@ -8,7 +8,7 @@ import java.awt.FlowLayout;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
+// Komenatrz java. bh Norbert
 public class MainWindow {
 
 	private JFrame frame;

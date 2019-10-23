@@ -1,0 +1,151 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField Nickname;
+	private JPasswordField Password;
+	private JLabel NazwaStudia;
+	private JLabel NazwaUzytkownika;
+	private JLabel Haslo;
+	private JLabel Close;
+	private JLabel Forgot_Password;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(190, 228, 370, 456);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(229, 229, 229));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		Nickname = new JTextField();
+		Nickname.setHorizontalAlignment(SwingConstants.LEFT);
+		Nickname.setBackground(Color.WHITE);
+		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Nickname.setBounds(38, 135, 292, 42);
+		contentPane.add(Nickname);
+		Nickname.setColumns(10);
+		
+		Password = new JPasswordField();
+		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Password.setBounds(38, 225, 292, 44);
+		contentPane.add(Password);
+		
+		JButton Login = new JButton("");
+		Login.setForeground(new Color(229, 229, 229));
+		Login.setBackground(new Color(229, 229, 229));
+		Login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		Login.setIcon(new ImageIcon(Login.class.getResource("/Login.png")));
+		Login.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Login.setBounds(224, 290, 106, 37);
+		contentPane.add(Login);
+		
+		JLabel Ikonka = new JLabel("");
+		Ikonka.setIcon(new ImageIcon(Login.class.getResource("/ikonka.png")));
+		Ikonka.setBounds(10, 9, 74, 72);
+		contentPane.add(Ikonka);
+		
+		NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
+		NazwaStudia.setForeground(new Color(3, 17, 252));
+		NazwaStudia.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		NazwaStudia.setBounds(94, 22, 242, 59);
+		contentPane.add(NazwaStudia);
+		
+		NazwaUzytkownika = new JLabel("Nazwa u\u017Cytkownika");
+		NazwaUzytkownika.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		NazwaUzytkownika.setBounds(38, 103, 131, 21);
+		contentPane.add(NazwaUzytkownika);
+		
+		Haslo = new JLabel("Has\u0142o");
+		Haslo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		Haslo.setBounds(38, 193, 85, 21);
+		contentPane.add(Haslo);
+		
+		Close = new JLabel("X");
+		Close.setForeground(new Color(195, 195, 195));
+		Close.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.exit(0); //zamyka
+			}
+		});
+		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Close.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Close.setHorizontalAlignment(SwingConstants.CENTER);
+		Close.setBounds(326, 0, 44, 30);
+		contentPane.add(Close);
+		
+		Forgot_Password = new JLabel("Zapomnia\u0142e\u015B/a\u015B has\u0142a ?");
+		Forgot_Password.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		Forgot_Password.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Forgot_Password.setHorizontalAlignment(SwingConstants.LEFT);
+		Forgot_Password.setBounds(38, 290, 170, 37);
+		contentPane.add(Forgot_Password);
+		
+		lblNewLabel_2 = new JLabel("Zarejestruj si\u0119!");
+		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		
+		lblNewLabel_1 = new JLabel("Nie masz Konta ? ");
+		lblNewLabel_1.setBounds(38, 386, 102, 44);
+		contentPane.add(lblNewLabel_1);
+		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(150, 386, 85, 44);
+		contentPane.add(lblNewLabel_2);
+		setUndecorated(true); // Usuwanie ramki 
+	}
+}

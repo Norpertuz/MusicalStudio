@@ -10,7 +10,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
@@ -81,15 +80,10 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		Login.setIcon(new ImageIcon(Login.class.getResource("/Login.png")));
 		Login.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Login.setBounds(224, 290, 106, 37);
 		contentPane.add(Login);
 		
-		JLabel Ikonka = new JLabel("");
-		Ikonka.setIcon(new ImageIcon(Login.class.getResource("/ikonka.png")));
-		Ikonka.setBounds(10, 9, 74, 72);
-		contentPane.add(Ikonka);
 		
 		NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
 		NazwaStudia.setForeground(new Color(3, 17, 252));

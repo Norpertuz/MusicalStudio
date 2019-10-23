@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Register extends JFrame {
 
@@ -52,11 +53,6 @@ public class Register extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel Ikonka = new JLabel("");
-		Ikonka.setIcon(new ImageIcon(Register.class.getResource("/ikonka.png")));
-		Ikonka.setBounds(10, 9, 74, 72);
-		contentPane.add(Ikonka);
 		
 		JLabel NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
 		NazwaStudia.setForeground(new Color(3, 17, 252));
@@ -127,8 +123,11 @@ public class Register extends JFrame {
 		repeat_password.setBounds(38, 486, 292, 44);
 		contentPane.add(repeat_password);
 		
-		JButton register = new JButton("");
-		register.setIcon(new ImageIcon(Register.class.getResource("/register.png")));
+		JButton register = new JButton("Sign In");
+		register.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		register.setBounds(178, 541, 158, 44);
 		contentPane.add(register);
 		

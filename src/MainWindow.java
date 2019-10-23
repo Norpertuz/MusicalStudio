@@ -4,11 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
-import java.awt.FlowLayout;
-import javax.swing.JList;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-// Komenatrz java. bh Norbert
 public class MainWindow {
 
 	private JFrame frame;

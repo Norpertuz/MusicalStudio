@@ -1,6 +1,4 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,8 +14,6 @@ import javax.swing.SwingConstants;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.TitledBorder;
 
 public class Login extends JFrame {
 
@@ -73,7 +69,7 @@ public class Login extends JFrame {
 		Password.setBounds(38, 225, 292, 44);
 		contentPane.add(Password);
 		
-		JButton Login = new JButton("");
+		JButton Login = new JButton("Sign Up");
 		Login.setForeground(new Color(229, 229, 229));
 		Login.setBackground(new Color(229, 229, 229));
 		Login.addActionListener(new ActionListener() {

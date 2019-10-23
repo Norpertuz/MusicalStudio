@@ -6,6 +6,15 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
+import javax.swing.JLabel;
+import java.awt.Rectangle;
+import javax.swing.border.EmptyBorder;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Component;
+import javax.swing.SwingConstants;
+import java.awt.Dimension;
+import javax.swing.JTextArea;
 
 public class MainWindow {
 
@@ -88,17 +97,76 @@ public class MainWindow {
 		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);
-		listPanel.setBounds(90, 90, 554, 577);
+		listPanel.setBounds(90, 90, 608, 577);
 		frame.getContentPane().add(listPanel);
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(Color.WHITE);
-		infoPanel.setBounds(656, 160, 334, 507);
+		infoPanel.setBounds(710, 148, 280, 519);
 		frame.getContentPane().add(infoPanel);
+		infoPanel.setLayout(null);
+		
+		JLabel albumImage = new JLabel("avatar");
+		albumImage.setOpaque(true);
+		albumImage.setBackground(Color.ORANGE);
+		albumImage.setBounds(10, 10, 260, 260);
+		infoPanel.add(albumImage);
+		
+		JLabel albumTitle = new JLabel("BELLA CIAO");
+		albumTitle.setBounds(10, 280, 260, 16);
+		infoPanel.add(albumTitle);
+		
+		JLabel albumAuthor = new JLabel("Sergio y Andres");
+		albumAuthor.setBounds(10, 300, 260, 16);
+		infoPanel.add(albumAuthor);
+		
+		JLabel albumAlbum = new JLabel("Album:");
+		albumAlbum.setBounds(10, 340, 50, 16);
+		infoPanel.add(albumAlbum);
+		
+		JLabel albumDuration = new JLabel("Duration:");
+		albumDuration.setBounds(10, 360, 84, 16);
+		infoPanel.add(albumDuration);
+		
+		JLabel albumMusicGenre = new JLabel("Music genre:");
+		albumMusicGenre.setBounds(10, 380, 84, 16);
+		infoPanel.add(albumMusicGenre);
+		
+		JLabel albumReleaseDate = new JLabel("Release date:");
+		albumReleaseDate.setBounds(10, 400, 84, 16);
+		infoPanel.add(albumReleaseDate);
+		
+		JLabel albumDescription = new JLabel("Description:");
+		albumDescription.setBounds(10, 420, 84, 16);
+		infoPanel.add(albumDescription);
+		
+		JLabel dataAlbum = new JLabel("La Casa de Papel - Soundtrack");
+		dataAlbum.setBounds(62, 340, 208, 16);
+		infoPanel.add(dataAlbum);
+		
+		JLabel dataTime = new JLabel("4:25");
+		dataTime.setBounds(75, 360, 195, 16);
+		infoPanel.add(dataTime);
+		
+		JLabel dataMusicGenre = new JLabel("Pop");
+		dataMusicGenre.setBounds(96, 380, 174, 16);
+		infoPanel.add(dataMusicGenre);
+		
+		JLabel dataReleaseDate = new JLabel("01 January 2018");
+		dataReleaseDate.setBounds(96, 400, 174, 16);
+		infoPanel.add(dataReleaseDate);
+		
+		JTextArea dataDescription = new JTextArea();
+		dataDescription.setWrapStyleWord(true);
+		dataDescription.setLineWrap(true);
+		dataDescription.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.");
+		dataDescription.setEditable(false);
+		dataDescription.setBounds(10, 440, 260, 69);
+		infoPanel.add(dataDescription);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(656, 90, 334, 58);
+		panel.setBounds(710, 90, 280, 46);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		

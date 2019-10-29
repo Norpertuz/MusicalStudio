@@ -1,3 +1,5 @@
+
+import java.sql.*;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +10,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
@@ -74,6 +78,22 @@ public class Login extends JFrame {
 		Login.setBackground(new Color(229, 229, 229));
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root","");
+					Statement stmt=con.createStatement();
+					String sql="Select * from user WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
+					ResultSet rs=stmt.executeQuery(sql);
+					if(rs.next())
+						JOptionPane.showMessageDialog(null, "Zalogowano");
+					else
+						JOptionPane.showMessageDialog(null, "Nie zalogowano");
+					
+					con.close();
+				} 
+				catch(Exception e){System.out.print(e);}
+				
 			}
 		});
 		Login.setFont(new Font("Tahoma", Font.BOLD, 15));

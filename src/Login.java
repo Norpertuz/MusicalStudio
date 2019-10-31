@@ -81,9 +81,9 @@ public class Login extends JFrame {
 			
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root","");
+					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from user WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next())
 						JOptionPane.showMessageDialog(null, "Zalogowano");

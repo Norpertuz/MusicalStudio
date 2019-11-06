@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class Login extends JFrame {
 
@@ -157,6 +158,24 @@ public class Login extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(150, 386, 85, 44);
 		contentPane.add(lblNewLabel_2);
+		
+		JLabel DragBar = new JLabel(""); // Przenoszenie Ramki
+		DragBar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				  posX=arg0.getX();
+                  posY=arg0.getY();
+			}
+		});
+		DragBar.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent evt) {
+				setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
+			}
+		});
+		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		DragBar.setBounds(0, 0, 330, 30);
+		contentPane.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
 	}
 }

@@ -17,6 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class Register extends JFrame {
 
@@ -26,6 +27,8 @@ public class Register extends JFrame {
 	private JTextField mail;
 	private JPasswordField password;
 	private JPasswordField repeat_password;
+	int posX=0,posY=0;
+
 
 	/**
 	 * Launch the application.
@@ -172,6 +175,24 @@ public class Register extends JFrame {
 		});
 		btnRg.setBounds(223, 557, 89, 23);
 		contentPane.add(btnRg);
+		
+		JLabel DragBar = new JLabel("");//Przenoszenie ramki
+		DragBar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				posX=e.getX();
+                posY=e.getY();
+			}
+		});
+		DragBar.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent evt) {
+				setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
+			}
+		});
+		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		DragBar.setBounds(0, 0, 327, 30);
+		contentPane.add(DragBar);
 		setUndecorated(true); //usuwa ramke
 	}
 }

@@ -1,10 +1,11 @@
 import java.awt.EventQueue;
-
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -123,14 +124,6 @@ public class Register extends JFrame {
 		repeat_password.setBounds(38, 486, 292, 44);
 		contentPane.add(repeat_password);
 		
-		JButton register = new JButton("Sign In");
-		register.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		register.setBounds(178, 541, 158, 44);
-		contentPane.add(register);
-		
 		JLabel lblNewLabel = new JLabel("Masz ju\u017C konto?");
 		lblNewLabel.setBounds(38, 591, 110, 28);
 		contentPane.add(lblNewLabel);
@@ -144,6 +137,41 @@ public class Register extends JFrame {
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		contentPane.add(lblNewLabel_2);
+		
+		JButton btnRg = new JButton("Register");
+		btnRg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.out.println("hello");
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+					String sql="INSERT INTO users values(?,?,?,?,?)";
+				
+					PreparedStatement stmt = con.prepareStatement(sql);
+					stmt.setString(1, Nickname.getText());
+					stmt.setString(2, Imie_Nazwisko.getText());
+					stmt.setString(3, mail.getText());
+					stmt.setString(4, password.getText().toString());
+					stmt.setInt(5, 0);
+				
+				    int rs = stmt.executeUpdate();
+					
+				
+					if(rs!=0)
+						JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
+					else
+						JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
+					
+					con.close();
+				} 
+				catch(Exception er){System.out.print(er);}
+				
+				
+			}
+		});
+		btnRg.setBounds(223, 557, 89, 23);
+		contentPane.add(btnRg);
 		setUndecorated(true); //usuwa ramke
 	}
 }

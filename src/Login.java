@@ -19,6 +19,8 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login extends JFrame {
 
@@ -70,6 +72,29 @@ public class Login extends JFrame {
 		Nickname.setColumns(10);
 		
 		Password = new JPasswordField();
+		Password.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					 try {
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+							Statement stmt=con.createStatement();
+							String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
+							
+							ResultSet rs=stmt.executeQuery(sql);
+							if(rs.next())
+								JOptionPane.showMessageDialog(null, "Zalogowano");
+							else
+								JOptionPane.showMessageDialog(null, "Nie zalogowano");
+							
+							con.close();
+						} 
+						catch(Exception r){System.out.print(r);}
+		            }
+				
+			}
+		});
 		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Password.setBounds(38, 225, 292, 44);
 		contentPane.add(Password);

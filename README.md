@@ -1,9 +1,9 @@
 # Studio nagrań
 #### Wytyczne:
-- pracujemy z interfejsem graficznym
+- ~~pracujemy z interfejsem graficznym~~
 - uwaga, chcialbym moc edytowac nazwe mojego studia
-- interfejs byl wielookienkowy
-- chcialbym aby interfejs byl w miare ladny, intuicyjny
+- ~~interfejs byl wielookienkowy~~
+- ~~chcialbym aby interfejs byl w miare ladny, intuicyjny~~
 - intuicyjny czyli nawiazuje ukladem do standardow innych programow: menu, uklad tego menu
 - menu: 2: zwykle i podreczne, w podrecznym najważniejsze funkcje programu
 - uruchomiene aplikacji to ekran logowania

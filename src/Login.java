@@ -31,7 +31,7 @@ public class Login extends JFrame {
 	private JLabel Forgot_Password;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-
+	int posX=0,posY=0;
 	/**
 	 * Launch the application.
 	 */

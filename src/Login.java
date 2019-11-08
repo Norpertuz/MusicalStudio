@@ -36,6 +36,11 @@ public class Login extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	int posX=0,posY=0;
+	
+	//dark theme
+	public Color dt_red = Color.decode("#EE2B47");
+	public Color dt_bg = Color.decode("#34374C");
+	
 	/**
 	 * Launch the application.
 	 */
@@ -59,7 +64,7 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 456);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(this.dt_bg);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -100,7 +105,7 @@ public class Login extends JFrame {
 		Password.setBounds(38, 250, 292, 44);
 		contentPane.add(Password);
 		
-		customButton Login = new customButton("Sign Up");
+		customButton Login = new customButton("Sign Up", "dark");
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			

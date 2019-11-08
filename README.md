@@ -1,4 +1,5 @@
 # Studio nagrań
+#### [Figma - podgląd](https://www.figma.com/file/acjfrPhXQswlLBg0gnZUcV/studio-nagra%C5%84?node-id=0%3A1)
 #### Wytyczne:
 - [x] pracujemy z interfejsem graficznym
 - [ ] uwaga, chcialbym moc edytowac nazwe mojego studia

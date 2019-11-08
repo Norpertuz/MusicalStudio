@@ -1,9 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
@@ -14,7 +12,7 @@ public class customButton extends JButton{
 	
 	@Override
 	public void setFont(Font Ubuntu) {
-		Ubuntu = new Font("Tahoma", Font.BOLD, 5);
+		Ubuntu = new Font("Tahoma", Font.BOLD, 12);
 		super.setFont(Ubuntu);
 	}
 	

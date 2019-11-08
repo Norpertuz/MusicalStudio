@@ -21,6 +21,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
@@ -58,7 +59,7 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 456);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(229, 229, 229));
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -67,7 +68,7 @@ public class Login extends JFrame {
 		Nickname.setHorizontalAlignment(SwingConstants.LEFT);
 		Nickname.setBackground(Color.WHITE);
 		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Nickname.setBounds(38, 135, 292, 42);
+		Nickname.setBounds(38, 160, 292, 42);
 		contentPane.add(Nickname);
 		Nickname.setColumns(10);
 		
@@ -96,7 +97,7 @@ public class Login extends JFrame {
 			}
 		});
 		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Password.setBounds(38, 225, 292, 44);
+		Password.setBounds(38, 250, 292, 44);
 		contentPane.add(Password);
 		
 		customButton Login = new customButton("Sign Up");
@@ -121,27 +122,29 @@ public class Login extends JFrame {
 				
 			}
 		});
-		Login.setBounds(224, 290, 106, 37);
+		Login.setBounds(224, 315, 106, 37);
 		contentPane.add(Login);
 		
 		
 		NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
+		NazwaStudia.setIcon(new ImageIcon(Login.class.getResource("/assets/logomark.png")));
 		NazwaStudia.setForeground(new Color(3, 17, 252));
-		NazwaStudia.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		NazwaStudia.setBounds(94, 22, 242, 59);
+		NazwaStudia.setFont(new Font("Tahoma", Font.BOLD, 18));
+		NazwaStudia.setBounds(38, 48, 287, 67);
 		contentPane.add(NazwaStudia);
 		
 		NazwaUzytkownika = new JLabel("Nazwa u\u017Cytkownika");
 		NazwaUzytkownika.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		NazwaUzytkownika.setBounds(38, 103, 131, 21);
+		NazwaUzytkownika.setBounds(38, 128, 131, 21);
 		contentPane.add(NazwaUzytkownika);
 		
 		Haslo = new JLabel("Has\u0142o");
 		Haslo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Haslo.setBounds(38, 193, 85, 21);
+		Haslo.setBounds(38, 218, 85, 21);
 		contentPane.add(Haslo);
 		
-		Close = new JLabel("X");
+		Close = new JLabel("");
+		Close.setIcon(new ImageIcon(Login.class.getResource("/assets/closeIcon.png")));
 		Close.setForeground(new Color(195, 195, 195));
 		Close.addMouseListener(new MouseAdapter() {
 			@Override
@@ -152,7 +155,7 @@ public class Login extends JFrame {
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Close.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
-		Close.setBounds(326, 0, 44, 30);
+		Close.setBounds(324, 6, 46, 30);
 		contentPane.add(Close);
 		
 		Forgot_Password = new JLabel("Zapomnia\u0142e\u015B/a\u015B has\u0142a ?");
@@ -163,7 +166,7 @@ public class Login extends JFrame {
 		});
 		Forgot_Password.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Forgot_Password.setHorizontalAlignment(SwingConstants.LEFT);
-		Forgot_Password.setBounds(38, 290, 170, 37);
+		Forgot_Password.setBounds(38, 315, 170, 37);
 		contentPane.add(Forgot_Password);
 		
 		lblNewLabel_2 = new JLabel("Zarejestruj si\u0119!");
@@ -174,11 +177,11 @@ public class Login extends JFrame {
 		});
 		
 		lblNewLabel_1 = new JLabel("Nie masz Konta ? ");
-		lblNewLabel_1.setBounds(38, 386, 102, 44);
+		lblNewLabel_1.setBounds(38, 386, 117, 44);
 		contentPane.add(lblNewLabel_1);
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(150, 386, 85, 44);
+		lblNewLabel_2.setBounds(163, 386, 105, 44);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel DragBar = new JLabel(""); // Przenoszenie Ramki

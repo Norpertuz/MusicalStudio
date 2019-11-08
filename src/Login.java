@@ -99,9 +99,7 @@ public class Login extends JFrame {
 		Password.setBounds(38, 225, 292, 44);
 		contentPane.add(Password);
 		
-		JButton Login = new JButton("Sign Up");
-		Login.setForeground(new Color(229, 229, 229));
-		Login.setBackground(new Color(229, 229, 229));
+		customButton Login = new customButton("Sign Up");
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
@@ -123,7 +121,6 @@ public class Login extends JFrame {
 				
 			}
 		});
-		Login.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Login.setBounds(224, 290, 106, 37);
 		contentPane.add(Login);
 		

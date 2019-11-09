@@ -69,11 +69,10 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Nickname = new JTextField();
+		Nickname = new customTextfield();
 		Nickname.setHorizontalAlignment(SwingConstants.LEFT);
-		Nickname.setBackground(Color.WHITE);
 		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Nickname.setBounds(38, 160, 292, 42);
+		Nickname.setBounds(38, 160, 292, 44);
 		contentPane.add(Nickname);
 		Nickname.setColumns(10);
 		

@@ -144,7 +144,15 @@ public class Register extends JFrame {
 		JButton btnRg = new JButton("Register");
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int c = password.getText().length();
+				if (Nickname.getText().equals("") && Imie_Nazwisko.getText().equals("") && mail.getText().equals("") && password.getText().toString().equals("")){
+					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
+				     }
+				else if(c<6) {
+					JOptionPane.showMessageDialog(null, "Podano za krótkie has³o.");
+				}
 				
+				else{
 				System.out.println("hello");
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
@@ -170,7 +178,7 @@ public class Register extends JFrame {
 				} 
 				catch(Exception er){System.out.print(er);}
 				
-				
+				}	
 			}
 		});
 		btnRg.setBounds(223, 557, 89, 23);

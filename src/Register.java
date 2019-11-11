@@ -145,7 +145,7 @@ public class Register extends JFrame {
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.getText().length();
-				if (Nickname.getText().equals("") && Imie_Nazwisko.getText().equals("") && mail.getText().equals("") && password.getText().toString().equals("")){
+				if (Nickname.getText().equals("") || Imie_Nazwisko.getText().equals("") || mail.getText().equals("") || password.getText().toString().equals("")){
 					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 				     }
 				else if(c<6) {

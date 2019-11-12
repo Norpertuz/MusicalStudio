@@ -26,10 +26,8 @@ import javax.swing.ImageIcon;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField Nickname;
 	private JPasswordField Password;
 	private JLabel NazwaStudia;
-	private JLabel NazwaUzytkownika;
 	private JLabel Haslo;
 	private JLabel Close;
 	private JLabel Forgot_Password;
@@ -69,15 +67,8 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Nickname = new customTextfield();
-		Nickname.setHorizontalAlignment(SwingConstants.LEFT);
-		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Nickname.setBounds(38, 160, 292, 44);
-		contentPane.add(Nickname);
-		Nickname.setColumns(10);
-		
 		Password = new JPasswordField();
-		Password.addKeyListener(new KeyAdapter() {
+		/*Password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -102,14 +93,14 @@ public class Login extends JFrame {
 						catch(Exception er){System.out.print(er);}
 		            }
 				
-			}
-		});
+			} 
+		});*/
 		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Password.setBounds(38, 250, 292, 44);
 		contentPane.add(Password);
 		
 		customButton Login = new customButton("Sign Up", "dark");
-		Login.addActionListener(new ActionListener() {
+		/*Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
@@ -133,7 +124,7 @@ public class Login extends JFrame {
 				catch(Exception e){System.out.print(e);}
 				
 			}
-		});
+		});*/
 		Login.setBounds(224, 315, 106, 37);
 		contentPane.add(Login);
 		
@@ -144,11 +135,6 @@ public class Login extends JFrame {
 		NazwaStudia.setFont(new Font("Tahoma", Font.BOLD, 18));
 		NazwaStudia.setBounds(38, 48, 287, 67);
 		contentPane.add(NazwaStudia);
-		
-		NazwaUzytkownika = new JLabel("Nazwa u\u017Cytkownika");
-		NazwaUzytkownika.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		NazwaUzytkownika.setBounds(38, 128, 131, 21);
-		contentPane.add(NazwaUzytkownika);
 		
 		Haslo = new JLabel("Has\u0142o");
 		Haslo.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -218,6 +204,9 @@ public class Login extends JFrame {
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		DragBar.setBounds(0, 0, 330, 30);
 		contentPane.add(DragBar);
+		
+		newTextField test = new newTextField("Nazwa użytkownika");
+		contentPane.add(test);
 		setUndecorated(true); // Usuwanie ramki 
 	}
 }

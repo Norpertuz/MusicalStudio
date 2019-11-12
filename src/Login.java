@@ -107,7 +107,7 @@ public class Login extends JFrame {
 		customButton Login = new customButton("Sign Up", "dark");
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
@@ -115,8 +115,12 @@ public class Login extends JFrame {
 					String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
 					
 					ResultSet rs=stmt.executeQuery(sql);
-					if(rs.next())
+					if(rs.next()) {
+						dispose();
 						JOptionPane.showMessageDialog(null, "Zalogowano");
+						MainWindow nw = new MainWindow();
+						MainWindow.main1();
+				}
 					else
 						JOptionPane.showMessageDialog(null, "Nie zalogowano");
 					

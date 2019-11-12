@@ -23,7 +23,7 @@ public class MainWindow {
 	private JTextField searchBar;
 	private JPanel listPanel;
 
-	public static void main(String[] args) {
+	public static void main1() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

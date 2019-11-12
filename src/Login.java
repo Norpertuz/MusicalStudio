@@ -26,7 +26,7 @@ import javax.swing.ImageIcon;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField Password;
+	private newPasswordField Password;
 	private JLabel NazwaStudia;
 	private JLabel Haslo;
 	private JLabel Close;
@@ -66,9 +66,9 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		newTextField test = new newTextField("Nazwa użytkownika", "email");
+		newTextField test = new newTextField("Nazwa użytkownika", "password");
 		contentPane.add(test);
-		Password = new JPasswordField();
+		Password = new newPasswordField();
 		Password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {

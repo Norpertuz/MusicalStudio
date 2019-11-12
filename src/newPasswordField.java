@@ -1,12 +1,13 @@
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
-public class customTextfield extends JTextField{
-	public customTextfield() {
+public class newPasswordField extends JPasswordField {
+	public newPasswordField() {
 		super.setForeground(Color.decode("#EE2B47"));
 		super.setBackground(null);
 		super.addFocusListener(new FocusAdapter() {

@@ -86,16 +86,20 @@ public class Login extends JFrame {
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
 							String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
-							
 							ResultSet rs=stmt.executeQuery(sql);
-							if(rs.next())
+							if(rs.next()) {
+								dispose();
+								String fullnameX = rs.getString("fullname");
 								JOptionPane.showMessageDialog(null, "Zalogowano");
+								MainWindow nw = new MainWindow();
+								MainWindow.main1(fullnameX);
+						}
 							else
 								JOptionPane.showMessageDialog(null, "Nie zalogowano");
 							
 							con.close();
 						} 
-						catch(Exception r){System.out.print(r);}
+						catch(Exception er){System.out.print(er);}
 		            }
 				
 			}
@@ -113,13 +117,13 @@ public class Login extends JFrame {
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
 					String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
-					
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();
+						String fullnameX = rs.getString("fullname");
 						JOptionPane.showMessageDialog(null, "Zalogowano");
 						MainWindow nw = new MainWindow();
-						MainWindow.main1();
+						MainWindow.main1(fullnameX);
 				}
 					else
 						JOptionPane.showMessageDialog(null, "Nie zalogowano");
@@ -181,6 +185,10 @@ public class Login extends JFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				dispose();
+				Register nw = new Register();
+				Register.main1();
+				
 			}
 		});
 		

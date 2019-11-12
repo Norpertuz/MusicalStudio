@@ -7,28 +7,40 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Rectangle;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Component;
+import java.awt.Cursor;
+
 import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+
+
 
 public class MainWindow {
-
+	
 	private JFrame frame;
 	private JTextField searchBar;
 	private JPanel listPanel;
-
-	public static void main1() {
+	public static void main1(String fullname) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Zmienne_globalne.fullname1 = fullname;
+					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 					MainWindow window = new MainWindow();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,10 +49,13 @@ public class MainWindow {
 	}
 
 	public MainWindow() {
+		
 		initialize();
 	}
 
 	private void initialize() {
+		
+		//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setSize(1000, 750);
@@ -55,6 +70,10 @@ public class MainWindow {
 		navigationPanel.setLayout(null);
 		
 		JButton homeButton = new JButton("home");
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		homeButton.setBounds(0, 164, 85, 29);
 		navigationPanel.add(homeButton);
 		
@@ -95,6 +114,25 @@ public class MainWindow {
 		JButton listButton = new JButton("Users");
 		listButton.setBounds(518, 28, 84, 29);
 		topPanel.add(listButton);
+		
+		JLabel textArea = new JLabel();
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		textArea.setBounds(651, 28, 123, 23);
+		topPanel.add(textArea);
+		textArea.setText(Zmienne_globalne.fullname1);
+		textArea.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+				//okno z danymi uzytkownika
+				
+				Register nw = new Register();
+				Register.main1();
+				
+				
+			}
+		});
+		textArea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);

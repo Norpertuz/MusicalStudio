@@ -33,7 +33,7 @@ public class Register extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main() {
+	public static void main1() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

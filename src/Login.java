@@ -155,6 +155,7 @@ public class Login extends JFrame {
 		contentPane.add(Close);
 		
 		Forgot_Password = new JLabel("Zapomnia\u0142e\u015B/a\u015B has\u0142a ?");
+		Forgot_Password.setForeground(Color.decode("#4C506D"));
 		Forgot_Password.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -183,6 +184,7 @@ public class Login extends JFrame {
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(151, 386, 117, 44);
+		lblNewLabel_1.setForeground(Color.decode("#4C506D"));
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel DragBar = new JLabel(""); // Przenoszenie Ramki

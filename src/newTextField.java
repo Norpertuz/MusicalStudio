@@ -39,9 +39,10 @@ public class newTextField extends JPanel {
 	}
 	
 	public newTextField(String text, String type) {
+		super.setBackground(null);
 		// label
 		label.setText(text);
-		label.setForeground(Color.orange);
+		label.setForeground(Color.decode("#4C506D"));
 		label.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label.setBounds(0, 0, 287, 20);
 		super.add(label);
@@ -68,6 +69,7 @@ public class newTextField extends JPanel {
 		} else if (type == "password") {
 			passfield.setHorizontalAlignment(SwingConstants.LEFT);
 			passfield.setColumns(10);
+			passfield.setOpaque(false);
 			passfield.setBounds(0, 25, 300, 44);
 			super.add(passfield);
 			super.setBounds(38, 117, passfield.getWidth(), passfield.getHeight()+label.getHeight()+5);

@@ -28,7 +28,6 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private newPasswordField Password;
 	private JLabel NazwaStudia;
-	private JLabel Haslo;
 	private JLabel Close;
 	private JLabel Forgot_Password;
 	private JLabel lblNewLabel_1;
@@ -66,10 +65,13 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		newTextField test = new newTextField("Nazwa użytkownika", "password");
+		newTextField test = new newTextField("Nazwa użytkownika", "normal");
 		contentPane.add(test);
-		Password = new newPasswordField();
-		Password.addKeyListener(new KeyAdapter() {
+		newTextField mypass = new newTextField("Password", "password");
+		mypass.setBounds(38, 218, 370, 73);
+		contentPane.add(mypass);
+		//Password = new newPasswordField();
+		mypass.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -77,7 +79,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+Password.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -96,9 +98,9 @@ public class Login extends JFrame {
 				
 			} 
 		});
-		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Password.setBounds(38, 250, 292, 44);
-		contentPane.add(Password);
+//		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
+//		Password.setBounds(38, 250, 292, 44);
+//		contentPane.add(Password);
 		
 		customButton Login = new customButton("Sign Up", "dark");
 		Login.addActionListener(new ActionListener() {
@@ -108,7 +110,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+Password.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();
@@ -136,11 +138,6 @@ public class Login extends JFrame {
 		NazwaStudia.setFont(new Font("Tahoma", Font.BOLD, 18));
 		NazwaStudia.setBounds(38, 48, 287, 67);
 		contentPane.add(NazwaStudia);
-		
-		Haslo = new JLabel("Has\u0142o");
-		Haslo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Haslo.setBounds(38, 218, 85, 21);
-		contentPane.add(Haslo);
 		
 		Close = new JLabel("");
 		Close.setIcon(new ImageIcon(Login.class.getResource("/assets/closeIcon.png")));

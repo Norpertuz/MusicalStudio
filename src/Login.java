@@ -66,9 +66,10 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		newTextField test = new newTextField("Nazwa użytkownika");
+		contentPane.add(test);
 		Password = new JPasswordField();
-		/*Password.addKeyListener(new KeyAdapter() {
+		Password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -76,7 +77,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+Password.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -94,20 +95,20 @@ public class Login extends JFrame {
 		            }
 				
 			} 
-		});*/
+		});
 		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Password.setBounds(38, 250, 292, 44);
 		contentPane.add(Password);
 		
 		customButton Login = new customButton("Sign Up", "dark");
-		/*Login.addActionListener(new ActionListener() {
+		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+Nickname.getText()+"' and password='"+Password.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+Password.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();
@@ -124,7 +125,7 @@ public class Login extends JFrame {
 				catch(Exception e){System.out.print(e);}
 				
 			}
-		});*/
+		});
 		Login.setBounds(224, 315, 106, 37);
 		contentPane.add(Login);
 		
@@ -204,9 +205,6 @@ public class Login extends JFrame {
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		DragBar.setBounds(0, 0, 330, 30);
 		contentPane.add(DragBar);
-		
-		newTextField test = new newTextField("Nazwa użytkownika");
-		contentPane.add(test);
 		setUndecorated(true); // Usuwanie ramki 
 	}
 }

@@ -16,7 +16,7 @@ public class customTextfield extends JTextField{
 			public void focusGained(FocusEvent e) {
 				((JComponent) e.getComponent()).setBorder(BorderFactory.createMatteBorder(
 						3,3,3,3,
-						Color.pink));
+						Color.decode("#FFFFFF")));
 				((JComponent) e.getComponent()).setBorder(BorderFactory.createCompoundBorder(
 						getBorder(), 
 						BorderFactory.createEmptyBorder(5, 10, 5, 10)));
@@ -26,11 +26,11 @@ public class customTextfield extends JTextField{
 			public void focusLost(FocusEvent e) {
 				((JComponent) e.getComponent()).setBorder(BorderFactory.createMatteBorder(
 						3,3,3,3,
-						Color.orange));
+						Color.decode("#4C506D")));
 				((JComponent) e.getComponent()).setBorder(BorderFactory.createCompoundBorder(
 						getBorder(), 
 						BorderFactory.createEmptyBorder(5, 10, 5, 10)));
-				e.getComponent().setForeground(Color.decode("#c3c3c3"));
+				e.getComponent().setForeground(Color.decode("#4C506D"));
 			}
 		});
 		super.setOpaque(false);

@@ -1,14 +1,9 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -16,8 +11,23 @@ import javax.swing.SwingConstants;
 public class newTextField extends JPanel {
 	customTextfield field = new customTextfield();
 	JLabel label = new JLabel();
+	public void validation(String type) {
+		if (type == "normal") {
+			if(field.getText().length() < 4) {
+				field.setText("za malo");
+			}
+		} else if (type == "email") {
+			String symbols = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+			if(field.getText().matches(symbols) != true) {
+				field.setText("");
+				label.setText("Nieprawidłowy e-mail");
+				label.setForeground(Color.decode("#EE2B47"));
+				field.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.decode("#EE2B47")));
+			}
+		}
+	}
 	
-	public newTextField(String text) {
+	public newTextField(String text, String type) {
 		// label
 		label.setText(text);
 		label.setForeground(Color.orange);
@@ -33,11 +43,14 @@ public class newTextField extends JPanel {
 		field.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				label.setForeground(Color.cyan);
+				label.setForeground(Color.white);
+				label.setText(text);
 			}
+			// validation
 			@Override
 			public void focusLost(FocusEvent e) {
-				label.setForeground(Color.blue);
+				label.setForeground(Color.decode("#4C506D"));
+				validation(type);
 			}
 		});
 		// container

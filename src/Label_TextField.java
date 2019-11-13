@@ -15,9 +15,6 @@ public class Label_TextField extends JPanel {
 		return super.add(comp);
 	}
 	
-	public void fieldBorder(TextField textfield) {
-	}
-	
 	public Label_TextField() {
 		//TextField
 		this.add(field);

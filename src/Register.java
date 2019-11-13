@@ -169,8 +169,14 @@ public class Register extends JFrame {
 				    int rs = stmt.executeUpdate();
 					
 				
-					if(rs!=0)
+					if(rs!=0) {
 						JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
+						/*
+						dispose();
+						Login nw = new Login();
+						Login.main();
+						*/
+					}
 					else
 						JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
 					

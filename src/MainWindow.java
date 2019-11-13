@@ -32,10 +32,11 @@ public class MainWindow {
 	private JFrame frame;
 	private JTextField searchBar;
 	private JPanel listPanel;
-	public static void main1(String fullname) {
+	public static void main1(String fullname,int admin) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Zmienne_globalne.is_admin1= admin;
 					Zmienne_globalne.fullname1 = fullname;
 					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 					MainWindow window = new MainWindow();
@@ -126,13 +127,25 @@ public class MainWindow {
 			
 				//okno z danymi uzytkownika
 				
-				Register nw = new Register();
-				Register.main1();
+				user_edit nw = new user_edit();
+				user_edit.okno_edycji(Zmienne_globalne.fullname1);
 				
 				
 			}
 		});
 		textArea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		JLabel czy_admin = new JLabel("New label");
+		if(Zmienne_globalne.is_admin1==1) {
+			czy_admin.setText("Administrator");
+			czy_admin.setForeground(Color.RED);
+		}else {
+			czy_admin.setText("Standard user");
+			czy_admin.setForeground(Color.GRAY);
+		}
+		
+		czy_admin.setBounds(651, 55, 123, 14);
+		topPanel.add(czy_admin);
 		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);

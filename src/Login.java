@@ -84,9 +84,10 @@ public class Login extends JFrame {
 							if(rs.next()) {
 								dispose();
 								String fullnameX = rs.getString("fullname");
+								int is_admin = rs.getInt("isAdmin");
 								JOptionPane.showMessageDialog(null, "Zalogowano");
 								MainWindow nw = new MainWindow();
-								MainWindow.main1(fullnameX);
+								MainWindow.main1(fullnameX,is_admin);
 						}
 							else
 								JOptionPane.showMessageDialog(null, "Nie zalogowano");
@@ -115,9 +116,10 @@ public class Login extends JFrame {
 					if(rs.next()) {
 						dispose();
 						String fullnameX = rs.getString("fullname");
+						int is_admin = rs.getInt("isAdmin");
 						JOptionPane.showMessageDialog(null, "Zalogowano");
 						MainWindow nw = new MainWindow();
-						MainWindow.main1(fullnameX);
+						MainWindow.main1(fullnameX,is_admin);
 				}
 					else
 						JOptionPane.showMessageDialog(null, "Nie zalogowano");

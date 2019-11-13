@@ -65,7 +65,7 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		newTextField test = new newTextField("Nazwa u≈ºytkownika", "normal");
+		newTextField test = new newTextField("Nazwa uøytkownika", "normal");
 		contentPane.add(test);
 		newTextField mypass = new newTextField("Password", "password");
 		mypass.setBounds(38, 218, 370, 73);

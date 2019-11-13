@@ -15,7 +15,7 @@ public class newTextField extends JPanel {
 	public void validation(String type) {
 		if (type == "normal") {
 			if(field.getText().length() < 4) {
-				label.setText("Za maÅ‚o znakÃ³w");
+				label.setText("Za ma³o znaków");
 				label.setForeground(Color.decode("#EE2B47"));
 				field.setText("");
 				field.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.decode("#EE2B47")));
@@ -24,13 +24,13 @@ public class newTextField extends JPanel {
 			String symbols = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 			if(field.getText().matches(symbols) != true) {
 				field.setText("");
-				label.setText("NieprawidÅ‚owy e-mail");
+				label.setText("Nieprawid³owy e-mail");
 				label.setForeground(Color.decode("#EE2B47"));
 				field.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.decode("#EE2B47")));
 			}
 		} else if (type == "password") {
 			if(passfield.getPassword().length < 3) {
-				label.setText("HasÅ‚o jest za krÃ³tkie");
+				label.setText("Has³o jest za krótkie");
 				label.setForeground(Color.decode("#EE2B47"));
 				passfield.setText("");
 				passfield.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Color.decode("#EE2B47")));

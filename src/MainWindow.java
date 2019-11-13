@@ -91,6 +91,10 @@ public class MainWindow {
 		navigationPanel.add(settingsButton);
 		
 		JButton exitButton = new JButton("exit");
+		exitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		exitButton.setBounds(9, 472, 85, 29);
 		navigationPanel.add(exitButton);
 		
@@ -118,7 +122,7 @@ public class MainWindow {
 		
 		JLabel textArea = new JLabel();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textArea.setBounds(651, 28, 123, 23);
+		textArea.setBounds(651, 28, 191, 23);
 		topPanel.add(textArea);
 		textArea.setText(Zmienne_globalne.fullname1);
 		textArea.addMouseListener(new MouseAdapter() {

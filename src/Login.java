@@ -71,7 +71,7 @@ public class Login extends JFrame {
 		mypass.setBounds(38, 218, 370, 73);
 		contentPane.add(mypass);
 		//Password = new newPasswordField();
-		mypass.addKeyListener(new KeyAdapter() {
+		mypass.passfield.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -161,6 +161,7 @@ public class Login extends JFrame {
 		Forgot_Password.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(null, "To sobie przypomnij... albo skontaktuj sie z administratorem.");
 			}
 		});
 		Forgot_Password.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

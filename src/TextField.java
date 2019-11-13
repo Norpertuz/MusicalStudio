@@ -1,4 +1,4 @@
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.BorderFactory;
@@ -19,15 +19,25 @@ public class TextField extends JTextField {
 	public TextField() {
 		this.setVisible(true);
 		this.setBackground(null);
+		// default
+		this.setBorder(inactive);
 		// focus --> START
 		this.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				((JComponent) e.getComponent()).setBorder(active);	
+				((JComponent) e.getComponent()).setBorder(active);
+				((JComponent) e.getComponent()).setBorder(
+						BorderFactory.createCompoundBorder(getBorder(), 
+						BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+				e.getComponent().setForeground(Colors.darkThemeRed);
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
-				((JComponent) e.getComponent()).setBorder(inactive);	
+				((JComponent) e.getComponent()).setBorder(inactive);
+				((JComponent) e.getComponent()).setBorder(
+						BorderFactory.createCompoundBorder(getBorder(), 
+						BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+				e.getComponent().setForeground(Colors.inactive);
 			}
 			
 		});

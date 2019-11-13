@@ -22,6 +22,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.BoxLayout;
 
 public class Login extends JFrame {
 
@@ -65,10 +66,11 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		TextField test = new TextField();
-		test.setSize(304, 73);
-		test.setLocation(38, 122);
+		Label_TextField test = new Label_TextField("Username");
+		test.setSize(292, 44);
+		test.setLocation(38, 151);
 		contentPane.add(test);
+		test.setLayout(new BoxLayout(test, BoxLayout.X_AXIS));
 		newTextField mypass = new newTextField("Password", "password");
 		mypass.setBounds(38, 218, 370, 73);
 		contentPane.add(mypass);
@@ -81,7 +83,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+test.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -113,7 +115,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+test.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();

@@ -65,7 +65,9 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		newTextField test = new newTextField("Nazwa u¿ytkownika", "normal");
+		TextField test = new TextField();
+		test.setSize(304, 73);
+		test.setLocation(38, 122);
 		contentPane.add(test);
 		newTextField mypass = new newTextField("Password", "password");
 		mypass.setBounds(38, 218, 370, 73);
@@ -79,7 +81,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+test.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -111,7 +113,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+test.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();

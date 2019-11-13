@@ -70,7 +70,7 @@ public class Login extends JFrame {
 		test.setSize(292, 44);
 		test.setLocation(38, 151);
 		contentPane.add(test);
-		test.setLayout(new BoxLayout(test, BoxLayout.X_AXIS));
+		test.setLayout(new BoxLayout(test, BoxLayout.Y_AXIS));
 		newTextField mypass = new newTextField("Password", "password");
 		mypass.setBounds(38, 218, 370, 73);
 		contentPane.add(mypass);

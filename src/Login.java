@@ -30,7 +30,6 @@ import java.awt.FlowLayout;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private newPasswordField Password;
 	private JLabel NazwaStudia;
 	private JLabel Close;
 	private JLabel Forgot_Password;

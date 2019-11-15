@@ -24,6 +24,32 @@ public class Label_TextField extends JPanel {
 		super.setVisible(aFlag);
 	}
 	
+	private void setDefault(String name) {
+		field.border(field.inactive, Colors.inactive);
+		label.setForeground(Colors.inactive);
+		label.setText(name);
+	}
+	
+	private void handleValidation(String name, String type) {
+		if (type == "default") {
+			if(field.getText().length() < 5) {
+				field.border(field.err, Colors.err);
+				label.setForeground(Colors.err);
+				label.setText(name + " is too short");
+			} else {
+				setDefault(name);
+			}
+		} if (type == "email") {
+			String email = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+			if(field.getText().matches(email) != true) {
+				field.border(field.err, Colors.err);
+				label.setForeground(Colors.err);
+				label.setText("Please enter a valid e-mail address");
+			} else {
+				setDefault(name);
+			}
+		}
+	}
 	
 	public Label_TextField(String name, String type) {
 		// Container
@@ -60,17 +86,7 @@ public class Label_TextField extends JPanel {
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
-				if (type == "default") {
-					if(field.getText().length() < 5) {
-						field.border(field.err, Colors.err);
-						label.setForeground(Colors.err);
-						label.setText(name + " is too short");
-					} else {
-						field.border(field.inactive, Colors.inactive);
-						label.setForeground(Colors.inactive);
-						label.setText(name);
-					}
-				}
+				handleValidation(name, type);
 			}
 		});
 	}

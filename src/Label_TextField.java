@@ -3,15 +3,14 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.LayoutManager;
-
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class Label_TextField extends JPanel {
-	TextField field = new TextField();
 	JLabel label = new JLabel();
+	TextField field = new TextField();
 	
 	@Override
 	public Component add(Component comp) {
@@ -25,17 +24,19 @@ public class Label_TextField extends JPanel {
 		super.setVisible(aFlag);
 	}
 	
-	public Label_TextField(String name) {
+	
+	public Label_TextField(String name, String type) {
 		// Container
+//		this.getBounds().setSize(this.getSize().width, 70);
 		this.setBackground(null);
 		this.setOpaque(false);
 		// Container - layout
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints container = new GridBagConstraints();
-		container.insets = new Insets(5, 0, 10, 0);
+		container.insets = new Insets(2, 0, 4, 0);
 		// Label
 		label.setText(name);
-		label.setForeground(Colors.darkThemeRed);
+		label.setForeground(Colors.inactive);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		container.gridx=0;
 		container.gridy=0;
@@ -47,8 +48,30 @@ public class Label_TextField extends JPanel {
 		container.gridwidth=1;
 		container.weightx=1;
 		container.fill = GridBagConstraints.HORIZONTAL;
-		container.ipady=10;
+		container.ipady=15;
 		container.anchor = GridBagConstraints.LINE_START;
 		this.add(field, container);
+		// validation
+		field.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				field.border(field.active, Colors.darkThemeRed);
+				label.setForeground(Colors.active);
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (type == "default") {
+					if(field.getText().length() < 5) {
+						field.border(field.err, Colors.err);
+						label.setForeground(Colors.err);
+						label.setText(name + " is too short");
+					} else {
+						field.border(field.inactive, Colors.inactive);
+						label.setForeground(Colors.inactive);
+						label.setText(name);
+					}
+				}
+			}
+		});
 	}
 }

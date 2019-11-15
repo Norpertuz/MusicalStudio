@@ -1,45 +1,28 @@
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.Color;
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
 public class TextField extends JTextField {
-	private MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
-	private MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
+	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
+	public MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
+	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.err);
 	
 	@Override
 	public void setBorder(Border border) {
 		super.setBorder(border);
 	}
+
+	public void border (MatteBorder br, Color fontColor) {
+		this.setBorder(br);
+		this.setBorder(BorderFactory.createCompoundBorder(getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+		this.setForeground(fontColor);
+	}
 	
 	public TextField() {
 		this.setVisible(true);
 		this.setBackground(null);
-		// default
-		this.setBorder(inactive);
-		// focus --> START
-		this.addFocusListener(new FocusListener() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				((JComponent) e.getComponent()).setBorder(active);
-				((JComponent) e.getComponent()).setBorder(
-						BorderFactory.createCompoundBorder(getBorder(), 
-						BorderFactory.createEmptyBorder(0, 10, 0, 10)));
-				e.getComponent().setForeground(Colors.darkThemeRed);
-			}
-			@Override
-			public void focusLost(FocusEvent e) {
-				((JComponent) e.getComponent()).setBorder(inactive);
-				((JComponent) e.getComponent()).setBorder(
-						BorderFactory.createCompoundBorder(getBorder(), 
-						BorderFactory.createEmptyBorder(0, 10, 0, 10)));
-				e.getComponent().setForeground(Colors.inactive);
-			}
-			
-		});
-		// focus --> END
+		border(inactive, Colors.inactive);
 	}
 }

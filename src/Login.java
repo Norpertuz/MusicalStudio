@@ -69,7 +69,7 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Label_TextField test = new Label_TextField("Username", "email");
+		Label_TextField test = new Label_TextField("Username", "password");
 		test.setSize(292, 70);
 		test.setLocation(38, 127);
 		contentPane.add(test);

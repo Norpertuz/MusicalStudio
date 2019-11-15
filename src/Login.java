@@ -22,7 +22,10 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import java.awt.GridBagLayout;
+import java.awt.FlowLayout;
 
 public class Login extends JFrame {
 
@@ -67,10 +70,10 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Label_TextField test = new Label_TextField("Username");
-		test.setSize(292, 44);
-		test.setLocation(38, 151);
+		test.setSize(292, 60);
+		test.setLocation(38, 127);
 		contentPane.add(test);
-		test.setLayout(new BoxLayout(test, BoxLayout.Y_AXIS));
+		
 		newTextField mypass = new newTextField("Password", "password");
 		mypass.setBounds(38, 218, 370, 73);
 		contentPane.add(mypass);

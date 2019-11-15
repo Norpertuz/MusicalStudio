@@ -69,16 +69,16 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Label_TextField test = new Label_TextField("Username", "password");
-		test.setSize(292, 70);
-		test.setLocation(38, 127);
-		contentPane.add(test);
+		Label_TextField Username = new Label_TextField("Username", "default");
+		Username.setSize(292, 70);
+		Username.setLocation(38, 127);
+		contentPane.add(Username);
 		
-		newTextField mypass = new newTextField("Password", "password");
-		mypass.setBounds(38, 218, 370, 73);
-		contentPane.add(mypass);
+		Label_TextField MyPassword = new Label_TextField("Password", "password");
+		MyPassword.setBounds(38, 218, 292, 73);
+		contentPane.add(MyPassword);
 		//Password = new newPasswordField();
-		mypass.passfield.addKeyListener(new KeyAdapter() {
+		MyPassword.passwordfield.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -86,7 +86,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+Username.field.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -118,7 +118,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+test.field.getText()+"' and password='"+mypass.passfield.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+Username.field.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();

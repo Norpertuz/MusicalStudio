@@ -109,7 +109,7 @@ public class Login extends JFrame {
 //		Password.setBounds(38, 250, 292, 44);
 //		contentPane.add(Password);
 		
-		customButton Login = new customButton("Sign Up", "dark");
+		Button Login = new Button("Sign Up");
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

@@ -12,10 +12,7 @@ import java.awt.event.ActionEvent;
 public class user_edit {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private Label_TextField textField;
 
 	/**
 	 * Launch the application.
@@ -72,25 +69,9 @@ public class user_edit {
 		btnNewButton_1.setBounds(225, 164, 153, 46);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		textField = new JTextField();
-		textField.setBounds(28, 240, 350, 46);
+		textField = new Label_TextField("nazwa1","default");
+		textField.setBounds(28, 240, 350, 82);
 		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(28, 316, 350, 46);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(28, 404, 350, 46);
-		frame.getContentPane().add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(28, 478, 350, 46);
-		frame.getContentPane().add(textField_3);
 		
 		customButton customButton_ = new customButton("Zapisz zmiany", "light");
 		customButton_.addActionListener(new ActionListener() {

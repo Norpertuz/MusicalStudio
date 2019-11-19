@@ -135,6 +135,12 @@ public class Register extends JFrame {
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				String[] errorSoon = new String[1];
+				dispose();
+				Login nw = new Login();
+				Login.main(errorSoon);
+				
+				
 			}
 		});
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

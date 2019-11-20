@@ -203,6 +203,10 @@ public class MainWindow {
 		close.setBounds(874, 0, 46, 30);
 		topPanel.add(close);
 		
+		Heading htest = new Heading("Tekst");
+		htest.setBounds(134, 28, 212, 61);
+		topPanel.add(htest);
+		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);
 		listPanel.setBounds(90, 120, 608, 660);

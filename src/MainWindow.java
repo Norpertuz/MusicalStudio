@@ -106,14 +106,10 @@ public class MainWindow {
 		topPanel.setBackground(Color.WHITE);
 		topPanel.setBounds(80, 0, 920, 80);
 		frame.getContentPane().add(topPanel);
-		topPanel.setLayout(null);
+		topPanel.setLayout(null);	
 		
-		JButton addButton = new JButton("Add");
-		addButton.setBounds(295, 28, 75, 29);
-		topPanel.add(addButton);
-		
-		JButton delButton = new JButton("Delete");
-		delButton.setBounds(392, 28, 75, 29);
+		JButton delButton = new JButton("Panel Administratora");
+		delButton.setBounds(327, 28, 167, 29);
 		topPanel.add(delButton);
 		
 		JButton listButton = new JButton("Users");
@@ -132,7 +128,7 @@ public class MainWindow {
 				//okno z danymi uzytkownika
 				
 				user_edit nw = new user_edit();
-				user_edit.okno_edycji(Zmienne_globalne.fullname1);
+				user_edit.okno_edycji(Zmienne_globalne.fullname1,Zmienne_globalne.is_admin1);
 				
 				
 			}

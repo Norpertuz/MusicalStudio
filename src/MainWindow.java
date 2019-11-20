@@ -161,7 +161,7 @@ public class MainWindow {
 		
 		JLabel textArea = new JLabel();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textArea.setBounds(651, 28, 191, 23);
+		textArea.setBounds(651, 58, 191, 23);
 		topPanel.add(textArea);
 		textArea.setText(Zmienne_globalne.fullname1);
 		textArea.addMouseListener(new MouseAdapter() {

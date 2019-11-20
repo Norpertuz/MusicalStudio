@@ -216,6 +216,39 @@ int posX=0,posY=0;
 		customButton customButton__1 = new customButton("Usun konto", "light");
 		customButton__1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+				
+				
+				
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+					Statement stmt=con.createStatement();
+					String sql="delete from users where fullname='"+user1+"'";
+				
+					
+					stmt.executeUpdate(sql);
+					stmt.close();
+					JOptionPane.showMessageDialog(null,"Usunieto konto!" );
+					
+					con.close();
+					System.exit(0);
+					
+				} 
+				catch(Exception e){System.out.print(e);}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			}
 		});
 		customButton__1.setBounds(28, 671, 153, 46);
@@ -270,9 +303,9 @@ int posX=0,posY=0;
 						JOptionPane.showMessageDialog(null,"Zedytowano mail" );
 						}
 					
-					
-					frame.dispose();
 					con.close();
+					frame.dispose();
+					
 				} 
 				catch(Exception e){System.out.print(e);}
 				

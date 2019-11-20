@@ -26,6 +26,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 
 
@@ -60,6 +62,7 @@ public class MainWindow {
 		
 		//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Colors.darkThemeBackground);
 		frame.setUndecorated(true);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setSize(1000, 780);
@@ -86,7 +89,7 @@ public class MainWindow {
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JPanel navigationPanel = new JPanel();
-		navigationPanel.setBackground(Color.BLUE);
+		navigationPanel.setBackground(Colors.darkThemeRed);
 		navigationPanel.setBounds(0, 0, 80, 780);
 		frame.getContentPane().add(navigationPanel);
 		navigationPanel.setLayout(null);
@@ -203,30 +206,15 @@ public class MainWindow {
 		close.setBounds(874, 0, 46, 30);
 		topPanel.add(close);
 		
-		Heading htest = new Heading("Tekst");
-		htest.setBounds(134, 28, 212, 61);
-		topPanel.add(htest);
-		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);
 		listPanel.setBounds(90, 120, 608, 660);
 		frame.getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(15, 45, 579, 61);
-		listPanel.add(panel);
-		panel.setLayout(null);
-		
-		JLabel PlaylistHeading = new JLabel("PLAYLIST");
-		PlaylistHeading.setBounds(0, 0, 108, 25);
-		PlaylistHeading.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		panel.add(PlaylistHeading);
-		
-		JPanel headingLine = new JPanel();
-		headingLine.setBackground(Color.BLUE);
-		headingLine.setBounds(0, 30, 48, 4);
-		panel.add(headingLine);
+		Heading panelH = new Heading("Title", Colors.lightThemeBlue);
+		panelH.setBounds(27, 27, 72, 38);
+		listPanel.add(panelH);
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(Color.WHITE);
@@ -298,15 +286,9 @@ public class MainWindow {
 		dataDescription.setBounds(15, 525, 250, 69);
 		infoPanel.add(dataDescription);
 		
-		JLabel label = new JLabel("PLAYLIST");
-		label.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		label.setBounds(15, 40, 110, 25);
-		infoPanel.add(label);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.BLUE);
-		panel_1.setBounds(15, 70, 48, 4);
-		infoPanel.add(panel_1);
+		Heading panelh2 = new Heading("Something", Colors.lightThemeBlue);
+		panelh2.setBounds(32, 43, 145, 38);
+		infoPanel.add(panelh2);
 		
 		JPanel searchPanel = new JPanel();
 		searchPanel.setBackground(Color.WHITE);

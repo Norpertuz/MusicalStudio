@@ -18,16 +18,21 @@ public class Heading extends JPanel {
 		container.gridx=0;
 		container.gridy=0;
 		container.anchor = GridBagConstraints.FIRST_LINE_START;
+		container.fill = GridBagConstraints.VERTICAL;
 		this.add(label, container);
 		// Line
 		line.setBackground(Colors.darkThemeRed);
+		line.setOpaque(false);
+		line.setSize(100, 4);
 		container.gridx=0;
 		container.gridy=1;
 		container.gridwidth=1;
 		container.weightx=1;
 		container.fill = GridBagConstraints.HORIZONTAL;
-		container.ipady=4;
+		container.ipadx=50;
 		container.anchor = GridBagConstraints.FIRST_LINE_START;
 		this.add(line, container);
+		//Panel
+		this.setBackground(null);
 	}
 }

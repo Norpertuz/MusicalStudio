@@ -34,7 +34,7 @@ public class Label_TextField extends JPanel {
 	
 	private void handleValidation(String name, String type) {
 		if (type == "default") {
-			if(field.getText().length() < 5) {
+			if(field.getText().length() < 3) {
 				field.border(field.err, Colors.err);
 				label.setForeground(Colors.err);
 				label.setText(name + " is too short");

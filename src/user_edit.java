@@ -246,26 +246,32 @@ int posX=0,posY=0;
 					sql="update users set nickname='"+textField.field.getText()+"' WHERE fullname='"+user1+"'";
 					stmt.executeUpdate(sql);
 					stmt.close();
+					JOptionPane.showMessageDialog(null,"Zedytowano nickname" );
+				
 					}
 					if(!label_TextField.field.getText().equals("")) {
 						sql="update users set fullname='"+label_TextField.field.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
 						stmt.close();
+						JOptionPane.showMessageDialog(null,"Zedytowano fullname" );
+						
 					}
 					if(!label_TextField_1.field.getText().equals("")) {
 						sql="update users set password='"+label_TextField_1.field.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
 						stmt.close();
+						JOptionPane.showMessageDialog(null,"Zedytowano password" );
 					}
 					if(!label_TextField_2.field.getText().equals("")) {
-						JOptionPane.showMessageDialog(null,label_TextField_2.field.getText()+" "+user1 );
+					
 						sql="update users set email='"+label_TextField_2.field.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);
 						stmt.close();
+						JOptionPane.showMessageDialog(null,"Zedytowano mail" );
 						}
 					
 					
-					
+					frame.dispose();
 					con.close();
 				} 
 				catch(Exception e){System.out.print(e);}

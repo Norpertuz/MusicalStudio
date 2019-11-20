@@ -27,16 +27,23 @@ public class Button extends JButton {
 		isOpaque = true;
 		super.setOpaque(isOpaque);
 	}
+
+	@Override
+	public void setText(String text) {
+		super.setText(text);
+	}
 	
-	public Button(String text) {
-		this.setText(text);
-		this.setBackground(Color.GREEN);
-		this.setBackground(Color.yellow);
+	public Button(Color Color) {
+		this.setBackground(Color);
 		this.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				e.getComponent().setBackground(Color.BLUE);
+				e.getComponent().setBackground(Color);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				e.getComponent().setBackground(Color);
 			}
 		});
 	}

@@ -92,6 +92,16 @@ public class MainWindow {
 		navigationPanel.setLayout(null);
 		
 		JLabel Exit = new JLabel("");
+		Exit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String[] errorSoon = new String[1];
+				frame.dispose();
+				JOptionPane.showMessageDialog(null, "Wylogowano!");
+				Login nw = new Login();
+				Login.main(errorSoon);
+			}
+		});
 		Exit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Exit.setHorizontalAlignment(SwingConstants.CENTER);
 		Exit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
@@ -142,7 +152,7 @@ public class MainWindow {
 		
 		if(Zmienne_globalne.is_admin1==1) {
 		JButton delButton = new JButton("Panel Administratora");
-		delButton.setBounds(327, 28, 167, 29);
+		delButton.setBounds(327, 58, 167, 29);
 		topPanel.add(delButton);
 		}
 		JButton listButton = new JButton("Users");

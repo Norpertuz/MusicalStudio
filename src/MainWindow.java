@@ -108,10 +108,12 @@ public class MainWindow {
 		frame.getContentPane().add(topPanel);
 		topPanel.setLayout(null);	
 		
+		
+		if(Zmienne_globalne.is_admin1==1) {
 		JButton delButton = new JButton("Panel Administratora");
 		delButton.setBounds(327, 28, 167, 29);
 		topPanel.add(delButton);
-		
+		}
 		JButton listButton = new JButton("Users");
 		listButton.setBounds(518, 28, 84, 29);
 		topPanel.add(listButton);

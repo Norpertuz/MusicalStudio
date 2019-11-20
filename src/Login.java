@@ -160,7 +160,7 @@ public class Login extends JFrame {
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Close.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
-		Close.setBounds(324, 6, 46, 30);
+		Close.setBounds(324, 0, 46, 30);
 		contentPane.add(Close);
 		
 		Forgot_Password = new JLabel("Zapomnia\u0142e\u015B/a\u015B has\u0142a ?");
@@ -212,7 +212,7 @@ public class Login extends JFrame {
 			}
 		});
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		DragBar.setBounds(0, 0, 330, 30);
+		DragBar.setBounds(0, 0, 324, 30);
 		contentPane.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
 	}

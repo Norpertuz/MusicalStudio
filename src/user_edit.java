@@ -16,13 +16,20 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.sql.*;
-public class user_edit {
-
+import java.awt.Cursor;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+public class user_edit extends JFrame {
+int posX=0,posY=0;
 	private JFrame frame;
 	private Label_TextField textField;
     static String user1;
     static int admin;
     static String fullname11, nickname11, password11, mail1;
+    
 	/**
 	 * Launch the application.
 	 */
@@ -94,6 +101,7 @@ public class user_edit {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setUndecorated(true);
 		frame.setBounds(100, 100, 451, 790);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -176,11 +184,44 @@ public class user_edit {
 		email1.setBounds(28, 541, 137, 14);
 		frame.getContentPane().add(email1);
 		
+		JLabel close = new JLabel("");
+		close.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				frame.dispose();
+			}
+		});
+		close.setHorizontalAlignment(SwingConstants.CENTER);
+		close.setIcon(new ImageIcon(user_edit.class.getResource("/assets/closeIcon.png")));
+		close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		close.setBounds(405, 0, 46, 30);
+		frame.getContentPane().add(close);
+		
+		JLabel DragBar = new JLabel("");
+		DragBar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				posX=e.getX();
+                posY=e.getY();
+				
+				
+			}
+		});
+		DragBar.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent evt) {
+				
+                frame.setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
+			}
+		});
+		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		DragBar.setBounds(0, 0, 405, 30);
+		frame.getContentPane().add(DragBar);
+		
 		if(admin==1) {
 		customButton customButton__1 = new customButton("Usun konto", "light");
 		customButton__1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 			}
 		});
 		customButton__1.setBounds(28, 671, 153, 46);

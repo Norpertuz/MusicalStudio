@@ -133,13 +133,7 @@ int posX=0,posY=0;
 		textField.setBounds(28, 240, 350, 82);
 		frame.getContentPane().add(textField);
 		
-		customButton customButton_ = new customButton("Zapisz zmiany", "light");
-		customButton_.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		customButton_.setBounds(225, 671, 153, 46);
-		frame.getContentPane().add(customButton_);
+		
 		
 		Label_TextField label_TextField = new Label_TextField("Imie i Nazwisko", "default");
 		GridBagLayout gridBagLayout = (GridBagLayout) label_TextField.getLayout();
@@ -227,6 +221,88 @@ int posX=0,posY=0;
 		customButton__1.setBounds(28, 671, 153, 46);
 		frame.getContentPane().add(customButton__1);
 		}
+		
+		
+		
+		
+		
+		
+		customButton customButton_ = new customButton("Zapisz zmiany", "light");
+		customButton_.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+					Statement stmt=con.createStatement();
+					String sql="";
+				
+					
+					
+				
+					if(!textField.field.getText().equals("")) {
+					sql="update users set nickname='"+textField.field.getText()+"' WHERE fullname='"+user1+"'";
+					stmt.executeUpdate(sql);
+					stmt.close();
+					}
+					if(!label_TextField.field.getText().equals("")) {
+						sql="update users set fullname='"+label_TextField.field.getText()+"' WHERE fullname='"+user1+"'";
+						stmt.executeUpdate(sql);	
+						stmt.close();
+					}
+					if(!label_TextField_1.field.getText().equals("")) {
+						sql="update users set password='"+label_TextField_1.field.getText()+"' WHERE fullname='"+user1+"'";
+						stmt.executeUpdate(sql);	
+						stmt.close();
+					}
+					if(!label_TextField_2.field.getText().equals("")) {
+						JOptionPane.showMessageDialog(null,label_TextField_2.field.getText()+" "+user1 );
+						sql="update users set email='"+label_TextField_2.field.getText()+"' WHERE fullname='"+user1+"'";
+						stmt.executeUpdate(sql);
+						stmt.close();
+						}
+					
+					
+					
+					con.close();
+				} 
+				catch(Exception e){System.out.print(e);}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
+		customButton_.setBounds(225, 671, 153, 46);
+		frame.getContentPane().add(customButton_);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 }

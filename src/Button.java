@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.border.Border;
@@ -29,5 +31,11 @@ public class Button extends JButton {
 		this.setText(text);
 		this.setBackground(Color.GREEN);
 		this.setBackground(Color.yellow);
+		this.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				e.getComponent().setBackground(Color.BLUE);
+			}
+		});
 	}
 }

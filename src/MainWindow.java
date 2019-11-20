@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 
 
@@ -70,37 +71,47 @@ public class MainWindow {
 		frame.getContentPane().add(navigationPanel);
 		navigationPanel.setLayout(null);
 		
-		JButton homeButton = new JButton("home");
-		homeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		homeButton.setBounds(0, 164, 85, 29);
-		navigationPanel.add(homeButton);
+		JLabel Exit = new JLabel("");
+		Exit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Exit.setHorizontalAlignment(SwingConstants.CENTER);
+		Exit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
+		Exit.setBounds(0, 650, 80, 56);
+		navigationPanel.add(Exit);
 		
-		JButton favButton = new JButton("playlists");
-		favButton.setBounds(9, 218, 85, 29);
-		navigationPanel.add(favButton);
+		JLabel Settings = new JLabel("");
+		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Settings.setHorizontalAlignment(SwingConstants.CENTER);
+		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));
+		Settings.setBounds(0, 594, 80, 56);
+		navigationPanel.add(Settings);
 		
-		JButton shopButton = new JButton("shop");
-		shopButton.setBounds(9, 257, 85, 29);
-		navigationPanel.add(shopButton);
+		JLabel Home = new JLabel("");
+		Home.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/home.png")));
+		Home.setHorizontalAlignment(SwingConstants.CENTER);
+		Home.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Home.setBounds(0, 78, 80, 56);
+		navigationPanel.add(Home);
 		
-		JButton settingsButton = new JButton("settings");
-		settingsButton.setBounds(9, 409, 85, 29);
-		navigationPanel.add(settingsButton);
+		JLabel playlist = new JLabel("");
+		playlist.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/playlist.png")));
+		playlist.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		playlist.setHorizontalAlignment(SwingConstants.CENTER);
+		playlist.setBounds(0, 145, 80, 56);
+		navigationPanel.add(playlist);
 		
-		JButton exitButton = new JButton("exit");
-		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		exitButton.setBounds(9, 472, 85, 29);
-		navigationPanel.add(exitButton);
+		JLabel cart = new JLabel("");
+		cart.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		cart.setHorizontalAlignment(SwingConstants.CENTER);
+		cart.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/shopping_cart.png")));
+		cart.setBounds(0, 212, 80, 56);
+		navigationPanel.add(cart);
 		
-		JButton darkmodeButton = new JButton("dark");
-		darkmodeButton.setBounds(9, 298, 85, 29);
-		navigationPanel.add(darkmodeButton);
+		JLabel invert_colors = new JLabel("");
+		invert_colors.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/invert_colors.png")));
+		invert_colors.setHorizontalAlignment(SwingConstants.CENTER);
+		invert_colors.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		invert_colors.setBounds(0, 279, 80, 56);
+		navigationPanel.add(invert_colors);
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(Color.WHITE);
@@ -161,7 +172,7 @@ public class MainWindow {
 		panel.setLayout(null);
 		
 		JLabel PlaylistHeading = new JLabel("PLAYLIST");
-		PlaylistHeading.setBounds(0, 0, 89, 25);
+		PlaylistHeading.setBounds(0, 0, 108, 25);
 		PlaylistHeading.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		panel.add(PlaylistHeading);
 		
@@ -242,7 +253,7 @@ public class MainWindow {
 		
 		JLabel label = new JLabel("PLAYLIST");
 		label.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		label.setBounds(15, 10, 89, 25);
+		label.setBounds(15, 10, 110, 25);
 		infoPanel.add(label);
 		
 		JPanel panel_1 = new JPanel();

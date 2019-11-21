@@ -173,8 +173,8 @@ public class MainWindow {
 			
 				//okno z danymi uzytkownika
 				
-				user_edit nw = new user_edit();
-				user_edit.okno_edycji(Zmienne_globalne.fullname1,Zmienne_globalne.is_admin1);
+				UserEdit nw = new UserEdit();
+				UserEdit.okno_edycji1(Zmienne_globalne.fullname1,Zmienne_globalne.is_admin1);
 				
 				
 			}

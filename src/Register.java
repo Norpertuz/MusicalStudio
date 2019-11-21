@@ -159,7 +159,7 @@ public class Register extends JFrame {
 				}
 				
 				else{
-				System.out.println("hello");
+			
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");

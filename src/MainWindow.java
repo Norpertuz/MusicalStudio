@@ -1,21 +1,19 @@
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Rectangle;
-import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Component;
 import java.awt.Cursor;
-
 import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.JTextArea;
@@ -29,13 +27,16 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
+public class MainWindow extends JFrame {
 
-
-public class MainWindow {
-	int posX=0,posY=0;
-	private JFrame frame;
-	private JTextField searchBar;
+	private JPanel contentPane;
 	private JPanel listPanel;
+	private JTextField searchBar;
+	int posX=0,posY=0;
+
+	/**
+	 * Launch the application.
+	 */
 	public static void main1(String fullname,int admin) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,7 +45,7 @@ public class MainWindow {
 					Zmienne_globalne.fullname1 = fullname;
 					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,26 +54,22 @@ public class MainWindow {
 		});
 	}
 
+	/**
+	 * Create the frame.
+	 */
 	public MainWindow() {
-		
-		initialize();
-	}
-
-	private void initialize() {
-		
-		//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Colors.darkThemeBackground);
-		frame.setUndecorated(true);
-		frame.setBounds(100, 100, 450, 300);
-		frame.setSize(1000, 780);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setUndecorated(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setBackground(Colors.darkThemeBackground);
+		setBounds(100, 100, 450, 300);
+		setSize(1000, 780);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel DragBar = new JLabel("");
-		DragBar.setBounds(0, 0, 954, 30);
-		frame.getContentPane().add(DragBar);
+		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		DragBar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -83,40 +80,17 @@ public class MainWindow {
 		DragBar.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent evt) {
-				frame.setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
+				setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
 			}
 		});
-		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		DragBar.setBounds(0, 0, 954, 30);
+		contentPane.add(DragBar);
 		
 		JPanel navigationPanel = new JPanel();
 		navigationPanel.setBackground(Colors.darkThemeRed);
 		navigationPanel.setBounds(0, 0, 80, 780);
-		frame.getContentPane().add(navigationPanel);
+		getContentPane().add(navigationPanel);
 		navigationPanel.setLayout(null);
-		
-		JLabel Exit = new JLabel("");
-		Exit.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				String[] errorSoon = new String[1];
-				frame.dispose();
-				JOptionPane.showMessageDialog(null, "Wylogowano!");
-				Login nw = new Login();
-				Login.main(errorSoon);
-			}
-		});
-		Exit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		Exit.setHorizontalAlignment(SwingConstants.CENTER);
-		Exit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
-		Exit.setBounds(0, 690, 80, 55);
-		navigationPanel.add(Exit);
-		
-		JLabel Settings = new JLabel("");
-		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		Settings.setHorizontalAlignment(SwingConstants.CENTER);
-		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));
-		Settings.setBounds(0, 630, 80, 55);
-		navigationPanel.add(Settings);
 		
 		JLabel Home = new JLabel("");
 		Home.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/home.png")));
@@ -145,19 +119,42 @@ public class MainWindow {
 		invert_colors.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		invert_colors.setBounds(0, 310, 80, 55);
 		navigationPanel.add(invert_colors);
+
+		JLabel Settings = new JLabel("");
+		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		Settings.setHorizontalAlignment(SwingConstants.CENTER);
+		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));
+		Settings.setBounds(0, 630, 80, 55);
+		navigationPanel.add(Settings);
+		
+		JLabel LogOut = new JLabel("");
+		LogOut.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String[] errorSoon = new String[1];
+				dispose();
+				JOptionPane.showMessageDialog(null, "Wylogowano!");
+				Login nw = new Login();
+				Login.main(errorSoon);
+			}
+		});
+		LogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		LogOut.setHorizontalAlignment(SwingConstants.CENTER);
+		LogOut.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
+		LogOut.setBounds(0, 690, 80, 55);
+		navigationPanel.add(LogOut);
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(Color.WHITE);
 		topPanel.setBounds(80, 0, 920, 110);
-		frame.getContentPane().add(topPanel);
-		topPanel.setLayout(null);	
-		
-		
+		contentPane.add(topPanel);
+
 		if(Zmienne_globalne.is_admin1==1) {
 		JButton delButton = new JButton("Panel Administratora");
 		delButton.setBounds(327, 58, 167, 29);
 		topPanel.add(delButton);
 		}
+		topPanel.setLayout(null);
 		JButton listButton = new JButton("Users");
 		listButton.setBounds(518, 58, 84, 29);
 		topPanel.add(listButton);
@@ -178,6 +175,7 @@ public class MainWindow {
 				
 				
 			}
+			
 		});
 		textArea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
@@ -209,7 +207,7 @@ public class MainWindow {
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.WHITE);
 		listPanel.setBounds(90, 120, 608, 660);
-		frame.getContentPane().add(listPanel);
+		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
 		Heading panelH = new Heading("Title", Colors.lightThemeBlue);
@@ -218,8 +216,8 @@ public class MainWindow {
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(Color.WHITE);
-		infoPanel.setBounds(710, 148, 280, 632);
-		frame.getContentPane().add(infoPanel);
+		infoPanel.setBounds(710, 165, 280, 615);
+		getContentPane().add(infoPanel);
 		infoPanel.setLayout(null);
 		
 		JLabel albumImage = new JLabel("avatar");
@@ -293,7 +291,7 @@ public class MainWindow {
 		JPanel searchPanel = new JPanel();
 		searchPanel.setBackground(Color.WHITE);
 		searchPanel.setBounds(710, 120, 280, 46);
-		frame.getContentPane().add(searchPanel);
+		getContentPane().add(searchPanel);
 		searchPanel.setLayout(null);
 		
 		searchBar = new JTextField();

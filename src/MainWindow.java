@@ -60,10 +60,10 @@ public class MainWindow extends JFrame {
 	public MainWindow() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setBackground(Colors.darkThemeBackground);
 		setBounds(100, 100, 450, 300);
 		setSize(1000, 780);
 		contentPane = new JPanel();
+		contentPane.setBackground(Colors.darkThemeBackground);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

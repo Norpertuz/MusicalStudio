@@ -133,7 +133,8 @@ public class Add_add extends JFrame {
 		
 		
 		
-		Button Save = new Button(Colors.DTPurple);
+		Button Save = new Button();
+		Save.setBackground(Colors.DTPurple);
 		Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

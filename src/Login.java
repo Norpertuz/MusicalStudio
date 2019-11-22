@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
-	private Theme contentPane;
+	private Theme Wrapper;
 	private JLabel Logomark;
 	private JLabel Close;
 	private JLabel ForgotPassword;
@@ -51,20 +51,20 @@ public class Login extends JFrame {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 468);
-		contentPane = new Theme(true, this);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		Wrapper = new Theme(true, this);
+		Wrapper.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(Wrapper);
+		Wrapper.setLayout(null);
 		String UsernameLabel = "Username";
 		Label_TextField Username = new Label_TextField(UsernameLabel, "default");
 		Username.setSize(292, 70);
 		Username.setLocation(38, 127);
-		contentPane.add(Username);
+		Wrapper.add(Username);
 		
 		String MyPasswordLabel = "Password";
 		Label_TextField MyPassword = new Label_TextField(MyPasswordLabel, "password");
 		MyPassword.setBounds(38, 218, 292, 73);
-		contentPane.add(MyPassword);
+		Wrapper.add(MyPassword);
 		//Password = new newPasswordField();
 		boolean isPressed = false;
 		MyPassword.passwordfield.addKeyListener(new KeyAdapter() {
@@ -91,7 +91,7 @@ public class Login extends JFrame {
 //		Password.setBounds(38, 250, 292, 44);
 //		contentPane.add(Password);
 		
-		Button SignIn = new Button(Colors.DTPurple);
+		Button SignIn = new Button();
 		String SignInLabel = "Sign in";
 		SignIn.setText(SignInLabel);
 		SignIn.addActionListener(new ActionListener() {
@@ -113,14 +113,14 @@ public class Login extends JFrame {
 		});
 		
 		SignIn.setBounds(224, 315, 106, 37);
-		contentPane.add(SignIn);
+		Wrapper.add(SignIn);
 		String NameLabel = "Recording studio";
 		Name = new JLabel(NameLabel);
 		Name.setInheritsPopupMenu(false);
 		Name.setForeground(new Color(145, 71, 255));
 		Name.setFont(new Font("Tahoma", Font.BOLD, 18));
 		Name.setBounds(96, 48, 234, 67);
-		contentPane.add(Name);
+		Wrapper.add(Name);
 		
 		
 		Logomark = new JLabel("");
@@ -131,7 +131,7 @@ public class Login extends JFrame {
 		Logomark.setForeground(Colors.DTPurple);
 		Logomark.setFont(new Font("Tahoma", Font.BOLD, 18));
 		Logomark.setBounds(38, 48, 46, 67);
-		contentPane.add(Logomark);
+		Wrapper.add(Logomark);
 		
 		Close = new JLabel("");
 		Close.setBackground(Color.CYAN);
@@ -147,7 +147,7 @@ public class Login extends JFrame {
 		Close.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
 		Close.setBounds(324, 5, 46, 30);
-		contentPane.add(Close);
+		Wrapper.add(Close);
 		
 		String ForgotPasswordLabel = "Forgot password?";
 		ForgotPassword = new JLabel(ForgotPasswordLabel);
@@ -160,8 +160,8 @@ public class Login extends JFrame {
 		});
 		ForgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		ForgotPassword.setHorizontalAlignment(SwingConstants.LEFT);
-		ForgotPassword.setBounds(38, 315, 170, 37);
-		contentPane.add(ForgotPassword);
+		ForgotPassword.setBounds(38, 315, 121, 37);
+		Wrapper.add(ForgotPassword);
 		
 		String SignUpLabel = "Sign Up!";
 		SignUp = new JLabel(SignUpLabel);
@@ -178,12 +178,12 @@ public class Login extends JFrame {
 		String AlreadyHaveAnAccountLabel = "Don't have an account?";
 		AlreadyHaveAnAccount = new JLabel(AlreadyHaveAnAccountLabel);
 		AlreadyHaveAnAccount.setBounds(38, 386, 157, 44);
-		contentPane.add(AlreadyHaveAnAccount);
+		Wrapper.add(AlreadyHaveAnAccount);
 		SignUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SignUp.setHorizontalAlignment(SwingConstants.CENTER);
 		SignUp.setBounds(184, 393, 68, 30);		
 		AlreadyHaveAnAccount.setForeground(Color.decode("#4C506D"));
-		contentPane.add(SignUp);
+		Wrapper.add(SignUp);
 		
 		JLabel DragBar = new JLabel(""); // Przenoszenie Ramki
 		DragBar.addMouseListener(new MouseAdapter() {
@@ -201,7 +201,7 @@ public class Login extends JFrame {
 		});
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		DragBar.setBounds(0, 0, 324, 30);
-		contentPane.add(DragBar);
+		Wrapper.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
 	}
 }

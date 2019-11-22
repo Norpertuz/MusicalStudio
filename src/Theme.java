@@ -3,12 +3,15 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Theme extends JPanel{
+	
 	public Theme(boolean dark, JFrame frame) {
 		String Parent = frame.getClass().getName();
 		if (Parent == "Login") {
-			System.out.println(Parent);
-		} else {
-			System.out.println(Parent);
+			if (dark == true) {
+				this.setBackground(Colors.DTBackground);
+			} else {
+				this.setBackground(Colors.LTPanel);
+			}
 		}
 	}
 }

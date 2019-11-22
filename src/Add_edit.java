@@ -94,13 +94,13 @@ public class Add_edit extends JFrame {
 		Image.setBounds(10, 100, 150, 100);
 		contentPane.add(Image);
 		
-		Button change = new Button(Colors.darkThemeRed);
-		change.setText("Zmieñ Obraz");
+		Button change = new Button(Colors.DTPurple);
+		change.setText("Zmieï¿½ Obraz");
 		change.setBounds(210, 100, 150, 40);
 		contentPane.add(change);
 		
-		Button delete = new Button(Colors.darkThemeRed);
-		delete.setText("Usuñ obraz");
+		Button delete = new Button(Colors.DTPurple);
+		delete.setText("Usuï¿½ obraz");
 		delete.setBounds(210, 160, 150, 40);
 		contentPane.add(delete);
 		
@@ -109,7 +109,7 @@ public class Add_edit extends JFrame {
 		Nazwa_Albumu.setBounds(10, 220, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
-		String title = "Tytu³";
+		String title = "Tytuï¿½";
 		Label_TextField Title_textfield = new Label_TextField(title,"default");
 		Title_textfield.setBounds(10, 300, 350, 70);
 		contentPane.add(Title_textfield);
@@ -133,7 +133,7 @@ public class Add_edit extends JFrame {
 		Description.setBounds(10, 620, 350, 125);
 		contentPane.add(Description);
 		
-		Button Save = new Button(Colors.darkThemeRed);
+		Button Save = new Button(Colors.DTPurple);
 		Save.setText("Zapisz Zmiany");
 		Save.setBounds(219, 765, 141, 40);
 		contentPane.add(Save);

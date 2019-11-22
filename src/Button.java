@@ -35,6 +35,7 @@ public class Button extends JButton {
 	
 	public Button(Color Color) {
 		this.setBackground(Color);
+		this.setForeground(Colors.DTText);
 		this.setCursor(new Cursor (Cursor.HAND_CURSOR));
 		this.addMouseListener(new MouseAdapter() {
 			@Override

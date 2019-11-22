@@ -63,7 +63,7 @@ public class MainWindow extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setSize(1000, 780);
 		contentPane = new JPanel();
-		contentPane.setBackground(Colors.darkThemeBackground);
+		contentPane.setBackground(Colors.DTPurple);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -87,7 +87,7 @@ public class MainWindow extends JFrame {
 		contentPane.add(DragBar);
 		
 		JPanel navigationPanel = new JPanel();
-		navigationPanel.setBackground(Colors.darkThemeRed);
+		navigationPanel.setBackground(Colors.DTPurple);
 		navigationPanel.setBounds(0, 0, 80, 780);
 		getContentPane().add(navigationPanel);
 		navigationPanel.setLayout(null);
@@ -218,7 +218,7 @@ public class MainWindow extends JFrame {
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
-		Heading panelH = new Heading("Title", Colors.lightThemeBlue);
+		Heading panelH = new Heading("Title", Colors.DTPurple);
 		panelH.setBounds(27, 27, 72, 38);
 		listPanel.add(panelH);
 		
@@ -292,7 +292,7 @@ public class MainWindow extends JFrame {
 		dataDescription.setBounds(15, 525, 250, 69);
 		infoPanel.add(dataDescription);
 		
-		Heading panelh2 = new Heading("Something", Colors.lightThemeBlue);
+		Heading panelh2 = new Heading("Something", Colors.DTPurple);
 		panelh2.setBounds(32, 43, 145, 38);
 		infoPanel.add(panelh2);
 		

@@ -145,7 +145,7 @@ public class MainWindow extends JFrame {
 		navigationPanel.add(LogOut);
 		
 		JPanel topPanel = new JPanel();
-		topPanel.setBackground(Color.WHITE);
+		topPanel.setBackground(Color.GRAY);
 		topPanel.setBounds(80, 0, 920, 110);
 		contentPane.add(topPanel);
 
@@ -213,7 +213,7 @@ public class MainWindow extends JFrame {
 		topPanel.add(close);
 		
 		listPanel = new JPanel();
-		listPanel.setBackground(Color.WHITE);
+		listPanel.setBackground(Color.BLACK);
 		listPanel.setBounds(90, 120, 608, 660);
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
@@ -223,7 +223,7 @@ public class MainWindow extends JFrame {
 		listPanel.add(panelH);
 		
 		JPanel infoPanel = new JPanel();
-		infoPanel.setBackground(Color.WHITE);
+		infoPanel.setBackground(Color.BLACK);
 		infoPanel.setBounds(710, 165, 280, 615);
 		getContentPane().add(infoPanel);
 		infoPanel.setLayout(null);

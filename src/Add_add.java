@@ -94,7 +94,7 @@ public class Add_add extends JFrame {
 		Nazwa_Albumu.setBounds(10, 93, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
-		String title = "Tytu³";
+		String title = "Tytuï¿½";
 		Label_TextField Title_textfield = new Label_TextField(title,"default");
 		Title_textfield.setBounds(10, 173, 350, 70);
 		contentPane.add(Title_textfield);
@@ -133,7 +133,7 @@ public class Add_add extends JFrame {
 		
 		
 		
-		Button Save = new Button(Colors.darkThemeRed);
+		Button Save = new Button(Colors.DTPurple);
 		Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

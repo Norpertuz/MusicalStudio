@@ -29,7 +29,7 @@ import javax.swing.GroupLayout.Alignment;
 
 public class MainWindow extends JFrame {
 
-	private Theme contentPane;
+	private JPanel contentPane;
 	private JPanel listPanel;
 	private JTextField searchBar;
 	int posX=0,posY=0;
@@ -62,8 +62,8 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setSize(1000, 780);
-		contentPane = new Theme(true, this);
-		contentPane.setBackground(Colors.DTPurple);
+		contentPane = new JPanel();
+		contentPane.setBackground(Colors.DTBackground);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

@@ -21,8 +21,13 @@ public class Heading extends JPanel {
 		this.setBackground(null);
 		this.setLayout(null);
 		if (Color == Colors.DTPurple) {
+<<<<<<< HEAD
 			line.setBackground(Colors.DTActive);
 			label.setForeground(Colors.DTPurple);
+=======
+			line.setBackground(Colors.DTPurple);
+			label.setForeground(Colors.DTActive);
+>>>>>>> 421e8be70c9ead31d1fd87cde5172f850f51a32a
 		}
 	}
 }

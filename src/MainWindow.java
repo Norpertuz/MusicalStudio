@@ -298,7 +298,7 @@ public class MainWindow extends JFrame {
 		searchBar.setBorder(null);
 		searchBar.setForeground(Color.LIGHT_GRAY);
 		searchBar.setCaretColor(Color.BLUE);
-		searchBar.setBounds(44, 30, 236, 46);
+		searchBar.setBounds(0, 0, 280, 46);
 		searchBar.setText("Search");
 		searchPanel.add(searchBar);
 		searchBar.setColumns(10);

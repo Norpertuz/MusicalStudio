@@ -29,5 +29,5 @@
 - [x] chcialbym miec dwa layouty: jasny na dzień i np ciemny na noc
 - [ ] moze byc, ze layout będzie się ustawiac automatycznie
 - [ ] dobrze by bylo, aby istniał sklep, gdzie moge sprzedaz klientowi plyte/utwor
-- [ ] klient zalogowany ma dane osobowe i adresowe w bazie, ladujemy automatycznie
+- [x] klient zalogowany ma dane osobowe i adresowe w bazie, ladujemy automatycznie
 - [ ] klient niezalogowany musi swoje dane podac

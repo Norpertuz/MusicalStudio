@@ -12,4 +12,9 @@ public class Colors {
 	static Color DTText = Color.decode("#FFFFFF");
 	static Color DTActive = DTText;
 	static Color DTInactive = Color.decode("#4C506D");
+	
+	//LIGHT THEME
+	static Color LTBlue = Color.decode("#0311FC");
+	static Color LTGray = Color.decode("#8B8B98");
+	static Color LTPanel = Color.decode("#FFFFFF");
 }

@@ -91,8 +91,8 @@ public class Label_TextField extends JPanel {
 			passwordfield.addFocusListener(new FocusAdapter() {
 				@Override
 				public void focusGained(FocusEvent e) {
-					passwordfield.border(field.active, Colors.darkThemeRed);
-					label.setForeground(Colors.active);
+					passwordfield.border(field.active, Colors.DTPurple);
+					label.setForeground(Colors.DTActive);
 				}
 				@Override
 				public void focusLost(FocusEvent e) {
@@ -113,8 +113,8 @@ public class Label_TextField extends JPanel {
 			field.addFocusListener(new FocusAdapter() {
 				@Override
 				public void focusGained(FocusEvent e) {
-					field.border(field.active, Colors.darkThemeRed);
-					label.setForeground(Colors.active);
+					field.border(field.active, Colors.DTPurple);
+					label.setForeground(Colors.DTActive);
 				}
 				@Override
 				public void focusLost(FocusEvent e) {

@@ -1,5 +1,7 @@
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +21,7 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.font.TextAttribute;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
@@ -30,16 +33,17 @@ import java.awt.FlowLayout;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel NazwaStudia;
+	private JLabel Logomark;
 	private JLabel Close;
-	private JLabel Forgot_Password;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
+	private JLabel ForgotPassword;
+	private JLabel AlreadyHaveAnAccount;
+	private JLabel SignUp;
 	int posX=0,posY=0;
 	
 	//dark theme
 	public Color dt_red = Color.decode("#EE2B47");
 	public Color dt_bg = Color.decode("#34374C");
+	private JLabel Name;
 	
 	/**
 	 * Launch the application.
@@ -62,18 +66,20 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(190, 228, 370, 456);
+		setBounds(190, 228, 370, 468);
 		contentPane = new JPanel();
 		contentPane.setBackground(this.dt_bg);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Label_TextField Username = new Label_TextField("Username", "default");
+		String UsernameLabel = "Username";
+		Label_TextField Username = new Label_TextField(UsernameLabel, "default");
 		Username.setSize(292, 70);
 		Username.setLocation(38, 127);
 		contentPane.add(Username);
 		
-		Label_TextField MyPassword = new Label_TextField("Password", "password");
+		String MyPasswordLabel = "Password";
+		Label_TextField MyPassword = new Label_TextField(MyPasswordLabel, "password");
 		MyPassword.setBounds(38, 218, 292, 73);
 		contentPane.add(MyPassword);
 		//Password = new newPasswordField();
@@ -91,13 +97,10 @@ public class Login extends JFrame {
 								dispose();
 								String fullnameX = rs.getString("fullname");
 								int is_admin = rs.getInt("isAdmin");
-								JOptionPane.showMessageDialog(null, "Zalogowano");
 								MainWindow nw = new MainWindow();
 								MainWindow.main1(fullnameX,is_admin);
 						}
-							else
-								JOptionPane.showMessageDialog(null, "Nie zalogowano");
-							
+							else							
 							con.close();
 						} 
 						catch(Exception er){System.out.print(er);}
@@ -109,9 +112,10 @@ public class Login extends JFrame {
 //		Password.setBounds(38, 250, 292, 44);
 //		contentPane.add(Password);
 		
-		Button Login = new Button(Colors.darkThemeRed);
-		Login.setText("Zaloguj");
-		Login.addActionListener(new ActionListener() {
+		Button SignIn = new Button(Colors.DTPurple);
+		String SignInLabel = "Sign in";
+		SignIn.setText(SignInLabel);
+		SignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
@@ -124,33 +128,41 @@ public class Login extends JFrame {
 						dispose();
 						String fullnameX = rs.getString("fullname");
 						int is_admin = rs.getInt("isAdmin");
-						JOptionPane.showMessageDialog(null, "Zalogowano");
 						MainWindow nw = new MainWindow();
 						MainWindow.main1(fullnameX,is_admin);
 				}
 					else
-						JOptionPane.showMessageDialog(null, "Nie zalogowano");
-					
 					con.close();
 				} 
 				catch(Exception e){System.out.print(e);}
 				
 			}
 		});
-		Login.setBounds(224, 315, 106, 37);
-		contentPane.add(Login);
+		SignIn.setBounds(224, 315, 106, 37);
+		contentPane.add(SignIn);
+		String NameLabel = "Recording studio";
+		Name = new JLabel(NameLabel);
+		Name.setInheritsPopupMenu(false);
+		Name.setForeground(new Color(145, 71, 255));
+		Name.setFont(new Font("Tahoma", Font.BOLD, 18));
+		Name.setBounds(96, 48, 234, 67);
+		contentPane.add(Name);
 		
 		
-		NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
-		NazwaStudia.setIcon(new ImageIcon(Login.class.getResource("/assets/logomark.png")));
-		NazwaStudia.setForeground(new Color(3, 17, 252));
-		NazwaStudia.setFont(new Font("Tahoma", Font.BOLD, 18));
-		NazwaStudia.setBounds(38, 48, 287, 67);
-		contentPane.add(NazwaStudia);
+		Logomark = new JLabel("");
+		Logomark.setHorizontalTextPosition(SwingConstants.CENTER);
+		Logomark.setHorizontalAlignment(SwingConstants.CENTER);
+		Logomark.setInheritsPopupMenu(false);
+		Logomark.setIcon(new ImageIcon(Login.class.getResource("/assets/logo.png")));
+		Logomark.setForeground(Colors.DTPurple);
+		Logomark.setFont(new Font("Tahoma", Font.BOLD, 18));
+		Logomark.setBounds(38, 48, 46, 67);
+		contentPane.add(Logomark);
 		
 		Close = new JLabel("");
+		Close.setBackground(Color.CYAN);
 		Close.setIcon(new ImageIcon(Login.class.getResource("/assets/closeIcon.png")));
-		Close.setForeground(new Color(195, 195, 195));
+		Close.setForeground(Color.PINK);
 		Close.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -160,25 +172,27 @@ public class Login extends JFrame {
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Close.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
-		Close.setBounds(324, 0, 46, 30);
+		Close.setBounds(324, 5, 46, 30);
 		contentPane.add(Close);
 		
-		Forgot_Password = new JLabel("Zapomnia\u0142e\u015B/a\u015B has\u0142a ?");
-		Forgot_Password.setForeground(Color.decode("#4C506D"));
-		Forgot_Password.addMouseListener(new MouseAdapter() {
+		String ForgotPasswordLabel = "Forgot password?";
+		ForgotPassword = new JLabel(ForgotPasswordLabel);
+		ForgotPassword.setForeground(Color.decode("#4C506D"));
+		ForgotPassword.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JOptionPane.showMessageDialog(null, "To sobie przypomnij... albo skontaktuj sie z administratorem.");
 			}
 		});
-		Forgot_Password.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		Forgot_Password.setHorizontalAlignment(SwingConstants.LEFT);
-		Forgot_Password.setBounds(38, 315, 170, 37);
-		contentPane.add(Forgot_Password);
+		ForgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		ForgotPassword.setHorizontalAlignment(SwingConstants.LEFT);
+		ForgotPassword.setBounds(38, 315, 170, 37);
+		contentPane.add(ForgotPassword);
 		
-		lblNewLabel_2 = new JLabel("Zarejestruj si\u0119!");
-		lblNewLabel_2.setForeground(Color.RED);
-		lblNewLabel_2.addMouseListener(new MouseAdapter() {
+		String SignUpLabel = "Sign Up!";
+		SignUp = new JLabel(SignUpLabel);
+		SignUp.setForeground(Colors.DTPurple);
+		SignUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
@@ -187,15 +201,15 @@ public class Login extends JFrame {
 				
 			}
 		});
-		
-		lblNewLabel_1 = new JLabel("Nie masz Konta ? ");
-		lblNewLabel_1.setBounds(38, 386, 117, 44);
-		contentPane.add(lblNewLabel_1);
-		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(151, 386, 117, 44);
-		lblNewLabel_1.setForeground(Color.decode("#4C506D"));
-		contentPane.add(lblNewLabel_2);
+		String AlreadyHaveAnAccountLabel = "Don't have an account?";
+		AlreadyHaveAnAccount = new JLabel(AlreadyHaveAnAccountLabel);
+		AlreadyHaveAnAccount.setBounds(38, 386, 157, 44);
+		contentPane.add(AlreadyHaveAnAccount);
+		SignUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		SignUp.setHorizontalAlignment(SwingConstants.CENTER);
+		SignUp.setBounds(184, 393, 68, 30);		
+		AlreadyHaveAnAccount.setForeground(Color.decode("#4C506D"));
+		contentPane.add(SignUp);
 		
 		JLabel DragBar = new JLabel(""); // Przenoszenie Ramki
 		DragBar.addMouseListener(new MouseAdapter() {

@@ -20,12 +20,9 @@ public class Heading extends JPanel {
 		//Panel
 		this.setBackground(null);
 		this.setLayout(null);
-		if (Color == Colors.darkThemeRed) {
-			line.setBackground(Colors.darkThemeRed);
-			label.setForeground(Colors.active);
-		} else if (Color == Colors.lightThemeBlue) {
-			line.setBackground(Colors.lightThemeBlue);
-			label.setForeground(Colors.lightThemeBlack);
+		if (Color == Colors.DTPurple) {
+			line.setBackground(Colors.DTPurple);
+			label.setForeground(Colors.DTActive);
 		}
 	}
 }

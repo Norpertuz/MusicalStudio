@@ -14,6 +14,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 
 public class Add_edit extends JFrame {
 
@@ -43,7 +44,7 @@ public class Add_edit extends JFrame {
 	public Add_edit() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 370, 750);
+		setBounds(100, 100, 370, 825);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -90,15 +91,47 @@ public class Add_edit extends JFrame {
 		JLabel Image = new JLabel("OBRAZEK");
 		Image.setBackground(Color.YELLOW);
 		Image.setOpaque(true);
-		Image.setBounds(30, 100, 150, 150);
+		Image.setBounds(10, 100, 150, 100);
 		contentPane.add(Image);
 		
 		JButton change = new JButton("Zmien obraz");
-		change.setBounds(190, 100, 150, 40);
+		change.setBounds(210, 100, 150, 40);
 		contentPane.add(change);
 		
 		JButton delete = new JButton("Usun obraz");
-		delete.setBounds(190, 210, 150, 40);
+		delete.setBounds(210, 160, 150, 40);
 		contentPane.add(delete);
+		
+		String album = "Nazwa Albumu";
+		Label_TextField Nazwa_Albumu = new Label_TextField(album,"default");
+		Nazwa_Albumu.setBounds(10, 220, 350, 70);
+		contentPane.add(Nazwa_Albumu);
+		
+		String title = "Tytu³";
+		Label_TextField Title_textfield = new Label_TextField(title,"default");
+		Title_textfield.setBounds(10, 300, 350, 70);
+		contentPane.add(Title_textfield);
+		
+		String Author = "Autor";
+		Label_TextField Author_textfield = new Label_TextField(Author,"default");
+		Author_textfield.setBounds(10, 380, 350, 70);
+		contentPane.add(Author_textfield);
+		
+		JPanel Genere = new JPanel();
+		Genere.setBounds(10, 460, 350, 70);
+		contentPane.add(Genere);
+		
+		JPanel Date = new JPanel();
+		Date.setBounds(10, 540, 350, 70);
+		contentPane.add(Date);
+		
+		JTextArea Description = new JTextArea();
+		Description.setBounds(10, 620, 350, 125);
+		contentPane.add(Description);
+		
+		Button Save = new Button(Colors.darkThemeRed);
+		Save.setText("Zapisz Zmiany");
+		Save.setBounds(219, 765, 141, 40);
+		contentPane.add(Save);
 	}
 }

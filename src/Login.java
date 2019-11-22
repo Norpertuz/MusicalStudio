@@ -1,19 +1,12 @@
-
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
@@ -21,28 +14,19 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.font.TextAttribute;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.FlowLayout;
 
 public class Login extends JFrame {
 
-	private JPanel contentPane;
+	private Theme contentPane;
 	private JLabel Logomark;
 	private JLabel Close;
 	private JLabel ForgotPassword;
 	private JLabel AlreadyHaveAnAccount;
 	private JLabel SignUp;
 	int posX=0,posY=0;
-	
-	//dark theme
-	public Color dt_red = Color.decode("#EE2B47");
-	public Color dt_bg = Color.decode("#34374C");
 	private JLabel Name;
 	
 	/**
@@ -67,8 +51,7 @@ public class Login extends JFrame {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 468);
-		contentPane = new JPanel();
-		contentPane.setBackground(this.dt_bg);
+		contentPane = new Theme(true);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

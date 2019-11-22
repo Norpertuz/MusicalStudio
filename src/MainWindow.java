@@ -151,6 +151,14 @@ public class MainWindow extends JFrame {
 
 		if(Zmienne_globalne.is_admin1==1) {
 		JButton delButton = new JButton("Panel Administratora");
+		delButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Add_add nw = new Add_add();
+				Add_add.add_song(true);
+				
+				
+			}
+		});
 		delButton.setBounds(327, 58, 167, 29);
 		topPanel.add(delButton);
 		}

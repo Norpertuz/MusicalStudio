@@ -94,11 +94,13 @@ public class Add_edit extends JFrame {
 		Image.setBounds(10, 100, 150, 100);
 		contentPane.add(Image);
 		
-		JButton change = new JButton("Zmien obraz");
+		Button change = new Button(Colors.darkThemeRed);
+		change.setText("Zmieñ Obraz");
 		change.setBounds(210, 100, 150, 40);
 		contentPane.add(change);
 		
-		JButton delete = new JButton("Usun obraz");
+		Button delete = new Button(Colors.darkThemeRed);
+		delete.setText("Usuñ obraz");
 		delete.setBounds(210, 160, 150, 40);
 		contentPane.add(delete);
 		
@@ -117,13 +119,15 @@ public class Add_edit extends JFrame {
 		Author_textfield.setBounds(10, 380, 350, 70);
 		contentPane.add(Author_textfield);
 		
-		JPanel Genere = new JPanel();
-		Genere.setBounds(10, 460, 350, 70);
-		contentPane.add(Genere);
+		String Genere = "Gatunek";
+		Label_TextField Genere_textfield = new Label_TextField(Genere,"default");
+		Genere_textfield.setBounds(10, 460, 350, 70);
+		contentPane.add(Genere_textfield);
 		
-		JPanel Date = new JPanel();
-		Date.setBounds(10, 540, 350, 70);
-		contentPane.add(Date);
+		String Date = "Data Wydania";
+		Label_TextField Date_textfield = new Label_TextField(Date,"default");
+		Date_textfield.setBounds(10, 540, 350, 70);
+		contentPane.add(Date_textfield);
 		
 		JTextArea Description = new JTextArea();
 		Description.setBounds(10, 620, 350, 125);

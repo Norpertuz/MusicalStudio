@@ -51,7 +51,7 @@ public class Login extends JFrame {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 468);
-		contentPane = new Theme(true);
+		contentPane = new Theme(true, this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -66,6 +66,7 @@ public class Login extends JFrame {
 		MyPassword.setBounds(38, 218, 292, 73);
 		contentPane.add(MyPassword);
 		//Password = new newPasswordField();
+		boolean isPressed = false;
 		MyPassword.passwordfield.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -80,17 +81,12 @@ public class Login extends JFrame {
 								dispose();
 								String fullnameX = rs.getString("fullname");
 								int is_admin = rs.getInt("isAdmin");
-								MainWindow nw = new MainWindow();
 								MainWindow.main1(fullnameX,is_admin);
-						}
-							else							
-							con.close();
-						} 
-						catch(Exception er){System.out.print(er);}
+						} else con.close();
+						} catch(Exception er){System.out.print(er);}
 		            }
-				
 			} 
-		});
+		}); isPressed = true;
 //		Password.setFont(new Font("Tahoma", Font.PLAIN, 15));
 //		Password.setBounds(38, 250, 292, 44);
 //		contentPane.add(Password);
@@ -100,7 +96,6 @@ public class Login extends JFrame {
 		SignIn.setText(SignInLabel);
 		SignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
@@ -111,16 +106,12 @@ public class Login extends JFrame {
 						dispose();
 						String fullnameX = rs.getString("fullname");
 						int is_admin = rs.getInt("isAdmin");
-						MainWindow nw = new MainWindow();
 						MainWindow.main1(fullnameX,is_admin);
-				}
-					else
-					con.close();
-				} 
-				catch(Exception e){System.out.print(e);}
-				
+				} else con.close();
+				} catch(Exception e){System.out.print(e);}	
 			}
 		});
+		
 		SignIn.setBounds(224, 315, 106, 37);
 		contentPane.add(SignIn);
 		String NameLabel = "Recording studio";

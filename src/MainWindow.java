@@ -26,6 +26,10 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 public class MainWindow extends JFrame {
 
@@ -33,6 +37,7 @@ public class MainWindow extends JFrame {
 	private JPanel listPanel;
 	private JTextField searchBar;
 	int posX=0,posY=0;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -218,8 +223,23 @@ public class MainWindow extends JFrame {
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
-		Heading panelH = new Heading("Title", Colors.DTPurple);
-		panelH.setBounds(27, 27, 72, 38);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 100, 576, 549);
+		listPanel.add(scrollPane);
+		
+		table = new JTable();
+		table.setAutoCreateRowSorter(false);
+		table.setDragEnabled(false);
+		table.getTableHeader().setReorderingAllowed(false);
+		String[] ListTop = {"Nazwa Utworu","Autor","Album","Czas Trwania","Data Dodania"};
+		String[][] data = {{"Bella Ciao","Sergio y Andres","La Casa de Papel","4:25","01 stycznia 2019"}};
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.setDataVector(data,ListTop);
+		scrollPane.setViewportView(table);
+		
+		
+		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);
+		panelH.setBounds(27, 27, 163, 38);
 		listPanel.add(panelH);
 		
 		JPanel infoPanel = new JPanel();

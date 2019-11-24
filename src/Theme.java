@@ -1,14 +1,23 @@
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Theme extends JPanel{	
+	
+
+	
+	
 	public void setDarkTheme(JFrame frame, boolean dark) {
 		String Parent = frame.getClass().getName();
 		if (dark == true) {
 			if (Parent == "Login") {
+				Label_TextField username = (Label_TextField) this.getComponent(0);
 				this.setBackground(Colors.DTBackground); //Background
-				this.getComponent(2).setBackground(Colors.DTPurple); // Sign in button
+				Button btn = (Button) this.getComponent(2);
+				btn.setBackground(Color.PINK);
+				//this.getComponent(2).setBackground(Colors.DTPurple); // Sign in button
 				this.getComponent(3).setForeground(Colors.DTPurple); // Name
 				this.getComponent(6).setForeground(Colors.DTInactive); // Forgot password
 				this.getComponent(7).setForeground(Colors.DTInactive); //Don't have an account

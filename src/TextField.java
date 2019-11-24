@@ -6,6 +6,7 @@ import javax.swing.border.MatteBorder;
 
 public class TextField extends JTextField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
+	public MatteBorder test = BorderFactory.createMatteBorder(3,3,3,3, Color.PINK);
 	public MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
 	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.err);
 	

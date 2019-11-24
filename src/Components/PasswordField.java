@@ -4,13 +4,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
-
 import Theme.Colors;
 
+@SuppressWarnings("serial")
 public class PasswordField extends JPasswordField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
 	public MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
-	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.err);
+	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.ERR);
 	
 	@Override
 	public void setBorder(Border border) {

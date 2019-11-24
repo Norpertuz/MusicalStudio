@@ -7,11 +7,17 @@ import javax.swing.border.MatteBorder;
 
 import Theme.Colors;
 
+@SuppressWarnings("serial")
 public class TextField extends JTextField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
-	public MatteBorder test = BorderFactory.createMatteBorder(3,3,3,3, Color.PINK);
 	public MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
-	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.err);
+	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.ERR);
+	
+	//DARK THEME
+	public MatteBorder DTActive = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
+	
+	//LIGHT THEME
+	public MatteBorder LTActive = BorderFactory.createMatteBorder(3,3,3,3, Colors.LTBlue);
 	
 	@Override
 	public void setBorder(Border border) {

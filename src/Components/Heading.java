@@ -1,4 +1,5 @@
 package Components;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -6,6 +7,7 @@ import javax.swing.JPanel;
 
 import Theme.Colors;
 
+@SuppressWarnings("serial")
 public class Heading extends JPanel {
 	public JLabel label = new JLabel();
 	public JLabel line = new JLabel();

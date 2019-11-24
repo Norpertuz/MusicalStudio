@@ -1,4 +1,5 @@
 package Components;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 
 import Theme.Colors;
 
+@SuppressWarnings("serial")
 public class Label_TextField extends JPanel {
 	public JLabel label = new JLabel();
 	public TextField field = new TextField();
@@ -29,44 +31,52 @@ public class Label_TextField extends JPanel {
 	}
 	
 	private void setDefault(String name) {
-		field.border(field.inactive, Colors.inactive);
-		passwordfield.border(passwordfield.inactive, Colors.inactive);
-		label.setForeground(Colors.inactive);
+		passwordfield.border(passwordfield.inactive, Colors.DTInactive);
+		field.border(field.inactive, Colors.DTInactive);
+		label.setForeground(Colors.DTInactive);
 		label.setText(name);
+	}
+	
+	private void handleTextFieldErr(String name, String message) {
+		passwordfield.border(passwordfield.err, Colors.ERR);
+		field.border(field.err, Colors.ERR);
+		label.setForeground(Colors.ERR);
+		label.setText(name + " " + message);
 	}
 	
 	private void handleValidation(String name, String type) {
 		if (type == "default") {
 			if(field.getText().length() < 3) {
-				field.border(field.err, Colors.err);
-				label.setForeground(Colors.err);
-				label.setText(name + " is too short");
+				handleTextFieldErr(name, "is too short");
 			} else {
 				setDefault(name);
 			}
 		} else if (type == "email") {
 			String email = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 			if(field.getText().matches(email) != true) {
-				field.border(field.err, Colors.err);
-				label.setForeground(Colors.err);
-				label.setText("Please enter a valid e-mail address");
+				handleTextFieldErr(name, "Please enter a valid e-mail address");
 			} else {
 				setDefault(name);
 			}
 		} else if (type == "password") {
-			if(passwordfield.getPassword().length < 5) {
-				passwordfield.border(passwordfield.err, Colors.err);
-				label.setForeground(Colors.err);
-				label.setText(name + " is too short");
+			if(passwordfield.getPassword().length < 3) {
+				handleTextFieldErr(name, "is too short");
 			} else {
 				setDefault(name);
 			}
 		}
 	}
 	
+	public void setDarkMode() {
+		label.setForeground(Colors.DTInactive);
+	}
+	
+	public void setLightMode() {
+		label.setForeground(Colors.LTGray);
+	}
+	
 	public Label_TextField(String name, String type) {
 		// Container
-//		this.getBounds().setSize(this.getSize().width, 70);
 		this.setBackground(null);
 		this.setOpaque(false);
 		// Container - layout

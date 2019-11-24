@@ -2,9 +2,17 @@ package Theme;
 import java.awt.Color;
 
 public class Colors {
+	//ERROR
+	public static Color ERR = Color.decode("#EE2B47");
+	
+	
+	
+	
+	
+	
+	
 	public static Color inactive = Color.decode("#4C506D");
 	public static Color active = Color.WHITE;
-	public static Color err = Color.decode("#EE2B47");
 
 	//DARK THEME
 	public static Color DTPurple = Color.decode("#9147FF");
@@ -17,5 +25,5 @@ public class Colors {
 	//LIGHT THEME
 	public static Color LTBlue = Color.decode("#0311FC");
 	public static Color LTGray = Color.decode("#8B8B98");
-	public static Color LTPanel = Color.decode("#FFFFFF");
+	public static Color LTBackground = Color.decode("#FFFFFF");
 }

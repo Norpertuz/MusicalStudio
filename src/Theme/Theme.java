@@ -2,35 +2,40 @@ package Theme;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
-public class Theme extends JPanel{	
-	
+import Components.Label_TextField;
 
+@SuppressWarnings("serial")
+public class Theme extends JPanel{
 	
-	
-	public void setDarkTheme(JFrame frame, boolean dark) {
-		String Parent = frame.getClass().getName();
+	public void Login(boolean dark, String Parent) {
 		if (dark == true) {
 			if (Parent == "Login") {
-				this.setBackground(Colors.DTBackground); //Background
-				this.getComponent(3).setForeground(Colors.DTPurple); // Name
-				this.getComponent(6).setForeground(Colors.DTInactive); // Forgot password
-				this.getComponent(7).setForeground(Colors.DTInactive); //Don't have an account
-				this.getComponent(8).setForeground(Colors.DTPurple); // Sign up button
+				//DARK THEME
+				this.setBackground(Colors.DTBackground);
+				this.getComponent(3).setForeground(Colors.DTPurple); 
+				this.getComponent(6).setForeground(Colors.DTInactive);
+				this.getComponent(7).setForeground(Colors.DTInactive);
+				this.getComponent(8).setForeground(Colors.DTPurple);
 			}
 		} else {
 			if (Parent == "Login") {
-				this.setBackground(Colors.LTPanel); //Background
-				this.getComponent(2).setBackground(Colors.LTBlue); // Sign in button
-				this.getComponent(3).setForeground(Colors.LTBlue); // Name
-				this.getComponent(6).setForeground(Colors.LTGray); // Forgot password
-				this.getComponent(7).setForeground(Colors.LTGray); //Don't have an account
-				this.getComponent(8).setForeground(Colors.LTBlue); // Sign up button
+				//LIGHT THEME
+				this.setBackground(Colors.LTBackground);
+				Label_TextField username = (Label_TextField) this.getComponent(0);
+				this.getComponent(2).setBackground(Colors.LTBlue);
+				this.getComponent(3).setForeground(Colors.LTBlue);
+				this.getComponent(6).setForeground(Colors.LTGray);
+				this.getComponent(7).setForeground(Colors.LTGray);
+				this.getComponent(8).setForeground(Colors.LTBlue);
 			}
 		}
 	}
 	
+	public void setDarkTheme(JFrame frame, boolean dark) {
+		String Parent = frame.getClass().getName();
+		Login(dark, Parent);
+	}
 	public Theme() {
-		// nothing
+		//nothing
 	}
 }

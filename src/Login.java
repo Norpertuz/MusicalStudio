@@ -27,8 +27,7 @@ public class Login extends JFrame {
 	private JLabel AlreadyHaveAnAccount;
 	private JLabel SignUp;
 	int posX=0,posY=0;
-	private JLabel Name;
-	
+	static JLabel Name;	
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +50,7 @@ public class Login extends JFrame {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 468);
-		Wrapper = new Theme(true, this);
+		Wrapper = new Theme();
 		Wrapper.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(Wrapper);
 		Wrapper.setLayout(null);
@@ -203,5 +202,6 @@ public class Login extends JFrame {
 		DragBar.setBounds(0, 0, 324, 30);
 		Wrapper.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
+		Wrapper.setDarkTheme(this, true);
 	}
 }

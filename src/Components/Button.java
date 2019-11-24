@@ -1,3 +1,4 @@
+package Components;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -6,6 +7,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.border.Border;
+
+import Theme.Colors;
 
 public class Button extends JButton {
 	public String ubuntuURL = "assets/fonts/Ubuntu-Regular.ttf";

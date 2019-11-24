@@ -1,3 +1,4 @@
+package Components;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -8,10 +9,12 @@ import java.awt.event.FocusEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Theme.Colors;
+
 public class Label_TextField extends JPanel {
-	JLabel label = new JLabel();
-	TextField field = new TextField();
-	PasswordField passwordfield = new PasswordField();
+	public JLabel label = new JLabel();
+	public TextField field = new TextField();
+	public PasswordField passwordfield = new PasswordField();
 	
 	@Override
 	public Component add(Component comp) {

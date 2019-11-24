@@ -1,8 +1,11 @@
+package Components;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
+
+import Theme.Colors;
 
 public class PasswordField extends JPasswordField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);

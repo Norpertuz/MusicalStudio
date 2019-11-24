@@ -1,8 +1,11 @@
+package Components;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
+
+import Theme.Colors;
 
 public class TextField extends JTextField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);

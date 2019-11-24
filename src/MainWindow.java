@@ -31,6 +31,9 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
+import Components.Heading;
+import Theme.Colors;
+
 public class MainWindow extends JFrame {
 
 	private JPanel contentPane;
@@ -46,8 +49,8 @@ public class MainWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Zmienne_globalne.is_admin1= admin;
-					Zmienne_globalne.fullname1 = fullname;
+					GlobalVariables.is_admin1= admin;
+					GlobalVariables.fullname1 = fullname;
 					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 					MainWindow window = new MainWindow();
 					window.setVisible(true);
@@ -154,7 +157,7 @@ public class MainWindow extends JFrame {
 		topPanel.setBounds(80, 0, 920, 110);
 		contentPane.add(topPanel);
 
-		if(Zmienne_globalne.is_admin1==1) {
+		if(GlobalVariables.is_admin1==1) {
 		JButton delButton = new JButton("Panel Administratora");
 		delButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -176,7 +179,7 @@ public class MainWindow extends JFrame {
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		textArea.setBounds(651, 58, 191, 23);
 		topPanel.add(textArea);
-		textArea.setText(Zmienne_globalne.fullname1);
+		textArea.setText(GlobalVariables.fullname1);
 		textArea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -184,7 +187,7 @@ public class MainWindow extends JFrame {
 				//okno z danymi uzytkownika
 				
 				UserEdit nw = new UserEdit();
-				UserEdit.okno_edycji1(Zmienne_globalne.fullname1,Zmienne_globalne.is_admin1);
+				UserEdit.okno_edycji1(GlobalVariables.fullname1,GlobalVariables.is_admin1);
 				
 				
 			}
@@ -193,7 +196,7 @@ public class MainWindow extends JFrame {
 		textArea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JLabel czy_admin = new JLabel("New label");
-		if(Zmienne_globalne.is_admin1==1) {
+		if(GlobalVariables.is_admin1==1) {
 			czy_admin.setText("Administrator");
 			czy_admin.setForeground(Color.RED);
 		}else {

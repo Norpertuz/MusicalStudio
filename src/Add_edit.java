@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Components.Button;
+import Components.Label_TextField;
+import Theme.Colors;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;

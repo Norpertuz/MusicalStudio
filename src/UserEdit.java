@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
@@ -13,6 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import Components.Button;
+import Components.Label_TextField;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.GridBagLayout;
@@ -25,6 +28,7 @@ import java.awt.event.MouseMotionAdapter;
 
 
 
+@SuppressWarnings("serial")
 public class UserEdit extends JFrame {
 	
 	int posX=0,posY=0;
@@ -141,7 +145,8 @@ public class UserEdit extends JFrame {
 		lblNewLabel_1.setBounds(28, 96, 137, 114);
 		getContentPane().add(lblNewLabel_1);
 		
-		customButton btnNewButton = new customButton("Zmien obraz", "light");
+		Button btnNewButton = new Button();
+		btnNewButton.setText("Zmien obraz");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -149,7 +154,8 @@ public class UserEdit extends JFrame {
 		btnNewButton.setBounds(225, 96, 153, 46);
 		getContentPane().add(btnNewButton);
 		
-		customButton btnNewButton_1 = new customButton("Usun obraz", "light");
+		Button btnNewButton_1 = new Button();
+		btnNewButton_1.setText("Usun obraz");
 		btnNewButton_1.setBounds(225, 164, 153, 46);
 		getContentPane().add(btnNewButton_1);
 		
@@ -211,7 +217,8 @@ public class UserEdit extends JFrame {
 		getContentPane().add(email1);
 		
 		if(admin==1) {
-			customButton customButton__1 = new customButton("Usun konto", "light");
+			Button customButton__1 = new Button();
+			customButton__1.setText("Usun konto");
 			customButton__1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					
@@ -253,7 +260,8 @@ public class UserEdit extends JFrame {
 			getContentPane().add(customButton__1);
 			}
 		
-		customButton customButton_ = new customButton("Zapisz zmiany", "light");
+		Button customButton_ = new Button();
+		customButton_.setText("Zapisz zmiany");
 		customButton_.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

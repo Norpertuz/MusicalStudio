@@ -3,6 +3,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Components.Button;
+import Components.Label_TextField;
+import Theme.Colors;
+import Theme.Theme;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;

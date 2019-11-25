@@ -15,7 +15,7 @@ import Theme.Colors;
 @SuppressWarnings("serial")
 public class Label_TextField extends JPanel {
 	public JLabel label = new JLabel();
-	public TextField field = new TextField();
+	public TField field = new TField();
 	public PasswordField passwordfield = new PasswordField();
 	
 	@Override

@@ -8,7 +8,7 @@ import javax.swing.border.MatteBorder;
 import Theme.Colors;
 
 @SuppressWarnings("serial")
-public class TextField extends JTextField {
+public class TField extends JTextField {
 	public MatteBorder active = BorderFactory.createMatteBorder(3,3,3,3, Colors.active);
 	public MatteBorder inactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive);
 	public MatteBorder err = BorderFactory.createMatteBorder(3,3,3,3, Colors.ERR);
@@ -30,7 +30,7 @@ public class TextField extends JTextField {
 		this.setForeground(fontColor);
 	}
 	
-	public TextField() {
+	public TField() {
 		this.setVisible(true);
 		this.setBackground(null);
 		border(inactive, Colors.inactive);

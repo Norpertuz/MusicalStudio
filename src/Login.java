@@ -68,12 +68,12 @@ public class Login extends JFrame {
 		Wrapper.add(Username);
 		
 		String MyPasswordLabel = "Password";
-		Label_TextField MyPassword = new Label_TextField(MyPasswordLabel, "password");
+		Textfield MyPassword = new Textfield("default", MyPasswordLabel);
 		MyPassword.setBounds(38, 218, 292, 73);
 		Wrapper.add(MyPassword);
 		//Password = new newPasswordField();
 		boolean isPressed = false;
-		MyPassword.passwordfield.addKeyListener(new KeyAdapter() {
+		MyPassword.textfield.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -81,7 +81,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.textfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -106,7 +106,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.textfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();
@@ -209,6 +209,7 @@ public class Login extends JFrame {
 		DragBar.setBounds(0, 0, 324, 30);
 		Wrapper.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
-		Wrapper.setDarkTheme(this, true);
+		boolean isDark = false;
+		Wrapper.setDarkTheme(this, isDark);
 	}
 }

@@ -36,6 +36,56 @@ public class Textfield extends JPanel {
 		textfield.setForeground(fontColor);
 	}
 	
+	public void setLabel(Color fontColor) {
+		label.setForeground(fontColor);
+	}
+	
+	public void setDefault(boolean darkMode) {
+		if (darkMode == true) {
+			this.setTextfield(DTInactive, Colors.DTInactive);
+			this.setLabel(Colors.DTInactive);
+		} else {
+			this.setTextfield(LTInactive, Colors.LTGray);
+			this.setLabel(Colors.LTGray);
+		}
+	}
+	
+	public void setFocus(boolean darkMode) {
+		if (darkMode == true) {
+			this.setTextfield(DTActive, Colors.DTPurple);
+			this.setLabel(Colors.DTActive);
+		} else {
+			this.setTextfield(LTActive, Colors.LTBlue);
+			this.setLabel(Colors.LTBlue);
+		}
+	}
+	
+	public void handleFocus(boolean darkMode) {
+		if (darkMode == true) {
+			textfield.addFocusListener(new FocusAdapter() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					setFocus(true);
+				}
+				@Override
+				public void focusLost(FocusEvent e) {
+					setDefault(true);
+				}
+			});
+		} else {
+			textfield.addFocusListener(new FocusAdapter() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					setFocus(false);
+				}
+				@Override
+				public void focusLost(FocusEvent e) {
+					setDefault(false);
+				}
+			});
+		}
+	}
+	
 	public Textfield(String type, String text) {
 		// Wrapper
 		this.setBackground(null);
@@ -50,7 +100,6 @@ public class Textfield extends JPanel {
 		this.add(label, wrapper);
 		// Textfield
 		textfield.setBackground(null);
-		this.setTextfield(DTActive, Colors.DTPurple);
 		wrapper.gridx=0;
 		wrapper.gridy=1;
 		wrapper.gridwidth=1;
@@ -59,5 +108,7 @@ public class Textfield extends JPanel {
 		wrapper.ipady=15;
 		wrapper.anchor = GridBagConstraints.LINE_START;
 		this.add(textfield, wrapper);
+		this.setDefault(true);
+		this.handleFocus(true);
 	}
 }

@@ -13,6 +13,11 @@ public class Theme extends JPanel{
 			if (Parent == "Login") {
 				//DARK THEME
 				this.setBackground(Colors.DTBackground);
+				Textfield username = (Textfield) this.getComponent(0);
+				username.handleFocus(true);
+				Textfield password = (Textfield) this.getComponent(1);
+				password.handleFocus(true);
+				this.getComponent(2).setBackground(Colors.DTPurple);
 				this.getComponent(3).setForeground(Colors.DTPurple); 
 				this.getComponent(6).setForeground(Colors.DTInactive);
 				this.getComponent(7).setForeground(Colors.DTInactive);
@@ -23,6 +28,9 @@ public class Theme extends JPanel{
 				//LIGHT THEME
 				this.setBackground(Colors.LTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
+				username.handleFocus(false);
+				Textfield password = (Textfield) this.getComponent(1);
+				password.handleFocus(false);
 				this.getComponent(2).setBackground(Colors.LTBlue);
 				this.getComponent(3).setForeground(Colors.LTBlue);
 				this.getComponent(6).setForeground(Colors.LTGray);

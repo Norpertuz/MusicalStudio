@@ -132,7 +132,7 @@ public class MainWindow extends JFrame {
 		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Settings.setHorizontalAlignment(SwingConstants.CENTER);
 		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));
-		Settings.setBounds(0, 630, 80, 55);
+		Settings.setBounds(0, 580, 80, 55);
 		navigationPanel.add(Settings);
 		
 		JLabel LogOut = new JLabel("");
@@ -149,8 +149,21 @@ public class MainWindow extends JFrame {
 		LogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		LogOut.setHorizontalAlignment(SwingConstants.CENTER);
 		LogOut.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
-		LogOut.setBounds(0, 690, 80, 55);
+		LogOut.setBounds(0, 640, 80, 55);
 		navigationPanel.add(LogOut);
+		
+		JLabel close = new JLabel("");
+		close.setBounds(0, 700, 80, 55);
+		navigationPanel.add(close);
+		close.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0); 
+			}
+		});
+		close.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/off.png")));
+		close.setHorizontalAlignment(SwingConstants.CENTER);
+		close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(Color.GRAY);
@@ -206,19 +219,6 @@ public class MainWindow extends JFrame {
 		
 		czy_admin.setBounds(651, 85, 123, 14);
 		topPanel.add(czy_admin);
-		
-		JLabel close = new JLabel("");
-		close.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0); 
-			}
-		});
-		close.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/closeIcon.png")));
-		close.setHorizontalAlignment(SwingConstants.CENTER);
-		close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		close.setBounds(874, 0, 46, 30);
-		topPanel.add(close);
 		
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.BLACK);

@@ -316,7 +316,7 @@ public class MainWindow extends JFrame {
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
-		String[] ListTop = {"Nazwa Utworu","Autor","Album","Data Dodania","Gatunek"};
+		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
 		String[][] data = {{"Bella Ciao","Sergio y Andres","La Casa de Papel","01 stycznia 2019","gatunek1"}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		

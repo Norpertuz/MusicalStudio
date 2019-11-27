@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Components.Label_TextField;
+import Components.Textfield;
 
 @SuppressWarnings("serial")
 public class Theme extends JPanel{
@@ -21,7 +22,7 @@ public class Theme extends JPanel{
 			if (Parent == "Login") {
 				//LIGHT THEME
 				this.setBackground(Colors.LTBackground);
-				Label_TextField username = (Label_TextField) this.getComponent(0);
+				Textfield username = (Textfield) this.getComponent(0);
 				this.getComponent(2).setBackground(Colors.LTBlue);
 				this.getComponent(3).setForeground(Colors.LTBlue);
 				this.getComponent(6).setForeground(Colors.LTGray);

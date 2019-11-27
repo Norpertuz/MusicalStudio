@@ -62,7 +62,7 @@ public class Login extends JFrame {
 		setContentPane(Wrapper);
 		Wrapper.setLayout(null);
 		String UsernameLabel = "Username";
-		Textfield Username = new Textfield("password");
+		Textfield Username = new Textfield("default", UsernameLabel);
 		Username.setSize(292, 70);
 		Username.setLocation(38, 127);
 		Wrapper.add(Username);

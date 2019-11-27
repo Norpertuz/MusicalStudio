@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 
 import Components.Button;
 import Components.Label_TextField;
+import Components.Textfield;
 import Theme.Colors;
 import Theme.Theme;
 
@@ -61,7 +62,7 @@ public class Login extends JFrame {
 		setContentPane(Wrapper);
 		Wrapper.setLayout(null);
 		String UsernameLabel = "Username";
-		Label_TextField Username = new Label_TextField(UsernameLabel, "default");
+		Textfield Username = new Textfield("password");
 		Username.setSize(292, 70);
 		Username.setLocation(38, 127);
 		Wrapper.add(Username);
@@ -80,7 +81,7 @@ public class Login extends JFrame {
 							Class.forName("com.mysql.jdbc.Driver");
 							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+Username.field.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+							String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
 							ResultSet rs=stmt.executeQuery(sql);
 							if(rs.next()) {
 								dispose();
@@ -105,7 +106,7 @@ public class Login extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+Username.field.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+					String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
 					ResultSet rs=stmt.executeQuery(sql);
 					if(rs.next()) {
 						dispose();

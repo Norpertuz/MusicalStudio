@@ -301,7 +301,7 @@ public class MainWindow extends JFrame {
 		listPanel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 100, 576, 549);
+		scrollPane.setBounds(10, 100, 576, 549);
 		listPanel.add(scrollPane);
 		
 		table = new JTable();

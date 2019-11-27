@@ -165,7 +165,7 @@ public class MainWindow extends JFrame {
 				setLocation (evt.getXOnScreen()-posX,evt.getYOnScreen()-posY);
 			}
 		});
-		DragBar.setBounds(0, 0, 954, 30);
+		DragBar.setBounds(0, 0, 1000, 30);
 		contentPane.add(DragBar);
 		
 		JPanel navigationPanel = new JPanel();
@@ -243,24 +243,8 @@ public class MainWindow extends JFrame {
 		topPanel.setBackground(Color.GRAY);
 		topPanel.setBounds(80, 0, 920, 110);
 		contentPane.add(topPanel);
-
-		if(GlobalVariables.is_admin1==1) {
-		JButton delButton = new JButton("Panel Administratora");
-		delButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Add_add nw = new Add_add();
-				Add_add.add_song(true);
-				
-				
-			}
-		});
-		delButton.setBounds(327, 58, 167, 29);
-		topPanel.add(delButton);
-		}
+	
 		topPanel.setLayout(null);
-		JButton listButton = new JButton("Users");
-		listButton.setBounds(518, 58, 84, 29);
-		topPanel.add(listButton);
 		
 		JLabel textArea = new JLabel();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
@@ -288,12 +272,36 @@ public class MainWindow extends JFrame {
 			czy_admin.setForeground(Color.RED);
 		}else {
 			czy_admin.setText("Standard user");
-			czy_admin.setForeground(Color.GRAY);
+			czy_admin.setForeground(Color.BLUE);
 		}
 		
 		czy_admin.setBounds(651, 85, 123, 14);
 		topPanel.add(czy_admin);
 		
+		JLabel nazwa_studia = new JLabel("");
+		nazwa_studia.setBounds(0, 22, 123, 48);
+		topPanel.add(nazwa_studia);
+		
+		JLabel user_list = new JLabel("Lista Uzytkownikow");
+		user_list.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/osoby.png")));
+		user_list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		user_list.setBounds(470, 60, 150, 30);
+		topPanel.add(user_list);
+		JLabel admin_panel = new JLabel("new label");
+		admin_panel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	if(GlobalVariables.is_admin1==1) {
+		admin_panel.setText("Panel administratora");
+		admin_panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				Add_add nw = new Add_add();
+				Add_add.add_song(true);
+			}
+		});
+		admin_panel.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
+		admin_panel.setBounds(300, 60, 170, 30);
+		topPanel.add(admin_panel);
+		}
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.BLACK);
 		listPanel.setBounds(90, 120, 608, 660);

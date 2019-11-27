@@ -53,9 +53,9 @@ public class MainWindow extends JFrame {
 	 * Launch the application.
 	 */
 	
-	// get a list of users from mysql database
+	// get a list of albums from mysql database
 	
-	   public ArrayList<album> getUsersList()
+	   public ArrayList<album> getAlbumsList()
 	   {
 	       ArrayList<album> albumsList = new ArrayList<album>();
 	       
@@ -105,26 +105,7 @@ public class MainWindow extends JFrame {
 					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
 					
 					
-				/*
-					  ArrayList<album> usersList = new ArrayList<album>();
-					  ArrayList<album> list = getUsersList();
-					    DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
-					    Object[] row = new Object[4];
-					    for(int i = 0; i < list.size(); i++)
-					    {
-					        row[0] = list.get(i).getId();
-					        row[1] = list.get(i).getFirstName();
-					        row[2] = list.get(i).getLastNAme();
-					        row[3] = list.get(i).getAge();
-					        
-					        model.addRow(row);
-					    }
-					*/
-					
-					
-					
-					
-					
+	
 					
 					MainWindow window = new MainWindow();
 					window.setVisible(true);
@@ -257,7 +238,7 @@ public class MainWindow extends JFrame {
 			
 				//okno z danymi uzytkownika
 				
-				UserEdit nw = new UserEdit();
+				//UserEdit nw = new UserEdit();
 				UserEdit.okno_edycji1(GlobalVariables.fullname1,GlobalVariables.is_admin1);
 				
 				
@@ -287,6 +268,14 @@ public class MainWindow extends JFrame {
 		user_list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		user_list.setBounds(470, 60, 150, 30);
 		topPanel.add(user_list);
+		user_list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				list_users.main22(true);
+			}
+		});
+		
+		
 		JLabel admin_panel = new JLabel("new label");
 		admin_panel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	if(GlobalVariables.is_admin1==1) {
@@ -294,7 +283,7 @@ public class MainWindow extends JFrame {
 		admin_panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Add_add nw = new Add_add();
+				//Add_add nw = new Add_add();
 				Add_add.add_song(true);
 			}
 		});
@@ -317,7 +306,7 @@ public class MainWindow extends JFrame {
 		table.setDragEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
-		String[][] data = {{"Bella Ciao","Sergio y Andres","La Casa de Papel","01 stycznia 2019","gatunek1"}};
+		String[][] data = {{"","","","",""}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
 		model.setDataVector(data,ListTop);
@@ -325,7 +314,7 @@ public class MainWindow extends JFrame {
 		
 		// pobieranie do tabeli
 		
-		ArrayList<album> list = getUsersList();
+		ArrayList<album> list = getAlbumsList();
 	       //DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
 	       Object[] row = new Object[5];
 	       for(int i = 0; i < list.size(); i++)

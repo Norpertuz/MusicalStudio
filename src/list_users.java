@@ -24,7 +24,7 @@ public class list_users extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main22(boolean test) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -72,7 +72,7 @@ public class list_users extends JFrame {
 		Close.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		Close.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -305,8 +305,15 @@ public class UserEdit extends JFrame {
 						}
 					
 					con.close();
-					dispose();
 					
+					//MainWindow nw = new MainWindow();
+					//nw.dispose(); //nw jest konieczne by dzialac na innym jframie z poziomu innego jframe
+					//nw.setVisible(false);
+					//nw.dispose();
+					//nw = null;
+					//MainWindow.main1(label_TextField.field.getText(), admin);
+					JOptionPane.showMessageDialog(null,"Wymagane jest ponowne uruchomienie aplikacji." );
+					System.exit(0);
 				} 
 				catch(Exception e){System.out.print(e);}
 				

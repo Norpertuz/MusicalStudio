@@ -16,7 +16,7 @@ import Theme.Colors;
 public class Label_TextField extends JPanel {
 	public JLabel label = new JLabel();
 	public TField field = new TField();
-	public PasswordField passwordfield = new PasswordField();
+	public PassField passwordfield = new PassField();
 	
 	@Override
 	public Component add(Component comp) {

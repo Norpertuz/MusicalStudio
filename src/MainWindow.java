@@ -24,6 +24,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseMotionAdapter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
@@ -33,6 +39,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Components.Heading;
 import Theme.Colors;
+import java.sql.*;
 
 public class MainWindow extends JFrame {
 
@@ -45,13 +52,80 @@ public class MainWindow extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	// get a list of users from mysql database
+	
+	   public ArrayList<album> getUsersList()
+	   {
+	       ArrayList<album> albumsList = new ArrayList<album>();
+	       
+	     
+	       try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+				Statement stmt=con.createStatement();
+				String sql="Select * from utowory";
+				ResultSet rs=stmt.executeQuery(sql);
+				album album1;
+		           while(rs.next())
+		           {
+		               album1 = new album(rs.getString("Nazwa_utworu"),rs.getString("Nazwa_albumu"),rs.getString("Data"),rs.getString("Autor"),rs.getString("Gatunek"),rs.getString("Opis"),rs.getString("Image"));
+		               albumsList.add(album1);
+		           }
+				
+				con.close();
+			} 
+			catch(Exception e){System.out.print(e);}
+	       
+	       
+	       
+	       
+	       
+	       return albumsList;
+	   }
+	   
+	   // Display Data In JTable
+	   /*
+	   public void Show_Users_In_JTable()
+	   {
+	       
+	    }
+	*/
+	
+	
+	
 	public static void main1(String fullname,int admin) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					GlobalVariables.is_admin1= admin;
 					GlobalVariables.fullname1 = fullname;
+					
 					//JOptionPane.showMessageDialog(null, Zmienne_globalne.fullname1);
+					
+					
+				/*
+					  ArrayList<album> usersList = new ArrayList<album>();
+					  ArrayList<album> list = getUsersList();
+					    DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
+					    Object[] row = new Object[4];
+					    for(int i = 0; i < list.size(); i++)
+					    {
+					        row[0] = list.get(i).getId();
+					        row[1] = list.get(i).getFirstName();
+					        row[2] = list.get(i).getLastNAme();
+					        row[3] = list.get(i).getAge();
+					        
+					        model.addRow(row);
+					    }
+					*/
+					
+					
+					
+					
+					
+					
 					MainWindow window = new MainWindow();
 					window.setVisible(true);
 					
@@ -234,12 +308,27 @@ public class MainWindow extends JFrame {
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
-		String[] ListTop = {"Nazwa Utworu","Autor","Album","Czas Trwania","Data Dodania"};
-		String[][] data = {{"Bella Ciao","Sergio y Andres","La Casa de Papel","4:25","01 stycznia 2019"}};
+		String[] ListTop = {"Nazwa Utworu","Autor","Album","Data Dodania","Gatunek"};
+		String[][] data = {{"Bella Ciao","Sergio y Andres","La Casa de Papel","01 stycznia 2019","gatunek1"}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		
 		model.setDataVector(data,ListTop);
 		scrollPane.setViewportView(table);
 		
+		// pobieranie do tabeli
+		
+		ArrayList<album> list = getUsersList();
+	       //DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
+	       Object[] row = new Object[5];
+	       for(int i = 0; i < list.size(); i++)
+	       {
+	           row[0] = list.get(i).get_nazwa_utworu();
+	           row[1] = list.get(i).get_nazwa_albumu();
+	           row[2] = list.get(i).get_Autor();
+	           row[3] = list.get(i).get_date();
+	           row[4] = list.get(i).get_Gatunek(); //blank?
+	          model.addRow(row);
+	       }
 		
 		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);
 		panelH.setBounds(27, 27, 163, 38);
@@ -333,5 +422,8 @@ public class MainWindow extends JFrame {
 		searchBar.setText("Search");
 		searchPanel.add(searchBar);
 		searchBar.setColumns(10);
+		
+		
+		
 	}
 }

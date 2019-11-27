@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Components.Label_TextField;
+import Components.PasswordField;
 import Components.Textfield;
 
 @SuppressWarnings("serial")
@@ -15,7 +16,7 @@ public class Theme extends JPanel{
 				this.setBackground(Colors.DTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
 				username.handleFocus(true);
-				Textfield password = (Textfield) this.getComponent(1);
+				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(true);
 				this.getComponent(2).setBackground(Colors.DTPurple);
 				this.getComponent(3).setForeground(Colors.DTPurple); 
@@ -29,7 +30,7 @@ public class Theme extends JPanel{
 				this.setBackground(Colors.LTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
 				username.handleFocus(false);
-				Textfield password = (Textfield) this.getComponent(1);
+				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(false);
 				this.getComponent(2).setBackground(Colors.LTBlue);
 				this.getComponent(3).setForeground(Colors.LTBlue);

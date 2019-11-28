@@ -18,6 +18,7 @@ import Components.Label_TextField;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -311,9 +312,19 @@ public class UserEdit extends JFrame {
 					//nw.setVisible(false);
 					//nw.dispose();
 					//nw = null;
-					//MainWindow.main1(label_TextField.field.getText(), admin);
+					//
+					
+					final Frame[] frames = Frame.getFrames();
+					if (frames != null)
+					    for (final Frame f : frames)
+					    {
+					        f.dispose();
+					    }
+					MainWindow.main1(label_TextField.field.getText(), admin);
+					/*
 					JOptionPane.showMessageDialog(null,"Wymagane jest ponowne uruchomienie aplikacji." );
 					System.exit(0);
+					*/
 				} 
 				catch(Exception e){System.out.print(e);}
 				

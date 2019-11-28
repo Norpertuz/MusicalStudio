@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -170,8 +171,13 @@ public class Add_add extends JFrame {
 				
 					if(rs!=0) {
 						JOptionPane.showMessageDialog(null, "Dodano utwor");
-					
-						dispose();
+						final Frame[] frames = Frame.getFrames();
+						if (frames != null)
+						    for (final Frame f : frames)
+						    {
+						        f.dispose();
+						    }
+						MainWindow.main1(GlobalVariables.fullname1, 1);
 					}
 					else
 						JOptionPane.showMessageDialog(null, "Nie dodano utworu/blad");

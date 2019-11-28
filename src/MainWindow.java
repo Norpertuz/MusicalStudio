@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Component;
@@ -18,6 +19,7 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -195,7 +197,12 @@ public class MainWindow extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				String[] errorSoon = new String[1];
-				dispose();
+				final Frame[] frames = Frame.getFrames();
+				if (frames != null)
+				    for (final Frame f : frames)
+				    {
+				        f.dispose();
+				    }
 				JOptionPane.showMessageDialog(null, "Wylogowano!");
 				Login nw = new Login();
 				Login.main(errorSoon);

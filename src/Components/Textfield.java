@@ -1,20 +1,15 @@
 package Components;
 import Theme.Colors;
-
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
-
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
@@ -29,7 +24,11 @@ public class Textfield extends JPanel {
 	//LIGHT THEME
 	public MatteBorder LTInactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.LTGray);
 	public MatteBorder LTActive = BorderFactory.createMatteBorder(3,3,3,3, Colors.LTBlue);
+	//ERROR
+	public MatteBorder ERR = BorderFactory.createMatteBorder(3,3,3,3, Colors.ERR);
 	
+	public String type, name;
+
 	public void setTextfield (MatteBorder border, Color fontColor) {
 		textfield.setBorder(border);
 		textfield.setBorder(BorderFactory.createCompoundBorder(textfield.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
@@ -60,7 +59,28 @@ public class Textfield extends JPanel {
 		}
 	}
 	
-	public void handleFocus(boolean darkMode) {
+	public void handleValidation(String type, String text) {
+		if (type == "default") {
+			if (textfield.getText().length() < 3 && textfield.getText().length() > 0) {
+				setTextfield(ERR, Colors.ERR);
+				label.setForeground(Colors.ERR);
+				label.setText("Username is too short");
+			} else {
+				label.setText(text);
+			}
+		} else if (type == "email") {
+			String email = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+			if(textfield.getText().matches(email) != true && textfield.getText().length() > 0) {
+				setTextfield(ERR, Colors.ERR);
+				label.setForeground(Colors.ERR);
+				label.setText("Email is invalid #streszczenie");
+			} else {
+				label.setText(text);
+			}
+		}
+	}
+	
+	public void handleFocus(boolean darkMode, String type, String text) {
 		if (darkMode == true) {
 			textfield.addFocusListener(new FocusAdapter() {
 				@Override
@@ -70,6 +90,7 @@ public class Textfield extends JPanel {
 				@Override
 				public void focusLost(FocusEvent e) {
 					setDefault(true);
+					handleValidation(type, text);
 				}
 			});
 		} else {
@@ -81,12 +102,15 @@ public class Textfield extends JPanel {
 				@Override
 				public void focusLost(FocusEvent e) {
 					setDefault(false);
+					handleValidation(type, text);
 				}
 			});
 		}
 	}
 	
 	public Textfield(String type, String text) {
+		this.type = type;
+		this.name = text;
 		// Wrapper
 		this.setBackground(null);
 		this.setLayout(new GridBagLayout());
@@ -109,6 +133,6 @@ public class Textfield extends JPanel {
 		wrapper.anchor = GridBagConstraints.LINE_START;
 		this.add(textfield, wrapper);
 		this.setDefault(true);
-		this.handleFocus(true);
+		this.handleFocus(true, type, name);
 	}
 }

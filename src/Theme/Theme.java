@@ -15,7 +15,7 @@ public class Theme extends JPanel{
 				//DARK THEME
 				this.setBackground(Colors.DTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
-				username.handleFocus(true);
+				username.handleFocus(true, username.type, username.name);
 				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(true);
 				this.getComponent(2).setBackground(Colors.DTPurple);
@@ -29,7 +29,7 @@ public class Theme extends JPanel{
 				//LIGHT THEME
 				this.setBackground(Colors.LTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
-				username.handleFocus(false);
+				username.handleFocus(false, username.type, username.name);
 				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(false);
 				this.getComponent(2).setBackground(Colors.LTBlue);

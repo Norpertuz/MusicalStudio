@@ -312,6 +312,7 @@ public class MainWindow extends JFrame {
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
+		table.setDefaultEditor(Object.class, null);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
 		String[][] data = {{"","","","",""}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();

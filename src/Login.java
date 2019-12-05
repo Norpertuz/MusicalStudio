@@ -69,7 +69,7 @@ public class Login extends JFrame {
 		Wrapper.add(Username);
 		
 		String MyPasswordLabel = "Password";
-		PasswordField MyPassword = new PasswordField("default", MyPasswordLabel);
+		PasswordField MyPassword = new PasswordField(MyPasswordLabel);
 		MyPassword.setBounds(38, 218, 292, 73);
 		Wrapper.add(MyPassword);
 		//Password = new newPasswordField();

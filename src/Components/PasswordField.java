@@ -28,6 +28,10 @@ public class PasswordField extends JPanel {
 	public MatteBorder LTInactive = BorderFactory.createMatteBorder(3,3,3,3, Colors.LTGray);
 	public MatteBorder LTActive = BorderFactory.createMatteBorder(3,3,3,3, Colors.LTBlue);
 	
+	public String name;
+	
+	public MatteBorder ERR = BorderFactory.createMatteBorder(3,3,3,3, Colors.ERR);
+	
 	public void setPasswordField (MatteBorder border, Color fontColor) {
 		passwordfield.setBorder(border);
 		passwordfield.setBorder(BorderFactory.createCompoundBorder(passwordfield.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
@@ -58,7 +62,17 @@ public class PasswordField extends JPanel {
 		}
 	}
 	
-	public void handleFocus(boolean darkMode) {
+	public void handleValidation(String text) {
+		if (passwordfield.getPassword().length < 3 && passwordfield.getPassword().length > 0) {
+			setPasswordField(ERR, Colors.ERR);
+			label.setForeground(Colors.ERR);
+			label.setText("Password is too short");
+		} else {
+			label.setText(text);
+		}
+	}
+	
+	public void handleFocus(boolean darkMode, String text) {
 		if (darkMode == true) {
 			passwordfield.addFocusListener(new FocusAdapter() {
 				@Override
@@ -68,6 +82,7 @@ public class PasswordField extends JPanel {
 				@Override
 				public void focusLost(FocusEvent e) {
 					setDefault(true);
+					handleValidation(text);
 				}
 			});
 		} else {
@@ -79,12 +94,14 @@ public class PasswordField extends JPanel {
 				@Override
 				public void focusLost(FocusEvent e) {
 					setDefault(false);
+					handleValidation(text);
 				}
 			});
 		}
 	}
 	
-	public PasswordField(String type, String text) {
+	public PasswordField(String text) {
+		this.name = text;
 		// Wrapper
 		this.setBackground(null);
 		this.setLayout(new GridBagLayout());
@@ -107,6 +124,6 @@ public class PasswordField extends JPanel {
 		wrapper.anchor = GridBagConstraints.LINE_START;
 		this.add(passwordfield, wrapper);
 		this.setDefault(true);
-		this.handleFocus(true);
+		this.handleFocus(true, text);
 	}
 }

@@ -1,20 +1,47 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Rectangle;
+import java.awt.Window;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Component;
 import java.awt.Cursor;
-import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.Dimension;
+import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.Font;
-import javax.swing.JScrollPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JList;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+import Components.Heading;
+import Theme.Colors;
+import java.sql.*;
 
 public class list_users extends JFrame {
 
@@ -24,6 +51,49 @@ public class list_users extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	
+	
+	
+	
+	 public ArrayList<user> getUserList()
+	   {
+	       ArrayList<user> usersList = new ArrayList<user>();
+	       
+	     
+	       try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+				Statement stmt=con.createStatement();
+				String sql="Select * from users";
+				ResultSet rs=stmt.executeQuery(sql);
+				user user1;
+		           while(rs.next())
+		           {
+		               user1 = new user(rs.getString("nickname"),rs.getString("fullname"),rs.getString("password"),rs.getString("email"),rs.getInt("isAdmin"));
+		               usersList.add(user1);
+		           }
+				
+				con.close();
+			} 
+			catch(Exception e){System.out.print(e);}
+	       
+	       
+	       
+	       
+	       
+	       return usersList;
+	   }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void main22(boolean test) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -98,11 +168,36 @@ public class list_users extends JFrame {
 		table = new JTable();
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
+		table.setEnabled(false);
+		 //table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
-		String[] user = {"Nazwa uzytkownika","Admin"};
-		String[][] dane = {{"Jan Kowalski","tak"}};
+		String[] user = {"Nickname","Fullname","Email","Admin?"};
+		String[][] dane = {{"","","",""}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setDataVector(dane,user);
 		scrollPane.setViewportView(table);
+		
+		
+		
+	// pobieranie do tabeli
+		
+		ArrayList<user> list = getUserList();
+	       //DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
+	       Object[] row = new Object[5];
+	       for(int i = 0; i < list.size(); i++)
+	       {
+	           row[0] = list.get(i).get_Nickname();
+	           row[1] = list.get(i).get_Fullname();
+	           //row[2] = list.get(i).get_Password();
+	           row[2] = list.get(i).get_Email();
+	           row[3] = list.get(i).get_IsAdmin(); 
+	          model.addRow(row);
+	       }
+		
+		
+		
+		
+		
+		
 	}
 }

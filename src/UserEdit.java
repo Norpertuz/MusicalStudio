@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -42,6 +43,9 @@ public class UserEdit extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	
+	
 	public static void okno_edycji1(String user,int is_Admin) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

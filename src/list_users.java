@@ -37,7 +37,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import Components.Heading;
 import Theme.Colors;
@@ -169,13 +171,30 @@ public class list_users extends JFrame {
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 		table.setEnabled(false);
-		 //table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		//table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
+		
 		String[] user = {"Nickname","Fullname","Email","Admin?"};
 		String[][] dane = {{"","","",""}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setDataVector(dane,user);
+		//table.getColumn(1).setPreferredWidth(15);    
+		//table.getColumn(2).setPreferredWidth(400);
 		scrollPane.setViewportView(table);
+		
+	    table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		TableColumnModel colModel=table.getColumnModel();
+		//colModel.getColumn(0).setPreferredWidth(15);    
+		//colModel.getColumn(1).setPreferredWidth(15);  
+		//colModel.getColumn(2).setPreferredWidth(15);  
+		colModel.getColumn(3).setPreferredWidth(20);
+		
+		//srodkowanie kolumny isadmin:
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
+		table.setRowHeight(0, 1);
+		//table.setRowSelectionAllowed(true);
 		
 		
 		

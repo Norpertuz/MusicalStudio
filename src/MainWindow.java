@@ -37,6 +37,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Components.Heading;
@@ -309,32 +310,48 @@ public class MainWindow extends JFrame {
 		listPanel.add(scrollPane);
 		
 		table = new JTable();
+		
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
-	    table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+	   // table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setEnabled(false);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
-		String[][] data = {{"","","","",""}};
+		String[][] data = {{null,null,null,null,null}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
 		model.setDataVector(data,ListTop);
 		scrollPane.setViewportView(table);
 		
+		
+		
+		//srodkowanie kolumn:
+				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+				centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+				//table.setDefaultRenderer(String.class, centerRenderer);
+				table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
+				table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
+				table.getColumnModel().getColumn(2).setCellRenderer( centerRenderer );
+				table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
+				table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
+				table.setRowHeight(0, 1);
+				//table.getRowModel().getRow(1);
+				//table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
 		// pobieranie do tabeli
 		
 		ArrayList<album> list = getAlbumsList();
-	       //DefaultTableModel model = (DefaultTableModel)jTable_Display_Users.getModel();
 	       Object[] row = new Object[5];
 	       for(int i = 0; i < list.size(); i++)
 	       {
+	    	   
 	           row[0] = list.get(i).get_nazwa_utworu();
 	           row[1] = list.get(i).get_nazwa_albumu();
 	           row[2] = list.get(i).get_Autor();
 	           row[3] = list.get(i).get_date();
 	           row[4] = list.get(i).get_Gatunek(); //blank?
 	          model.addRow(row);
+	          table.setRowHeight(i+1, 30);
 	       }
 		
 		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);

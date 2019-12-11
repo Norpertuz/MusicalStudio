@@ -335,7 +335,8 @@ public class MainWindow extends JFrame {
 				table.getColumnModel().getColumn(2).setCellRenderer( centerRenderer );
 				table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
 				table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
-				table.setRowHeight(0, 1);
+				//table.setRowHeight(0, 1);
+				//table.setRowHeight(0, 1);
 				//table.getRowModel().getRow(1);
 				//table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
 		// pobieranie do tabeli
@@ -351,7 +352,7 @@ public class MainWindow extends JFrame {
 	           row[3] = list.get(i).get_date();
 	           row[4] = list.get(i).get_Gatunek(); //blank?
 	          model.addRow(row);
-	          table.setRowHeight(i+1, 30);
+	          table.setRowHeight(i, 30);
 	       }
 		
 		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);

@@ -318,10 +318,10 @@ public class MainWindow extends JFrame {
 		table.setDefaultEditor(Object.class, null);
 		table.setEnabled(false);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
-		String[][] data = {{null,null,null,null,null}};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
-		model.setDataVector(data,ListTop);
+		//model.setDataVector(data,ListTop);
+		model.setColumnIdentifiers(ListTop);
 		scrollPane.setViewportView(table);
 		
 		

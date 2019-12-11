@@ -170,7 +170,9 @@ public class list_users extends JFrame {
 		table = new JTable();
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
-		table.setEnabled(false);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.setDefaultEditor(Object.class, null);
+		table.setEnabled(true);
 		//table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		

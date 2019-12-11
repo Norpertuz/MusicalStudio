@@ -316,7 +316,7 @@ public class MainWindow extends JFrame {
 	   // table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
-		table.setEnabled(false);
+		table.setEnabled(true);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		

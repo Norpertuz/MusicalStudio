@@ -49,7 +49,7 @@ public class Add_edit extends JFrame {
 	public Add_edit() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 370, 825);
+		setBounds(100, 100, 370, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -93,57 +93,39 @@ public class Add_edit extends JFrame {
 		Edit_text.setBounds(30, 30, 75, 40);
 		contentPane.add(Edit_text);
 		
-		JLabel Image = new JLabel("OBRAZEK");
-		Image.setBackground(Color.YELLOW);
-		Image.setOpaque(true);
-		Image.setBounds(10, 100, 150, 100);
-		contentPane.add(Image);
-		
-		Button change = new Button();
-		change.setBackground(Colors.DTPurple);
-		change.setText("Zmie� Obraz");
-		change.setBounds(210, 100, 150, 40);
-		contentPane.add(change);
-		
-		Button delete = new Button();
-		delete.setBackground(Colors.DTPurple);
-		delete.setText("Usu� obraz");
-		delete.setBounds(210, 160, 150, 40);
-		contentPane.add(delete);
-		
 		String album = "Nazwa Albumu";
 		Label_TextField Nazwa_Albumu = new Label_TextField(album,"default");
-		Nazwa_Albumu.setBounds(10, 220, 350, 70);
+		Nazwa_Albumu.setBounds(10, 90, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
 		String title = "Tytu�";
 		Label_TextField Title_textfield = new Label_TextField(title,"default");
-		Title_textfield.setBounds(10, 300, 350, 70);
+		Title_textfield.setBounds(10, 170, 350, 70);
 		contentPane.add(Title_textfield);
 		
 		String Author = "Autor";
 		Label_TextField Author_textfield = new Label_TextField(Author,"default");
-		Author_textfield.setBounds(10, 380, 350, 70);
+		Author_textfield.setBounds(10, 250, 350, 70);
 		contentPane.add(Author_textfield);
 		
 		String Genere = "Gatunek";
 		Label_TextField Genere_textfield = new Label_TextField(Genere,"default");
-		Genere_textfield.setBounds(10, 460, 350, 70);
+		Genere_textfield.setBounds(10, 330, 350, 70);
 		contentPane.add(Genere_textfield);
 		
 		String Date = "Data Wydania";
 		Label_TextField Date_textfield = new Label_TextField(Date,"default");
-		Date_textfield.setBounds(10, 540, 350, 70);
+		Date_textfield.setBounds(10, 410, 350, 70);
 		contentPane.add(Date_textfield);
 		
 		JTextArea Description = new JTextArea();
-		Description.setBounds(10, 620, 350, 125);
+		Description.setBounds(10, 490, 350, 125);
 		contentPane.add(Description);
 		
 		Button Save = new Button();
 		Save.setBackground(Colors.DTPurple);
 		Save.setText("Zapisz Zmiany");
-		Save.setBounds(219, 765, 141, 40);
+		Save.setBounds(219, 635, 141, 40);
 		contentPane.add(Save);
 	}
 }

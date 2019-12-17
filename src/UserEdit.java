@@ -292,7 +292,9 @@ public class UserEdit extends JFrame {
 						sql="update users set fullname='"+label_TextField.field.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
 						stmt.close();
+						fullname11 = label_TextField.field.getText();
 						JOptionPane.showMessageDialog(null,"Zedytowano fullname" );
+					
 						
 					}
 					if(!label_TextField_1.field.getText().equals("")) {
@@ -324,7 +326,7 @@ public class UserEdit extends JFrame {
 					    {
 					        f.dispose();
 					    }
-					MainWindow.main1(label_TextField.field.getText(), admin);
+					MainWindow.main1(fullname11, admin);
 					/*
 					JOptionPane.showMessageDialog(null,"Wymagane jest ponowne uruchomienie aplikacji." );
 					System.exit(0);

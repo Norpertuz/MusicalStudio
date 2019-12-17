@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -354,7 +357,7 @@ public class MainWindow extends JFrame {
 	          model.addRow(row);
 	          table.setRowHeight(i, 30);
 	       }
-		
+	     
 		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);
 		panelH.setBounds(27, 27, 163, 38);
 		listPanel.add(panelH);
@@ -373,6 +376,7 @@ public class MainWindow extends JFrame {
 		
 		JLabel albumTitle = new JLabel("BELLA CIAO");
 		albumTitle.setBounds(15, 365, 250, 16);
+		//albumTitle.setText((String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()));
 		infoPanel.add(albumTitle);
 		
 		JLabel albumAuthor = new JLabel("Sergio y Andres");
@@ -384,10 +388,7 @@ public class MainWindow extends JFrame {
 		albumAlbum.setBounds(15, 425, 50, 16);
 		infoPanel.add(albumAlbum);
 		
-		JLabel albumDuration = new JLabel("Duration:");
-		albumDuration.setBounds(15, 445, 59, 16);
-		infoPanel.add(albumDuration);
-		
+	
 		JLabel albumMusicGenre = new JLabel("Music genre:");
 		albumMusicGenre.setBounds(15, 465, 84, 16);
 		infoPanel.add(albumMusicGenre);
@@ -405,10 +406,6 @@ public class MainWindow extends JFrame {
 		dataAlbum.setBounds(68, 425, 198, 16);
 		infoPanel.add(dataAlbum);
 		
-		JLabel dataTime = new JLabel("4:25");
-		dataTime.setForeground(Color.LIGHT_GRAY);
-		dataTime.setBounds(80, 445, 185, 16);
-		infoPanel.add(dataTime);
 		
 		JLabel dataMusicGenre = new JLabel("Pop");
 		dataMusicGenre.setForeground(Color.LIGHT_GRAY);
@@ -432,6 +429,25 @@ public class MainWindow extends JFrame {
 		Heading panelh2 = new Heading("Something", Colors.DTPurple);
 		panelh2.setBounds(32, 43, 145, 38);
 		infoPanel.add(panelh2);
+	       
+		
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            if(table.getSelectedRow() != -1) {
+	            // do some actions here, for example
+	            // print first column value from selected row
+	            	albumTitle.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+	            	albumAuthor.setText(table.getValueAt(table.getSelectedRow(), 2).toString());
+	            	dataAlbum.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+	            	dataMusicGenre.setText(table.getValueAt(table.getSelectedRow(), 4).toString());
+	            	dataReleaseDate.setText(table.getValueAt(table.getSelectedRow(), 3).toString());
+	            	dataDescription.setText("");//from invisible column 
+	            	
+	            	//System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+	            }
+	        }
+	    });
 		
 		JPanel searchPanel = new JPanel();
 		searchPanel.setBackground(Color.WHITE);

@@ -442,7 +442,8 @@ public class MainWindow extends JFrame {
 	            	dataAlbum.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
 	            	dataMusicGenre.setText(table.getValueAt(table.getSelectedRow(), 4).toString());
 	            	dataReleaseDate.setText(table.getValueAt(table.getSelectedRow(), 3).toString());
-	            	dataDescription.setText("");//from invisible column 
+	            	dataDescription.setText(list.get(table.getSelectedRow()).get_Opis());
+	            	
 	            	
 	            	//System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
 	            }

@@ -178,7 +178,7 @@ public class Login extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				dispose();
 				Register nw = new Register();
-				Register.main1();
+				Register.main1(false);
 				
 			}
 		});

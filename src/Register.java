@@ -28,15 +28,16 @@ public class Register extends JFrame {
 	private JPasswordField password;
 	private JPasswordField repeat_password;
 	int posX=0,posY=0;
-
+    static Boolean editable1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main1() {
+	public static void main1(Boolean editable) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					editable1=editable;
 					Register frame = new Register();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -69,7 +70,7 @@ public class Register extends JFrame {
 		Close.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -147,7 +148,7 @@ public class Register extends JFrame {
 		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton btnRg = new JButton("Register");
+		JButton btnRg = new JButton("Add user");
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.getText().length();

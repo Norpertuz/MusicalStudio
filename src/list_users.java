@@ -162,6 +162,15 @@ public class list_users extends JFrame {
 		add_users.setBounds(185, 40, 155, 35);
 		add_users.setIcon(new ImageIcon(list_users.class.getResource("/assets/person_add_light.png")));
 		contentPane.add(add_users);
+		add_users.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		add_users.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				Register.main1(true);
+				
+			}
+		});
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 100, 330, 439);

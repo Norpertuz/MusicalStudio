@@ -148,7 +148,8 @@ public class Register extends JFrame {
 		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton btnRg = new JButton("Add user");
+		JButton btnRg = new JButton("Register");
+		if(editable1.equals(true)) {btnRg.setText("Dodaj");}
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.getText().length();

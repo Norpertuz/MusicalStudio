@@ -1,14 +1,10 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Components.Button;
-import Components.Label_TextField;
+import Components.Textfield;
 import Theme.Colors;
-
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
@@ -17,10 +13,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JButton;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class Add_edit extends JFrame {
 
 	private JPanel contentPane;
@@ -94,27 +89,27 @@ public class Add_edit extends JFrame {
 		contentPane.add(Edit_text);
 		
 		String album = "Nazwa Albumu";
-		Label_TextField Nazwa_Albumu = new Label_TextField(album,"default");
+		Textfield Nazwa_Albumu = new Textfield("default", album);
 		Nazwa_Albumu.setBounds(10, 90, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
-		String title = "Tytu�";
-		Label_TextField Title_textfield = new Label_TextField(title,"default");
+		String title = "Tytuł";
+		Textfield Title_textfield = new Textfield("default", title);
 		Title_textfield.setBounds(10, 170, 350, 70);
 		contentPane.add(Title_textfield);
 		
 		String Author = "Autor";
-		Label_TextField Author_textfield = new Label_TextField(Author,"default");
+		Textfield Author_textfield = new Textfield("default", Author);
 		Author_textfield.setBounds(10, 250, 350, 70);
 		contentPane.add(Author_textfield);
 		
 		String Genere = "Gatunek";
-		Label_TextField Genere_textfield = new Label_TextField(Genere,"default");
+		Textfield Genere_textfield = new Textfield("default", Genere);
 		Genere_textfield.setBounds(10, 330, 350, 70);
 		contentPane.add(Genere_textfield);
 		
 		String Date = "Data Wydania";
-		Label_TextField Date_textfield = new Label_TextField(Date,"default");
+		Textfield Date_textfield = new Textfield("default", Date);
 		Date_textfield.setBounds(10, 410, 350, 70);
 		contentPane.add(Date_textfield);
 		

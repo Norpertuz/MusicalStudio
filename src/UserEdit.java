@@ -15,7 +15,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Components.Button;
-import Components.Label_TextField;
+import Components.PasswordField;
+import Components.Textfield;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -169,7 +170,8 @@ public class UserEdit extends JFrame {
 		textField.setBounds(28, 240, 350, 82);
 		getContentPane().add(textField);
 		*/
-		Label_TextField label_TextField_0 = new Label_TextField("Nickname", "default");
+		String nickname = "Nickname";
+		Textfield label_TextField_0 = new Textfield("default", nickname);
 		GridBagLayout gridBagLayout_0 = (GridBagLayout) label_TextField_0.getLayout();
 		gridBagLayout_0.rowWeights = new double[]{0.0, 0.0};
 		gridBagLayout_0.rowHeights = new int[]{0, 0};
@@ -178,7 +180,8 @@ public class UserEdit extends JFrame {
 		label_TextField_0.setBounds(28, 240, 350, 82);
 		getContentPane().add(label_TextField_0);
 		
-		Label_TextField label_TextField = new Label_TextField("Imie i Nazwisko", "default");
+		String fullname = "Imię i nazwisko";
+		Textfield label_TextField = new Textfield("default", fullname);
 		GridBagLayout gridBagLayout = (GridBagLayout) label_TextField.getLayout();
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0};
 		gridBagLayout.rowHeights = new int[]{0, 0};
@@ -187,7 +190,8 @@ public class UserEdit extends JFrame {
 		label_TextField.setBounds(28, 350, 350, 82);
 		getContentPane().add(label_TextField);
 		
-		Label_TextField label_TextField_1 = new Label_TextField("Password", "default");
+		String password = "Password";
+		PasswordField label_TextField_1 = new PasswordField(password);
 		GridBagLayout gridBagLayout_1 = (GridBagLayout) label_TextField_1.getLayout();
 		gridBagLayout_1.rowWeights = new double[]{0.0, 0.0};
 		gridBagLayout_1.rowHeights = new int[]{0, 0};
@@ -196,7 +200,8 @@ public class UserEdit extends JFrame {
 		label_TextField_1.setBounds(28, 452, 350, 82);
 		getContentPane().add(label_TextField_1);
 		
-		Label_TextField label_TextField_2 = new Label_TextField("Email", "default");
+		String email = "Email";
+		Textfield label_TextField_2 = new Textfield("default", email);
 		GridBagLayout gridBagLayout_2 = (GridBagLayout) label_TextField_2.getLayout();
 		gridBagLayout_2.rowWeights = new double[]{0.0, 0.0};
 		gridBagLayout_2.rowHeights = new int[]{0, 0};
@@ -281,31 +286,31 @@ public class UserEdit extends JFrame {
 					
 					
 				
-					if(!label_TextField_0.field.getText().equals("")) {
-					sql="update users set nickname='"+label_TextField_0.field.getText()+"' WHERE fullname='"+user1+"'";
+					if(!label_TextField_0.textfield.getText().equals("")) {
+					sql="update users set nickname='"+label_TextField_0.textfield.getText()+"' WHERE fullname='"+user1+"'";
 					stmt.executeUpdate(sql);
 					stmt.close();
 					JOptionPane.showMessageDialog(null,"Zedytowano nickname" );
 				
 					}
-					if(!label_TextField.field.getText().equals("")) {
-						sql="update users set fullname='"+label_TextField.field.getText()+"' WHERE fullname='"+user1+"'";
+					if(!label_TextField.textfield.getText().equals("")) {
+						sql="update users set fullname='"+label_TextField.textfield.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
 						stmt.close();
-						fullname11 = label_TextField.field.getText();
+						fullname11 = label_TextField.textfield.getText();
 						JOptionPane.showMessageDialog(null,"Zedytowano fullname" );
 					
 						
 					}
-					if(!label_TextField_1.field.getText().equals("")) {
-						sql="update users set password='"+label_TextField_1.field.getText()+"' WHERE fullname='"+user1+"'";
+					if(!label_TextField_1.passwordfield.getText().equals("")) {
+						sql="update users set password='"+label_TextField_1.passwordfield.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
 						stmt.close();
 						JOptionPane.showMessageDialog(null,"Zedytowano password" );
 					}
-					if(!label_TextField_2.field.getText().equals("")) {
+					if(!label_TextField_2.textfield.getText().equals("")) {
 					
-						sql="update users set email='"+label_TextField_2.field.getText()+"' WHERE fullname='"+user1+"'";
+						sql="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);
 						stmt.close();
 						JOptionPane.showMessageDialog(null,"Zedytowano mail" );

@@ -1,5 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -18,13 +16,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Components.Button;
-import Components.Label_TextField;
+import Components.Textfield;
 import Theme.Colors;
 
 import java.sql.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
+@SuppressWarnings("serial")
 public class Add_add extends JFrame {
 
 	private JPanel contentPane;
@@ -96,27 +95,27 @@ public class Add_add extends JFrame {
 		contentPane.add(Edit_text);
 		
 		String album = "Nazwa Albumu";
-		Label_TextField Nazwa_Albumu = new Label_TextField(album,"default");
+		Textfield Nazwa_Albumu = new Textfield("default", album);
 		Nazwa_Albumu.setBounds(10, 93, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
 		String title = "Tytu�";
-		Label_TextField Title_textfield = new Label_TextField(title,"default");
+		Textfield Title_textfield = new Textfield("default", title);
 		Title_textfield.setBounds(10, 173, 350, 70);
 		contentPane.add(Title_textfield);
 		
 		String Author = "Autor";
-		Label_TextField Author_textfield = new Label_TextField(Author,"default");
+		Textfield Author_textfield = new Textfield("default", Author);
 		Author_textfield.setBounds(10, 253, 350, 70);
 		contentPane.add(Author_textfield);
 		
 		String Genere = "Gatunek";
-		Label_TextField Genere_textfield = new Label_TextField(Genere,"default");
+		Textfield Genere_textfield = new Textfield("default", Genere);
 		Genere_textfield.setBounds(10, 333, 350, 70);
 		contentPane.add(Genere_textfield);
 		
 		String Date = "Data Wydania";
-		Label_TextField Date_textfield = new Label_TextField(Date,"default");
+		Textfield Date_textfield = new Textfield("default", Date);
 		Date_textfield.setBounds(10, 413, 350, 70);
 		contentPane.add(Date_textfield);
 		
@@ -125,8 +124,8 @@ public class Add_add extends JFrame {
 		contentPane.add(Description);
 		
 		
-		
-		Label_TextField Link_TextField = new Label_TextField("Link do obrazka", "default");
+		String link = "Link do obrazka";
+		Textfield Link_TextField = new Textfield("default", link);
 		GridBagLayout gbl_Link_TextField = (GridBagLayout) Link_TextField.getLayout();
 		gbl_Link_TextField.rowWeights = new double[]{0.0, 0.0};
 		gbl_Link_TextField.rowHeights = new int[]{0, 0};
@@ -144,7 +143,7 @@ public class Add_add extends JFrame {
 		Save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if (Title_textfield.field.getText().equals("") || Nazwa_Albumu.field.getText().equals("") || Date_textfield.field.getText().equals("") || Author_textfield.field.getText().equals("") || Genere_textfield.field.getText().equals("")){
+				if (Title_textfield.textfield.getText().equals("") || Nazwa_Albumu.textfield.getText().equals("") || Date_textfield.textfield.getText().equals("") || Author_textfield.textfield.getText().equals("") || Genere_textfield.textfield.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Nie podano wszystkich wymaganych danych.");
 				     }
 				
@@ -157,13 +156,13 @@ public class Add_add extends JFrame {
 					String sql="INSERT INTO utowory values(?,?,?,?,?,?,?)";
 				
 					PreparedStatement stmt = con.prepareStatement(sql);
-					stmt.setString(1, Title_textfield.field.getText());
-					stmt.setString(2, Nazwa_Albumu.field.getText());
-					stmt.setString(3, Date_textfield.field.getText());
-					stmt.setString(4, Author_textfield.field.getText());
-					stmt.setString(5, Genere_textfield.field.getText());
+					stmt.setString(1, Title_textfield.textfield.getText());
+					stmt.setString(2, Nazwa_Albumu.textfield.getText());
+					stmt.setString(3, Date_textfield.textfield.getText());
+					stmt.setString(4, Author_textfield.textfield.getText());
+					stmt.setString(5, Genere_textfield.textfield.getText());
 					stmt.setString(6, Description.getText());
-					stmt.setString(7, Link_TextField.field.getText());
+					stmt.setString(7, Link_TextField.textfield.getText());
 				
 				
 				    int rs = stmt.executeUpdate();

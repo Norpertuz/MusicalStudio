@@ -1,8 +1,6 @@
 package Theme;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import Components.Label_TextField;
 import Components.PasswordField;
 import Components.Textfield;
 

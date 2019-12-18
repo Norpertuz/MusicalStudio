@@ -18,6 +18,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Register extends JFrame {
 
@@ -125,6 +127,53 @@ public class Register extends JFrame {
 		contentPane.add(Powtorz_Haslo);
 		
 		repeat_password = new JPasswordField();
+		repeat_password.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					int c = password.getText().length();
+					if (Nickname.getText().equals("") || Imie_Nazwisko.getText().equals("") || mail.getText().equals("") || password.getText().toString().equals("")){
+						JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
+					     }
+					else if(c<6) {
+						JOptionPane.showMessageDialog(null, "Podano za krï¿½tkie hasï¿½o.");
+					}
+					
+					else{
+				
+					try {
+						Class.forName("com.mysql.jdbc.Driver");
+						Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+						String sql="INSERT INTO users values(?,?,?,?,?)";
+					
+						PreparedStatement stmt = con.prepareStatement(sql);
+						stmt.setString(1, Nickname.getText());
+						stmt.setString(2, Imie_Nazwisko.getText());
+						stmt.setString(3, mail.getText());
+						stmt.setString(4, password.getText().toString());
+						stmt.setInt(5, 0);
+					
+					    int rs = stmt.executeUpdate();
+						
+					
+						if(rs!=0) {
+							JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
+							String[] errorSoon = new String[1];
+							dispose();
+							Login nw = new Login();
+							Login.main(errorSoon);
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
+						
+						con.close();
+					} 
+					catch(Exception er){System.out.print(er);}
+					
+					}
+				}
+			}
+		});
 		repeat_password.setBounds(38, 486, 292, 44);
 		contentPane.add(repeat_password);
 		
@@ -149,7 +198,7 @@ public class Register extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnRg = new JButton("Register");
-		if(editable1.equals(true)) {btnRg.setText("Dodaj");}
+		//if(editable1.equals(true)) {btnRg.setText("Dodaj");}
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.getText().length();
@@ -157,7 +206,7 @@ public class Register extends JFrame {
 					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 				     }
 				else if(c<6) {
-					JOptionPane.showMessageDialog(null, "Podano za krótkie has³o.");
+					JOptionPane.showMessageDialog(null, "Podano za krï¿½tkie hasï¿½o.");
 				}
 				
 				else{

@@ -176,7 +176,7 @@ public class Login extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				Register nw = new Register();
+				//Register nw = new Register();
 				Register.main1(false);
 				
 			}

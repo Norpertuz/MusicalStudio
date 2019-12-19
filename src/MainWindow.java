@@ -44,6 +44,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import Components.Heading;
+import Components.Table;
 import Theme.Colors;
 import java.sql.*;
 
@@ -53,7 +54,7 @@ public class MainWindow extends JFrame {
 	private JPanel listPanel;
 	private JTextField searchBar;
 	int posX=0,posY=0;
-	private JTable table;
+	private Table table;
 
 	/**
 	 * Launch the application.
@@ -315,7 +316,7 @@ public class MainWindow extends JFrame {
 		scrollPane.setBounds(10, 100, 576, 549);
 		listPanel.add(scrollPane);
 		
-		table = new JTable();
+		table = new Table();
 		
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);

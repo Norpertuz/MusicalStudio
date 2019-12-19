@@ -47,6 +47,8 @@ import Components.Heading;
 import Components.Table;
 import Theme.Colors;
 import java.sql.*;
+import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
 
 public class MainWindow extends JFrame {
 
@@ -311,12 +313,23 @@ public class MainWindow extends JFrame {
 		listPanel.setBounds(90, 120, 608, 660);
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
+		listPanel.setBorder(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setOpaque(false);
 		scrollPane.setBounds(10, 100, 576, 549);
+		scrollPane.getViewport().setOpaque(false);
+		scrollPane.setViewportBorder(null);
+		scrollPane.setBorder(null);
 		listPanel.add(scrollPane);
 		
 		table = new Table();
+		table.setFocusTraversalKeysEnabled(false);
+		table.setBorder(null);
+		table.setShowHorizontalLines(false);
+		table.setShowVerticalLines(false);
+		table.setShowGrid(false);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
@@ -334,14 +347,14 @@ public class MainWindow extends JFrame {
 		
 		
 		//srodkowanie kolumn:
-				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-				centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-				//table.setDefaultRenderer(String.class, centerRenderer);
-				table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
-				table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
-				table.getColumnModel().getColumn(2).setCellRenderer( centerRenderer );
-				table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
-				table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
+//				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+//				centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+//				//table.setDefaultRenderer(String.class, centerRenderer);
+//				table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
+//				table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
+//				table.getColumnModel().getColumn(2).setCellRenderer( centerRenderer );
+//				table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
+//				table.getColumnModel().getColumn(4).setCellRenderer( centerRenderer );
 				//table.setRowHeight(0, 1);
 				//table.setRowHeight(0, 1);
 				//table.getRowModel().getRow(1);
@@ -359,7 +372,7 @@ public class MainWindow extends JFrame {
 	           row[3] = list.get(i).get_date();
 	           row[4] = list.get(i).get_Gatunek(); //blank?
 	          model.addRow(row);
-	          table.setRowHeight(i, 30);
+	          //table.setRowHeight(i, 30);
 	       }
 	     
 		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);

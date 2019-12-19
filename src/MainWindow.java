@@ -288,8 +288,12 @@ public class MainWindow extends JFrame {
 		
 		
 		JLabel admin_panel = new JLabel("new label");
+		admin_panel.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
+		admin_panel.setBounds(300, 60, 170, 30);
 		admin_panel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	if(GlobalVariables.is_admin1==1) {
+		admin_panel.setVisible(false);
+		topPanel.add(admin_panel);
+		if(GlobalVariables.is_admin1==1) {
 		admin_panel.setText("Panel administratora");
 		admin_panel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -298,9 +302,8 @@ public class MainWindow extends JFrame {
 				Add_add.add_song(true);
 			}
 		});
-		admin_panel.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
-		admin_panel.setBounds(300, 60, 170, 30);
-		topPanel.add(admin_panel);
+//		topPanel.add(admin_panel);
+		admin_panel.setVisible(true);
 		}
 		listPanel = new JPanel();
 		listPanel.setBackground(Color.BLACK);

@@ -250,8 +250,15 @@ public class UserEdit extends JFrame {
 						JOptionPane.showMessageDialog(null,"Usunieto konto!" );
 						
 						con.close();
-						System.exit(0);
+						final Frame[] frames = Frame.getFrames();
+						if (frames != null)
+						    for (final Frame f : frames)
+						    {
+						        f.dispose();
+						    }
 						
+						String[] errorSoon = new String[1];
+						Login.main(errorSoon);
 					} 
 					catch(Exception e){System.out.print(e);}
 					

@@ -185,10 +185,10 @@ public class list_users extends JFrame {
 		//table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		
-		String[] user = {"Nickname","Fullname","Email","Admin?"};
-		String[][] dane = {{"","","",""}};
+		String[] user = {"Nickname","Admin?"};
+		String[] dane = {"",""};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
-		model.setDataVector(dane,user);
+		model.setColumnIdentifiers(dane);
 		//table.getColumn(1).setPreferredWidth(15);    
 		//table.getColumn(2).setPreferredWidth(400);
 		scrollPane.setViewportView(table);
@@ -198,13 +198,13 @@ public class list_users extends JFrame {
 		//colModel.getColumn(0).setPreferredWidth(15);    
 		//colModel.getColumn(1).setPreferredWidth(15);  
 		//colModel.getColumn(2).setPreferredWidth(15);  
-		colModel.getColumn(3).setPreferredWidth(20);
+		//colModel.getColumn(3).setPreferredWidth(20);
 		
 		//srodkowanie kolumny isadmin:
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-		table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
-		table.setRowHeight(0, 1);
+		//table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
+		//table.setRowHeight(0, 1);
 		//table.setRowSelectionAllowed(true);
 		
 		
@@ -217,10 +217,11 @@ public class list_users extends JFrame {
 	       for(int i = 0; i < list.size(); i++)
 	       {
 	           row[0] = list.get(i).get_Nickname();
-	           row[1] = list.get(i).get_Fullname();
-	           //row[2] = list.get(i).get_Password();
-	           row[2] = list.get(i).get_Email();
-	           row[3] = list.get(i).get_IsAdmin(); 
+	           if(list.get(i).get_IsAdmin()==1)
+	           row[1] = "Administrator"; 
+	           else
+	           row[1] = "User"; 
+	           
 	          model.addRow(row);
 	       }
 		

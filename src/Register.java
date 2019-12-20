@@ -136,8 +136,9 @@ public class Register extends JFrame {
 						JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 					     }
 					else if(c<6) {
-						JOptionPane.showMessageDialog(null, "Podano za kr�tkie has�o.");
+						JOptionPane.showMessageDialog(null, "Password is too short");
 					}
+					else if((password.getText().toString()).equals(Powtorz_Haslo.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
 					
 					else{
 				
@@ -149,8 +150,8 @@ public class Register extends JFrame {
 						PreparedStatement stmt = con.prepareStatement(sql);
 						stmt.setString(1, Nickname.getText());
 						stmt.setString(2, Imie_Nazwisko.getText());
-						stmt.setString(3, mail.getText());
-						stmt.setString(4, password.getText().toString());
+						stmt.setString(3, password.getText().toString());
+						stmt.setString(4, mail.getText());
 						stmt.setInt(5, 0);
 					
 					    int rs = stmt.executeUpdate();
@@ -160,8 +161,10 @@ public class Register extends JFrame {
 							JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
 							String[] errorSoon = new String[1];
 							dispose();
+							if(editable1.equals(false)) {
 							Login nw = new Login();
 							Login.main(errorSoon);
+							}
 						}
 						else
 							JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
@@ -176,7 +179,7 @@ public class Register extends JFrame {
 		});
 		repeat_password.setBounds(38, 486, 292, 44);
 		contentPane.add(repeat_password);
-		
+		if(editable1.equals(false)) {
 		JLabel lblNewLabel = new JLabel("Masz ju\u017C konto?");
 		lblNewLabel.setBounds(38, 591, 110, 28);
 		contentPane.add(lblNewLabel);
@@ -193,12 +196,13 @@ public class Register extends JFrame {
 				
 			}
 		});
+		
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		contentPane.add(lblNewLabel_2);
-		
+		}
 		JButton btnRg = new JButton("Register");
-		//if(editable1.equals(true)) {btnRg.setText("Dodaj");}
+		if(editable1.equals(true)) {btnRg.setText("Dodaj");}
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.getText().length();
@@ -206,8 +210,9 @@ public class Register extends JFrame {
 					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 				     }
 				else if(c<6) {
-					JOptionPane.showMessageDialog(null, "Podano za kr�tkie has�o.");
+					JOptionPane.showMessageDialog(null, "Password is too short.");
 				}
+				else if((password.getText().toString()).equals(Powtorz_Haslo.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
 				
 				else{
 			
@@ -219,8 +224,8 @@ public class Register extends JFrame {
 					PreparedStatement stmt = con.prepareStatement(sql);
 					stmt.setString(1, Nickname.getText());
 					stmt.setString(2, Imie_Nazwisko.getText());
-					stmt.setString(3, mail.getText());
-					stmt.setString(4, password.getText().toString());
+					stmt.setString(3, password.getText().toString());
+					stmt.setString(4, mail.getText());
 					stmt.setInt(5, 0);
 				
 				    int rs = stmt.executeUpdate();
@@ -230,9 +235,12 @@ public class Register extends JFrame {
 						JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
 						String[] errorSoon = new String[1];
 						dispose();
+						if(editable1.equals(false)) {
 						Login nw = new Login();
 						Login.main(errorSoon);
+						}
 					}
+					
 					else
 						JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
 					

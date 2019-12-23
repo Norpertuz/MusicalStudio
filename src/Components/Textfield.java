@@ -64,7 +64,7 @@ public class Textfield extends JPanel {
 			if (textfield.getText().length() < 3 && textfield.getText().length() > 0) {
 				setTextfield(ERR, Colors.ERR);
 				label.setForeground(Colors.ERR);
-				label.setText("Username is too short");
+				label.setText(text + " is too short");
 			} else {
 				label.setText(text);
 			}
@@ -73,7 +73,7 @@ public class Textfield extends JPanel {
 			if(textfield.getText().matches(email) != true && textfield.getText().length() > 0) {
 				setTextfield(ERR, Colors.ERR);
 				label.setForeground(Colors.ERR);
-				label.setText("Email is invalid #streszczenie");
+				label.setText(text + " is invalid");
 			} else {
 				label.setText(text);
 			}

@@ -3,6 +3,12 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Components.Button;
+import Components.PasswordField;
+import Components.Textfield;
+import Theme.Theme;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,14 +27,15 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+@SuppressWarnings("serial")
 public class Register extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField Nickname;
-	private JTextField Imie_Nazwisko;
-	private JTextField mail;
-	private JPasswordField password;
-	private JPasswordField repeat_password;
+	private Theme contentPane;
+	private Textfield Nickname;
+	private Textfield Imie_Nazwisko;
+	private Textfield mail;
+	private PasswordField password;
+	private PasswordField repeat_password;
 	int posX=0,posY=0;
     static Boolean editable1;
 
@@ -55,7 +62,7 @@ public class Register extends JFrame {
 	public Register() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(700, 250, 370, 630);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBackground(new Color(229, 229, 229));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -81,64 +88,35 @@ public class Register extends JFrame {
 		Close.setBounds(326, 0, 44, 30);
 		contentPane.add(Close);
 		
-		JLabel NazwaUzytkownika = new JLabel("Nazwa u\u017Cytkownika");
-		NazwaUzytkownika.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		NazwaUzytkownika.setBounds(38, 103, 131, 21);
-		contentPane.add(NazwaUzytkownika);
-		
-		Nickname = new JTextField();
+		Nickname = new Textfield("default", "Nickname");
 		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Nickname.setBounds(38, 133, 292, 44);
+		Nickname.setBounds(38, 133, 292, 70);
 		contentPane.add(Nickname);
-		Nickname.setColumns(10);
 		
-		JLabel ImieNazwisko = new JLabel("Imie i Nazwisko");
-		ImieNazwisko.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		ImieNazwisko.setBounds(38, 188, 131, 21);
-		contentPane.add(ImieNazwisko);
-		
-		Imie_Nazwisko = new JTextField();
-		Imie_Nazwisko.setBounds(38, 225, 292, 44);
+		Imie_Nazwisko = new Textfield("default", "Fullname");
+		Imie_Nazwisko.setBounds(38, 225, 292, 70);
 		contentPane.add(Imie_Nazwisko);
-		Imie_Nazwisko.setColumns(10);
 		
-		JLabel e_mail = new JLabel("E-mail");
-		e_mail.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		e_mail.setBounds(38, 280, 131, 21);
-		contentPane.add(e_mail);
-		
-		mail = new JTextField();
-		mail.setBounds(38, 312, 292, 44);
+		mail = new Textfield("email", "E-mail");
+		mail.setBounds(38, 312, 292, 70);
 		contentPane.add(mail);
-		mail.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Has\u0142o");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel_1.setBounds(38, 367, 131, 21);
-		contentPane.add(lblNewLabel_1);
-		
-		password = new JPasswordField();
-		password.setBounds(38, 399, 292, 44);
+		password = new PasswordField("Hasło");
+		password.setBounds(38, 399, 292, 70);
 		contentPane.add(password);
-		
-		JLabel Powtorz_Haslo = new JLabel("Powt\u00F3rz has\u0142o");
-		Powtorz_Haslo.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Powtorz_Haslo.setBounds(38, 454, 131, 21);
-		contentPane.add(Powtorz_Haslo);
-		
-		repeat_password = new JPasswordField();
+		repeat_password = new PasswordField("Powtórz hasło");
 		repeat_password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-					int c = password.getText().length();
-					if (Nickname.getText().equals("") || Imie_Nazwisko.getText().equals("") || mail.getText().equals("") || password.getText().toString().equals("")){
+					int c = password.passwordfield.getText().length();
+					if (Nickname.textfield.getText().equals("") || Imie_Nazwisko.textfield.getText().equals("") || mail.textfield.getText().equals("") || password.passwordfield.getText().toString().equals("")){
 						JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 					     }
 					else if(c<6) {
 						JOptionPane.showMessageDialog(null, "Password is too short");
 					}
-					else if((password.getText().toString()).equals(Powtorz_Haslo.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
+					else if((password.passwordfield.getText().toString()).equals(repeat_password.passwordfield.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
 					
 					else{
 				
@@ -148,10 +126,10 @@ public class Register extends JFrame {
 						String sql="INSERT INTO users values(?,?,?,?,?)";
 					
 						PreparedStatement stmt = con.prepareStatement(sql);
-						stmt.setString(1, Nickname.getText());
-						stmt.setString(2, Imie_Nazwisko.getText());
-						stmt.setString(3, password.getText().toString());
-						stmt.setString(4, mail.getText());
+						stmt.setString(1, Nickname.textfield.getText());
+						stmt.setString(2, Imie_Nazwisko.textfield.getText());
+						stmt.setString(3, password.passwordfield.getText().toString());
+						stmt.setString(4, mail.textfield.getText());
 						stmt.setInt(5, 0);
 					
 					    int rs = stmt.executeUpdate();
@@ -177,7 +155,7 @@ public class Register extends JFrame {
 				}
 			}
 		});
-		repeat_password.setBounds(38, 486, 292, 44);
+		repeat_password.setBounds(38, 486, 292, 70);
 		contentPane.add(repeat_password);
 		if(editable1.equals(false)) {
 		JLabel lblNewLabel = new JLabel("Masz ju\u017C konto?");
@@ -201,18 +179,19 @@ public class Register extends JFrame {
 		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		contentPane.add(lblNewLabel_2);
 		}
-		JButton btnRg = new JButton("Register");
+		Button btnRg = new Button();
+		btnRg.setText("Register");
 		if(editable1.equals(true)) {btnRg.setText("Dodaj");}
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int c = password.getText().length();
-				if (Nickname.getText().equals("") || Imie_Nazwisko.getText().equals("") || mail.getText().equals("") || password.getText().toString().equals("")){
+				int c = password.passwordfield.getText().length();
+				if (Nickname.textfield.getText().equals("") || Imie_Nazwisko.textfield.getText().equals("") || mail.textfield.getText().equals("") || password.passwordfield.getText().toString().equals("")){
 					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
 				     }
 				else if(c<6) {
 					JOptionPane.showMessageDialog(null, "Password is too short.");
 				}
-				else if((password.getText().toString()).equals(Powtorz_Haslo.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
+				else if((password.passwordfield.getText().toString()).equals(repeat_password.passwordfield.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne");}
 				
 				else{
 			
@@ -222,10 +201,10 @@ public class Register extends JFrame {
 					String sql="INSERT INTO users values(?,?,?,?,?)";
 				
 					PreparedStatement stmt = con.prepareStatement(sql);
-					stmt.setString(1, Nickname.getText());
-					stmt.setString(2, Imie_Nazwisko.getText());
-					stmt.setString(3, password.getText().toString());
-					stmt.setString(4, mail.getText());
+					stmt.setString(1, Nickname.textfield.getText());
+					stmt.setString(2, Imie_Nazwisko.textfield.getText());
+					stmt.setString(3, password.passwordfield.getText().toString());
+					stmt.setString(4, mail.textfield.getText());
 					stmt.setInt(5, 0);
 				
 				    int rs = stmt.executeUpdate();
@@ -251,7 +230,7 @@ public class Register extends JFrame {
 				}	
 			}
 		});
-		btnRg.setBounds(223, 557, 89, 23);
+		btnRg.setBounds(238, 572, 106, 37);
 		contentPane.add(btnRg);
 		
 		JLabel DragBar = new JLabel("");//Przenoszenie ramki
@@ -272,5 +251,7 @@ public class Register extends JFrame {
 		DragBar.setBounds(0, 0, 327, 30);
 		contentPane.add(DragBar);
 		setUndecorated(true); //usuwa ramke
+		boolean isDark = true;
+		contentPane.setDarkTheme(this, isDark);
 	}
 }

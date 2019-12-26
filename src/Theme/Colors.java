@@ -20,6 +20,7 @@ public class Colors {
 	public static Color DTPanel = Color.decode("#34374C");
 	public static Color DTText = Color.decode("#FFFFFF");
 	public static Color DTActive = DTText;
+	public static Color DTisSelected = Color.decode("#3A3D54");
 	public static Color DTInactive = Color.decode("#4C506D");
 	
 	//LIGHT THEME

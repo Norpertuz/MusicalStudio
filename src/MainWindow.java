@@ -35,6 +35,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
@@ -42,13 +43,16 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import Components.Heading;
 import Components.Table;
+import Components.headerRenderer;
 import Theme.Colors;
 import java.sql.*;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
 
 public class MainWindow extends JFrame {
 
@@ -309,7 +313,7 @@ public class MainWindow extends JFrame {
 		admin_panel.setVisible(true);
 		}
 		listPanel = new JPanel();
-		listPanel.setBackground(Color.BLACK);
+		listPanel.setBackground(Colors.DTPanel);
 		listPanel.setBounds(90, 120, 608, 660);
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
@@ -317,12 +321,17 @@ public class MainWindow extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setOpaque(false);
+		scrollPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		scrollPane.setBounds(10, 100, 576, 549);
 		scrollPane.getViewport().setOpaque(false);
-		scrollPane.setViewportBorder(null);
-		scrollPane.setBorder(null);
+		scrollPane.setViewportBorder(new EmptyBorder(0, 0, 0, 0));
+		scrollPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		//scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
 		listPanel.add(scrollPane);
-		
+		listPanel.setBorder(null);
+		scrollPane.setBorder(null);
+		scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
 		table = new Table();
 		table.setFocusTraversalKeysEnabled(false);
 		table.setBorder(null);
@@ -330,11 +339,10 @@ public class MainWindow extends JFrame {
 		table.setShowVerticalLines(false);
 		table.setShowGrid(false);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 	   // table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		table.getTableHeader().setReorderingAllowed(false);
+		//table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setEnabled(true);
 		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
@@ -344,7 +352,8 @@ public class MainWindow extends JFrame {
 		model.setColumnIdentifiers(ListTop);
 		scrollPane.setViewportView(table);
 		
-		
+		table.getTableHeader().setOpaque(false);
+		table.getTableHeader().setForeground(Color.RED);
 		
 		//srodkowanie kolumn:
 //				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -481,8 +490,6 @@ public class MainWindow extends JFrame {
 		searchBar.setText("Search");
 		searchPanel.add(searchBar);
 		searchBar.setColumns(10);
-		
-		
 		
 	}
 }

@@ -502,7 +502,8 @@ public class MainWindow extends JFrame {
 	
 		
 		
-		TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(table.getModel()); table.setRowSorter(rowSorter);
+		TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(table.getModel()); 
+		table.setRowSorter(rowSorter);
 		searchBar.getDocument().addDocumentListener(new DocumentListener() {
 
 			@Override
@@ -511,7 +512,7 @@ public class MainWindow extends JFrame {
 				if(findText.trim().length() == 0) {
 					rowSorter.setRowFilter(null);
 				} else {
-					rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + findText));
+					rowSorter.setRowFilter(RowFilter.regexFilter(findText,0,1));
 				}
 			}
 
@@ -521,7 +522,7 @@ public class MainWindow extends JFrame {
 				if(findText.trim().length() == 0) {
 					rowSorter.setRowFilter(null);
 				} else {
-					rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + findText));
+					rowSorter.setRowFilter(RowFilter.regexFilter(findText,0,1));
 				}
 			}
 

@@ -5,8 +5,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
+import javax.swing.RowFilter;
+import javax.swing.event.*;
 import java.awt.Color;
+
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
@@ -44,6 +51,8 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import Components.Heading;
 import Components.Table;
@@ -488,9 +497,40 @@ public class MainWindow extends JFrame {
 		searchBar.setForeground(Color.LIGHT_GRAY);
 		searchBar.setCaretColor(Color.BLUE);
 		searchBar.setBounds(0, 0, 280, 46);
-		searchBar.setText("Search");
 		searchPanel.add(searchBar);
 		searchBar.setColumns(10);
+	
+		
+		
+		TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(table.getModel()); table.setRowSorter(rowSorter);
+		searchBar.getDocument().addDocumentListener(new DocumentListener() {
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				String findText = searchBar.getText();
+				if(findText.trim().length() == 0) {
+					rowSorter.setRowFilter(null);
+				} else {
+					rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + findText));
+				}
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				String findText = searchBar.getText();
+				if(findText.trim().length() == 0) {
+					rowSorter.setRowFilter(null);
+				} else {
+					rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + findText));
+				}
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				throw new UnsupportedOperationException("Lorem ipsum");
+			}
+			
+		});
 		
 	}
 }

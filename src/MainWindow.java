@@ -511,18 +511,20 @@ public class MainWindow extends JFrame {
 	    });
 		
 		JPanel searchPanel = new JPanel();
-		searchPanel.setBackground(Color.WHITE);
+		searchPanel.setBackground(Colors.DTPanel);
 		searchPanel.setBounds(710, 120, 280, 46);
 		getContentPane().add(searchPanel);
 		searchPanel.setLayout(null);
 		
 		searchBar = new JTextField();
+		searchBar.setBackground(Colors.DTPanel);
 		searchBar.setBorder(null);
-		searchBar.setForeground(Color.LIGHT_GRAY);
-		searchBar.setCaretColor(Color.BLUE);
+		searchBar.setForeground(Colors.DTText);
+		searchBar.setCaretColor(Colors.DTPurple);
 		searchBar.setBounds(0, 0, 280, 46);
 		searchPanel.add(searchBar);
 		searchBar.setColumns(10);
+		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 	
 		
 		

@@ -290,7 +290,7 @@ public class Add_edit extends JFrame {
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
 					String sql="";
-				
+				    
 					
 					
 				
@@ -304,7 +304,7 @@ public class Add_edit extends JFrame {
 					if(!Title_textfield.textfield.getText().equals("")) {
 						sql="update utowory set Nazwa_utworu='"+Title_textfield.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);	
-				
+				        song_name1=Title_textfield.textfield.getText();
 						JOptionPane.showMessageDialog(null,"Zedytowano Nazwa_utworu" );
 					
 						

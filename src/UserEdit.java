@@ -296,14 +296,14 @@ public class UserEdit extends JFrame {
 					
 				
 					if(!label_TextField_0.textfield.getText().equals("")) {
-					sql="update users set nickname='"+label_TextField_0.textfield.getText()+"' WHERE fullname='"+user1+"'";
+					sql="update users set nickname='"+label_TextField_0.textfield.getText()+"' WHERE fullname='"+fullname11+"'";
 					stmt.executeUpdate(sql);
 					//TimeUnit.SECONDS.sleep(3);
 					JOptionPane.showMessageDialog(null,"Zedytowano nickname" );
 				
 					}
 					if(!label_TextField.textfield.getText().equals("")) {
-						sql="update users set fullname='"+label_TextField.textfield.getText()+"' WHERE fullname='"+user1+"'";
+						sql="update users set fullname='"+label_TextField.textfield.getText()+"' WHERE fullname='"+fullname11+"'";
 						stmt.executeUpdate(sql);	
 						//TimeUnit.SECONDS.sleep(3);
 						fullname11 = label_TextField.textfield.getText();
@@ -312,14 +312,14 @@ public class UserEdit extends JFrame {
 						
 					}
 					if(!label_TextField_1.passwordfield.getText().equals("")) {
-						sql="update users set password='"+label_TextField_1.passwordfield.getText()+"' WHERE fullname='"+user1+"'";
+						sql="update users set password='"+label_TextField_1.passwordfield.getText()+"' WHERE fullname='"+fullname11+"'";
 						stmt.executeUpdate(sql);	
 						//TimeUnit.SECONDS.sleep(3);
 						JOptionPane.showMessageDialog(null,"Zedytowano password" );
 					}
 					if(!label_TextField_2.textfield.getText().equals("")) {
 					
-						String sql2="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+user1+"'";
+						String sql2="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+fullname11+"'";
 						stmt2.executeUpdate(sql2);
 						//TimeUnit.SECONDS.sleep(3);
 						JOptionPane.showMessageDialog(null,"Zedytowano mail" );

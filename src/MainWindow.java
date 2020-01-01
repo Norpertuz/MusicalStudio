@@ -31,6 +31,8 @@ import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
@@ -45,6 +47,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.Icon;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -525,11 +528,11 @@ public class MainWindow extends JFrame {
 		searchBar.setBackground(Colors.DTPanel);
 		searchBar.setBorder(null);
 		searchBar.setForeground(Colors.DTText);
-		searchBar.setCaretColor(Colors.DTPurple);
+		searchBar.setCaretColor(Colors.DTPurple);		
 		searchBar.setColumns(10);
+		
 		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 		searchBar.getDocument().addDocumentListener(new DocumentListener() {
-
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				String findText = searchBar.getText();
@@ -537,9 +540,7 @@ public class MainWindow extends JFrame {
 					rowSorter.setRowFilter(null);
 				} else {
 					rowSorter.setRowFilter(RowFilter.regexFilter(findText,0,1));
-				}
-			}
-
+				}}
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				String findText = searchBar.getText();
@@ -547,15 +548,22 @@ public class MainWindow extends JFrame {
 					rowSorter.setRowFilter(null);
 				} else {
 					rowSorter.setRowFilter(RowFilter.regexFilter(findText,0,1));
-				}
-			}
-
+				}}
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				throw new UnsupportedOperationException("Lorem ipsum");
+			}});
+		searchBar.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				e.getComponent().setForeground(Colors.DTText);
 			}
-			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				e.getComponent().setForeground(Colors.DTPlaceholder);
+			}
 		});
-		
 	}
 }

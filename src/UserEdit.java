@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -180,7 +181,7 @@ public class UserEdit extends JFrame {
 		label_TextField_0.setBounds(28, 240, 350, 82);
 		getContentPane().add(label_TextField_0);
 		
-		String fullname = "Imię i nazwisko";
+		String fullname = "Imie i nazwisko";
 		Textfield label_TextField = new Textfield("default", fullname);
 		GridBagLayout gridBagLayout = (GridBagLayout) label_TextField.getLayout();
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0};
@@ -288,6 +289,7 @@ public class UserEdit extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
 					Statement stmt=con.createStatement();
+					Statement stmt2=con.createStatement();
 					String sql="";
 				
 					
@@ -296,14 +298,14 @@ public class UserEdit extends JFrame {
 					if(!label_TextField_0.textfield.getText().equals("")) {
 					sql="update users set nickname='"+label_TextField_0.textfield.getText()+"' WHERE fullname='"+user1+"'";
 					stmt.executeUpdate(sql);
-					stmt.close();
+					//TimeUnit.SECONDS.sleep(3);
 					JOptionPane.showMessageDialog(null,"Zedytowano nickname" );
 				
 					}
 					if(!label_TextField.textfield.getText().equals("")) {
 						sql="update users set fullname='"+label_TextField.textfield.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
-						stmt.close();
+						//TimeUnit.SECONDS.sleep(3);
 						fullname11 = label_TextField.textfield.getText();
 						JOptionPane.showMessageDialog(null,"Zedytowano fullname" );
 					
@@ -312,19 +314,20 @@ public class UserEdit extends JFrame {
 					if(!label_TextField_1.passwordfield.getText().equals("")) {
 						sql="update users set password='"+label_TextField_1.passwordfield.getText()+"' WHERE fullname='"+user1+"'";
 						stmt.executeUpdate(sql);	
-						stmt.close();
+						//TimeUnit.SECONDS.sleep(3);
 						JOptionPane.showMessageDialog(null,"Zedytowano password" );
 					}
 					if(!label_TextField_2.textfield.getText().equals("")) {
 					
-						sql="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+user1+"'";
-						stmt.executeUpdate(sql);
-						stmt.close();
+						String sql2="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+user1+"'";
+						stmt2.executeUpdate(sql2);
+						//TimeUnit.SECONDS.sleep(3);
 						JOptionPane.showMessageDialog(null,"Zedytowano mail" );
 						}
 					
-					con.close();
-					
+					//con.close();
+					stmt.close();
+					stmt2.close();
 					//MainWindow nw = new MainWindow();
 					//nw.dispose(); //nw jest konieczne by dzialac na innym jframie z poziomu innego jframe
 					//nw.setVisible(false);

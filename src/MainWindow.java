@@ -303,14 +303,38 @@ public class MainWindow extends JFrame {
 		});
 		
 		
-		JLabel admin_panel = new JLabel("new label");
+		
+		JLabel albumedit = new JLabel("edycja");
+		albumedit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
+		albumedit.setBounds(120, 60, 170, 30);
+		albumedit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		albumedit.setVisible(false);
+		topPanel.add(albumedit);
+		if(GlobalVariables.is_admin1==1) {
+			albumedit.setText("Edytuj/Usun Utwor");
+			albumedit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				
+			
+				if(table.getSelectedRow() != -1) {Add_edit.edit_song(table.getValueAt(table.getSelectedRow(), 0).toString(),GlobalVariables.is_admin1);}
+				else {JOptionPane.showMessageDialog(null, "Nie wybrano Utworu");}
+				
+			}
+		});
+
+			albumedit.setVisible(true);
+		}
+		
+		
+		JLabel admin_panel = new JLabel("dodawnie");
 		admin_panel.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
 		admin_panel.setBounds(300, 60, 170, 30);
 		admin_panel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		admin_panel.setVisible(false);
 		topPanel.add(admin_panel);
 		if(GlobalVariables.is_admin1==1) {
-		admin_panel.setText("Panel administratora");
+		admin_panel.setText("Dodaj Utwor");
 		admin_panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {

@@ -146,7 +146,7 @@ public class MainWindow extends JFrame {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(1000, 780);
+		setSize(1000, 787);
 		contentPane = new JPanel();
 		contentPane.setBackground(Colors.DTBackground);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -173,7 +173,7 @@ public class MainWindow extends JFrame {
 		
 		JPanel navigationPanel = new JPanel();
 		navigationPanel.setBackground(Colors.DTPurple);
-		navigationPanel.setBounds(0, 0, 80, 780);
+		navigationPanel.setBounds(0, 0, 80, 810);
 		getContentPane().add(navigationPanel);
 		navigationPanel.setLayout(null);
 		
@@ -209,7 +209,7 @@ public class MainWindow extends JFrame {
 		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Settings.setHorizontalAlignment(SwingConstants.CENTER);
 		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));
-		Settings.setBounds(0, 580, 80, 55);
+		Settings.setBounds(0, 601, 80, 55);
 		navigationPanel.add(Settings);
 		
 		JLabel LogOut = new JLabel("");
@@ -231,11 +231,11 @@ public class MainWindow extends JFrame {
 		LogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		LogOut.setHorizontalAlignment(SwingConstants.CENTER);
 		LogOut.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/exit.png")));
-		LogOut.setBounds(0, 640, 80, 55);
+		LogOut.setBounds(0, 661, 80, 55);
 		navigationPanel.add(LogOut);
 		
 		JLabel close = new JLabel("");
-		close.setBounds(0, 700, 80, 55);
+		close.setBounds(0, 721, 80, 55);
 		navigationPanel.add(close);
 		close.addMouseListener(new MouseAdapter() {
 			@Override
@@ -248,15 +248,15 @@ public class MainWindow extends JFrame {
 		close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JPanel topPanel = new JPanel();
-		topPanel.setBackground(Color.GRAY);
-		topPanel.setBounds(80, 0, 920, 110);
+		topPanel.setBackground(Colors.DTPanel);
+		topPanel.setBounds(80, 0, 920, 90);
 		contentPane.add(topPanel);
 	
 		topPanel.setLayout(null);
 		
 		JLabel textArea = new JLabel();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		textArea.setBounds(651, 58, 191, 23);
+		textArea.setBounds(706, 32, 191, 23);
 		topPanel.add(textArea);
 		textArea.setText(GlobalVariables.fullname1);
 		textArea.addMouseListener(new MouseAdapter() {
@@ -273,7 +273,7 @@ public class MainWindow extends JFrame {
 			
 		});
 		textArea.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
+		textArea.setForeground(Colors.DTText);
 		JLabel czy_admin = new JLabel("New label");
 		if(GlobalVariables.is_admin1==1) {
 			czy_admin.setText("Administrator");
@@ -283,17 +283,14 @@ public class MainWindow extends JFrame {
 			czy_admin.setForeground(Color.BLUE);
 		}
 		
-		czy_admin.setBounds(651, 85, 123, 14);
+		czy_admin.setBounds(706, 56, 123, 14);
 		topPanel.add(czy_admin);
 		
-		JLabel nazwa_studia = new JLabel("");
-		nazwa_studia.setBounds(0, 22, 123, 48);
-		topPanel.add(nazwa_studia);
-		
 		JLabel user_list = new JLabel("Lista Uzytkownikow");
+		user_list.setForeground(Colors.DTText);
 		user_list.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/osoby.png")));
 		user_list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		user_list.setBounds(470, 60, 150, 30);
+		user_list.setBounds(276, 32, 150, 30);
 		topPanel.add(user_list);
 		user_list.addMouseListener(new MouseAdapter() {
 			@Override
@@ -305,8 +302,9 @@ public class MainWindow extends JFrame {
 		
 		
 		JLabel albumedit = new JLabel("edycja");
+		albumedit.setForeground(Colors.DTText);
 		albumedit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
-		albumedit.setBounds(120, 60, 170, 30);
+		albumedit.setBounds(160, 32, 104, 30);
 		albumedit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		albumedit.setVisible(false);
 		topPanel.add(albumedit);
@@ -328,8 +326,9 @@ public class MainWindow extends JFrame {
 		
 		
 		JLabel admin_panel = new JLabel("dodawnie");
+		admin_panel.setForeground(Colors.DTText);
 		admin_panel.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
-		admin_panel.setBounds(300, 60, 170, 30);
+		admin_panel.setBounds(31, 32, 123, 30);
 		admin_panel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		admin_panel.setVisible(false);
 		topPanel.add(admin_panel);
@@ -347,7 +346,7 @@ public class MainWindow extends JFrame {
 		}
 		listPanel = new JPanel();
 		listPanel.setBackground(Colors.DTPanel);
-		listPanel.setBounds(90, 120, 608, 660);
+		listPanel.setBounds(92, 102, 608, 673);
 		getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		listPanel.setBorder(null);
@@ -355,7 +354,7 @@ public class MainWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setOpaque(false);
 		scrollPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		scrollPane.setBounds(10, 100, 576, 549);
+		scrollPane.setBounds(10, 100, 576, 567);
 		scrollPane.getViewport().setOpaque(false);
 		scrollPane.setViewportBorder(new EmptyBorder(0, 0, 0, 0));
 		scrollPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -423,69 +422,74 @@ public class MainWindow extends JFrame {
 		listPanel.add(panelH);
 		
 		JPanel infoPanel = new JPanel();
-		infoPanel.setBackground(Color.BLACK);
-		infoPanel.setBounds(710, 165, 280, 615);
+		infoPanel.setBackground(Colors.DTPanel);
+		infoPanel.setBounds(712, 160, 280, 615);
 		getContentPane().add(infoPanel);
 		infoPanel.setLayout(null);
 		
-		JLabel albumImage = new JLabel("avatar");
+		JLabel albumImage = new JLabel("");
 		albumImage.setOpaque(true);
-		albumImage.setBackground(Color.ORANGE);
+		albumImage.setBackground(Colors.DTPanel);
 		albumImage.setBounds(15, 100, 250, 250);
 		infoPanel.add(albumImage);
 		
 		JLabel albumTitle = new JLabel("BELLA CIAO");
+		albumTitle.setForeground(Colors.DTText);
 		albumTitle.setBounds(15, 365, 250, 16);
 		//albumTitle.setText((String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()));
 		infoPanel.add(albumTitle);
 		
 		JLabel albumAuthor = new JLabel("Sergio y Andres");
-		albumAuthor.setForeground(Color.BLUE);
+		albumAuthor.setForeground(Colors.DTPurple);
 		albumAuthor.setBounds(15, 385, 250, 16);
 		infoPanel.add(albumAuthor);
 		
 		JLabel albumAlbum = new JLabel("Album:");
-		albumAlbum.setBounds(15, 425, 50, 16);
+		albumAlbum.setForeground(Colors.DTPurple);
+		albumAlbum.setBounds(15, 433, 50, 16);
 		infoPanel.add(albumAlbum);
 		
 	
 		JLabel albumMusicGenre = new JLabel("Music genre:");
-		albumMusicGenre.setBounds(15, 465, 84, 16);
+		albumMusicGenre.setForeground(Colors.DTPurple);
+		albumMusicGenre.setBounds(15, 453, 84, 16);
 		infoPanel.add(albumMusicGenre);
 		
 		JLabel albumReleaseDate = new JLabel("Release date:");
-		albumReleaseDate.setBounds(15, 485, 84, 16);
+		albumReleaseDate.setForeground(Colors.DTPurple);
+		albumReleaseDate.setBounds(15, 473, 84, 16);
 		infoPanel.add(albumReleaseDate);
 		
 		JLabel albumDescription = new JLabel("Description:");
-		albumDescription.setBounds(15, 505, 84, 16);
+		albumDescription.setForeground(Colors.DTPurple);
+		albumDescription.setBounds(15, 493, 84, 16);
 		infoPanel.add(albumDescription);
 		
 		JLabel dataAlbum = new JLabel("La Casa de Papel - Soundtrack");
-		dataAlbum.setForeground(Color.LIGHT_GRAY);
-		dataAlbum.setBounds(68, 425, 198, 16);
+		dataAlbum.setForeground(Colors.DTText);
+		dataAlbum.setBounds(68, 433, 198, 16);
 		infoPanel.add(dataAlbum);
 		
 		
 		JLabel dataMusicGenre = new JLabel("Pop");
-		dataMusicGenre.setForeground(Color.LIGHT_GRAY);
-		dataMusicGenre.setBounds(102, 465, 164, 16);
+		dataMusicGenre.setForeground(Colors.DTText);
+		dataMusicGenre.setBounds(102, 453, 164, 16);
 		infoPanel.add(dataMusicGenre);
 		
 		JLabel dataReleaseDate = new JLabel("01 January 2018");
-		dataReleaseDate.setForeground(Color.LIGHT_GRAY);
-		dataReleaseDate.setBounds(102, 485, 164, 16);
+		dataReleaseDate.setForeground(Colors.DTText);
+		dataReleaseDate.setBounds(102, 473, 164, 16);
 		infoPanel.add(dataReleaseDate);
 		
 		JTextArea dataDescription = new JTextArea();
-		dataDescription.setForeground(Color.LIGHT_GRAY);
+		dataDescription.setForeground(Colors.DTText);
 		dataDescription.setWrapStyleWord(true);
 		dataDescription.setLineWrap(true);
 		dataDescription.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ...");
 		dataDescription.setEditable(false);
-		dataDescription.setBounds(15, 525, 250, 69);
+		dataDescription.setBounds(15, 513, 250, 69);
 		infoPanel.add(dataDescription);
-		
+		dataDescription.setOpaque(false);
 		Heading panelh2 = new Heading("Something", Colors.DTPurple);
 		panelh2.setBounds(32, 43, 145, 38);
 		infoPanel.add(panelh2);
@@ -509,27 +513,21 @@ public class MainWindow extends JFrame {
 	            }
 	        }
 	    });
-		
-		JPanel searchPanel = new JPanel();
-		searchPanel.setBackground(Colors.DTPanel);
-		searchPanel.setBounds(710, 120, 280, 46);
-		getContentPane().add(searchPanel);
-		searchPanel.setLayout(null);
-		
-		searchBar = new JTextField();
-		searchBar.setBackground(Colors.DTPanel);
-		searchBar.setBorder(null);
-		searchBar.setForeground(Colors.DTText);
-		searchBar.setCaretColor(Colors.DTPurple);
-		searchBar.setBounds(0, 0, 280, 46);
-		searchPanel.add(searchBar);
-		searchBar.setColumns(10);
-		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 	
 		
 		
 		TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(table.getModel()); 
 		table.setRowSorter(rowSorter);
+		
+		searchBar = new JTextField();
+		searchBar.setBounds(712, 102, 280, 46);
+		contentPane.add(searchBar);
+		searchBar.setBackground(Colors.DTPanel);
+		searchBar.setBorder(null);
+		searchBar.setForeground(Colors.DTText);
+		searchBar.setCaretColor(Colors.DTPurple);
+		searchBar.setColumns(10);
+		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 		searchBar.getDocument().addDocumentListener(new DocumentListener() {
 
 			@Override

@@ -374,6 +374,7 @@ public class MainWindow extends JFrame {
 		table.setShowVerticalLines(false);
 		table.setShowGrid(false);
 		table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setResizingAllowed(false);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);

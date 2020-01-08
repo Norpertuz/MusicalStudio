@@ -30,6 +30,7 @@ import java.awt.Dimension;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Graphics2D;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -45,6 +46,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.FocusManager;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.Icon;
@@ -58,6 +60,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import Components.Heading;
+import Components.SearchField;
 import Components.Table;
 import Components.headerRenderer;
 import Theme.Colors;
@@ -70,13 +73,9 @@ public class MainWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel listPanel;
-	private JTextField searchBar;
+	private SearchField searchBar;
 	int posX=0,posY=0;
 	private Table table;
-
-	/**
-	 * Launch the application.
-	 */
 	
 	// get a list of albums from mysql database
 	
@@ -523,7 +522,7 @@ public class MainWindow extends JFrame {
 		TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(table.getModel()); 
 		table.setRowSorter(rowSorter);
 		
-		searchBar = new JTextField();
+		searchBar = new SearchField();
 		searchBar.setBounds(712, 102, 280, 46);
 		contentPane.add(searchBar);
 		searchBar.setBackground(Colors.DTPanel);
@@ -531,6 +530,7 @@ public class MainWindow extends JFrame {
 		searchBar.setForeground(Colors.DTText);
 		searchBar.setCaretColor(Colors.DTPurple);		
 		searchBar.setColumns(10);
+		searchBar.setForeground(Colors.DTPlaceholder);
 		
 		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 		searchBar.getDocument().addDocumentListener(new DocumentListener() {

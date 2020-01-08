@@ -18,6 +18,7 @@ public class Table extends JTable{
 		this.setBackground(Colors.DTPanel); //temp
 		this.setOpaque(false);
 		this.setSelectionBackground(Colors.DTisSelected);
+		this.setSelectionForeground(Color.WHITE);
 		this.setShowGrid(false);
 		this.setForeground(Color.WHITE);
 		this.rowHeight = 65;

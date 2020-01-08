@@ -62,13 +62,27 @@ public class PasswordField extends JPanel {
 		}
 	}
 	
-	public void handleValidation(String text) {
-		if (passwordfield.getPassword().length < 3 && passwordfield.getPassword().length > 0) {
+	public void isEmpty(String text) {
+		if (passwordfield.getPassword().length == 0) {
 			setPasswordField(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
-			label.setText("Password is too short");
+			label.setText(text + " is empty");
+		}
+	}
+	
+	public void handleValidation(String text) {
+		if (passwordfield.getPassword().length == 0) {
+			setPasswordField(ERR, Colors.ERR);
+			label.setForeground(Colors.ERR);
+			label.setText(text + " is empty");
 		} else {
-			label.setText(text);
+			if (passwordfield.getPassword().length < 3 && passwordfield.getPassword().length > 0) {
+				setPasswordField(ERR, Colors.ERR);
+				label.setForeground(Colors.ERR);
+				label.setText("Password is too short");
+			} else {
+				label.setText(text);
+			}
 		}
 	}
 	

@@ -77,19 +77,24 @@ public class Login extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
-					 try {
-							Class.forName("com.mysql.jdbc.Driver");
-							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
-							Statement stmt=con.createStatement();
-							String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
-							ResultSet rs=stmt.executeQuery(sql);
-							if(rs.next()) {
-								dispose();
-								String fullnameX = rs.getString("fullname");
-								int is_admin = rs.getInt("isAdmin");
-								MainWindow.main1(fullnameX,is_admin);
-						} else con.close();
-						} catch(Exception er){System.out.print(er);}
+						if (Username.getText().equals("")) {
+							Username.isEmpty(UsernameLabel);
+							MyPassword.isEmpty(MyPasswordLabel);
+						} else {
+							try {
+								Class.forName("com.mysql.jdbc.Driver");
+								Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+								Statement stmt=con.createStatement();
+								String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+								ResultSet rs=stmt.executeQuery(sql);
+								if(rs.next()) {
+									dispose();
+									String fullnameX = rs.getString("fullname");
+									int is_admin = rs.getInt("isAdmin");
+									MainWindow.main1(fullnameX,is_admin);
+							} else con.close();
+							} catch(Exception ex){System.out.print(ex);}	
+						}
 		            }
 			} 
 		}); isPressed = true;
@@ -102,19 +107,24 @@ public class Login extends JFrame {
 		SignIn.setText(SignInLabel);
 		SignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
-					Statement stmt=con.createStatement();
-					String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
-					ResultSet rs=stmt.executeQuery(sql);
-					if(rs.next()) {
-						dispose();
-						String fullnameX = rs.getString("fullname");
-						int is_admin = rs.getInt("isAdmin");
-						MainWindow.main1(fullnameX,is_admin);
-				} else con.close();
-				} catch(Exception e){System.out.print(e);}	
+				if (Username.getText().equals("")) {
+					Username.isEmpty(UsernameLabel);
+					MyPassword.isEmpty(MyPasswordLabel);
+				} else {
+					try {
+						Class.forName("com.mysql.jdbc.Driver");
+						Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+						Statement stmt=con.createStatement();
+						String sql="Select * from users WHERE nickname='"+Username.textfield.getText()+"' and password='"+MyPassword.passwordfield.getText().toString()+"'";
+						ResultSet rs=stmt.executeQuery(sql);
+						if(rs.next()) {
+							dispose();
+							String fullnameX = rs.getString("fullname");
+							int is_admin = rs.getInt("isAdmin");
+							MainWindow.main1(fullnameX,is_admin);
+					} else con.close();
+					} catch(Exception e){System.out.print(e);}	
+				}
 			}
 		});
 		

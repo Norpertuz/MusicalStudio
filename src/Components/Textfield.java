@@ -59,23 +59,41 @@ public class Textfield extends JPanel {
 		}
 	}
 	
+	public void isEmpty(String text) {
+		if (textfield.getText().equals("")) {
+			setTextfield(ERR, Colors.ERR);
+			label.setForeground(Colors.ERR);
+			label.setText(text + " is empty");
+		}
+	}
+	
+	public String getText() {
+		return textfield.getText();
+	}
+	
 	public void handleValidation(String type, String text) {
-		if (type == "default") {
-			if (textfield.getText().length() < 3 && textfield.getText().length() > 0) {
-				setTextfield(ERR, Colors.ERR);
-				label.setForeground(Colors.ERR);
-				label.setText(text + " is too short");
-			} else {
-				label.setText(text);
-			}
-		} else if (type == "email") {
-			String email = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-			if(textfield.getText().matches(email) != true && textfield.getText().length() > 0) {
-				setTextfield(ERR, Colors.ERR);
-				label.setForeground(Colors.ERR);
-				label.setText(text + " is invalid");
-			} else {
-				label.setText(text);
+		if (textfield.getText().equals("")) {
+			setTextfield(ERR, Colors.ERR);
+			label.setForeground(Colors.ERR);
+			label.setText(text + " is empty");
+		} else {
+			if (type == "default") {
+				if (textfield.getText().length() < 3 && textfield.getText().length() > 0) {
+					setTextfield(ERR, Colors.ERR);
+					label.setForeground(Colors.ERR);
+					label.setText(text + " is too short");
+				} else {
+					label.setText(text);
+				}
+			} else if (type == "email") {
+				String email = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+				if(textfield.getText().matches(email) != true && textfield.getText().length() > 0) {
+					setTextfield(ERR, Colors.ERR);
+					label.setForeground(Colors.ERR);
+					label.setText(text + " is invalid");
+				} else {
+					label.setText(text);
+				}
 			}
 		}
 	}

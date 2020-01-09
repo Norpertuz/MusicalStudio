@@ -356,7 +356,7 @@ public class MainWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setOpaque(false);
 		scrollPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		scrollPane.setBounds(10, 100, 576, 567);
+		scrollPane.setBounds(10, 88, 576, 579);
 		scrollPane.getViewport().setOpaque(false);
 		scrollPane.setViewportBorder(new EmptyBorder(0, 0, 0, 0));
 		scrollPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -568,5 +568,13 @@ public class MainWindow extends JFrame {
 				e.getComponent().setForeground(Colors.DTPlaceholder);
 			}
 		});
+		
+		// jtable - header
+		table.getTableHeader().setBackground(Colors.DTPanel);
+		table.getTableHeader().setFont(new Font("sans-serif", Font.PLAIN, 10));
+		table.getTableHeader().setForeground(Colors.DTPlaceholder);
+		table.getTableHeader().setEnabled(false);
+		UIManager.getDefaults().put("TableHeader.cellBorder" , BorderFactory.createEmptyBorder(0,0,0,0));
+		table.getTableHeader().setPreferredSize(new Dimension(25, 25));	
 	}
 }

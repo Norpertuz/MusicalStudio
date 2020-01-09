@@ -19,6 +19,7 @@ public class CellRenderer extends DefaultTableCellRenderer {
 //    	if(hasFocus) {
 //    		setBorder(ERR);
 //    	}
+        setBorder(BorderFactory.createCompoundBorder(this.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
         return this;
 	}
     

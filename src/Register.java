@@ -157,12 +157,14 @@ public class Register extends JFrame {
 		});
 		repeat_password.setBounds(38, 486, 292, 70);
 		contentPane.add(repeat_password);
-		if(editable1.equals(false)) {
+		
 		JLabel lblNewLabel = new JLabel("Masz ju\u017C konto?");
 		lblNewLabel.setBounds(38, 591, 110, 28);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("Zaloguj si\u0119!");
+		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblNewLabel_2.setBounds(158, 591, 91, 28);
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -175,9 +177,13 @@ public class Register extends JFrame {
 			}
 		});
 		
-		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblNewLabel_2.setBounds(158, 591, 91, 28);
+		
 		contentPane.add(lblNewLabel_2);
+		
+		
+		if(editable1.equals(true)  ) {
+			lblNewLabel.setVisible(false);
+			lblNewLabel_2.setVisible(false);
 		}
 		Button btnRg = new Button();
 		btnRg.setText("Register");

@@ -532,6 +532,8 @@ public class MainWindow extends JFrame {
 		searchBar.setColumns(10);
 		searchBar.setForeground(Colors.DTPlaceholder);
 		
+		
+		scrollPane.setBorder(BorderFactory.createEmptyBorder()); // blue border
 		searchBar.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 		searchBar.getDocument().addDocumentListener(new DocumentListener() {
 			@Override

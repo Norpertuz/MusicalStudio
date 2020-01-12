@@ -223,7 +223,7 @@ public class Add_edit extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("Aktualna nazwa albumu:");
-		lblNewLabel.setBounds(10, 145, 128, 14);
+		lblNewLabel.setBounds(10, 145, 142, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblAktualnyTytulUtworu = new JLabel("Aktualny tytul utworu:");
@@ -244,7 +244,7 @@ public class Add_edit extends JFrame {
 		
 		JLabel lalbum_name = new JLabel("New label");
 		lalbum_name.setText(album_name11);
-		lalbum_name.setBounds(148, 145, 110, 14);
+		lalbum_name.setBounds(162, 145, 110, 14);
 		contentPane.add(lalbum_name);
 		
 		JLabel lsong_name = new JLabel("New label");

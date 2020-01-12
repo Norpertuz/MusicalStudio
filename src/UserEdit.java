@@ -96,7 +96,7 @@ public class UserEdit extends JFrame {
 	 */
 	public UserEdit() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 771);
+		setBounds(100, 100, 400, 621);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -122,7 +122,7 @@ public class UserEdit extends JFrame {
 			}
 		});
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		DragBar.setBounds(0, 0, 405, 30);
+		DragBar.setBounds(0, 0, 350, 30);
 		getContentPane().add(DragBar);
 		
 		
@@ -136,7 +136,7 @@ public class UserEdit extends JFrame {
 		close.setHorizontalAlignment(SwingConstants.CENTER);
 		close.setIcon(new ImageIcon(UserEdit.class.getResource("/assets/closeIcon.png")));
 		close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		close.setBounds(405, 0, 46, 30);
+		close.setBounds(360, 0, 46, 30);
 		getContentPane().add(close);
 		
 		
@@ -144,27 +144,6 @@ public class UserEdit extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(28, 39, 137, 20);
 		getContentPane().add(lblNewLabel);
-		
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setOpaque(true);
-		lblNewLabel_1.setBackground(Color.RED);
-		lblNewLabel_1.setBounds(28, 96, 137, 114);
-		getContentPane().add(lblNewLabel_1);
-		
-		Button btnNewButton = new Button();
-		btnNewButton.setText("Zmien obraz");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewButton.setBounds(225, 96, 153, 46);
-		getContentPane().add(btnNewButton);
-		
-		Button btnNewButton_1 = new Button();
-		btnNewButton_1.setText("Usun obraz");
-		btnNewButton_1.setBounds(225, 164, 153, 46);
-		getContentPane().add(btnNewButton_1);
 		
 		/*
 		textField = new Label_TextField("Nickname","default");
@@ -178,7 +157,7 @@ public class UserEdit extends JFrame {
 		gridBagLayout_0.rowHeights = new int[]{0, 0};
 		gridBagLayout_0.columnWeights = new double[]{0.0};
 		gridBagLayout_0.columnWidths = new int[]{0};
-		label_TextField_0.setBounds(28, 240, 350, 82);
+		label_TextField_0.setBounds(28, 70, 350, 82);
 		getContentPane().add(label_TextField_0);
 		
 		String fullname = "Imie i nazwisko";
@@ -188,7 +167,7 @@ public class UserEdit extends JFrame {
 		gridBagLayout.rowHeights = new int[]{0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0};
 		gridBagLayout.columnWidths = new int[]{0};
-		label_TextField.setBounds(28, 350, 350, 82);
+		label_TextField.setBounds(28, 188, 350, 82);
 		getContentPane().add(label_TextField);
 		
 		String password = "Password";
@@ -198,7 +177,7 @@ public class UserEdit extends JFrame {
 		gridBagLayout_1.rowHeights = new int[]{0, 0};
 		gridBagLayout_1.columnWeights = new double[]{0.0};
 		gridBagLayout_1.columnWidths = new int[]{0};
-		label_TextField_1.setBounds(28, 452, 350, 82);
+		label_TextField_1.setBounds(28, 311, 350, 82);
 		getContentPane().add(label_TextField_1);
 		
 		String email = "Email";
@@ -208,23 +187,23 @@ public class UserEdit extends JFrame {
 		gridBagLayout_2.rowHeights = new int[]{0, 0};
 		gridBagLayout_2.columnWeights = new double[]{0.0};
 		gridBagLayout_2.columnWidths = new int[]{0};
-		label_TextField_2.setBounds(28, 566, 350, 82);
+		label_TextField_2.setBounds(28, 429, 350, 82);
 		getContentPane().add(label_TextField_2);
 		
 		JLabel nickname1 = new JLabel(nickname11);
-		nickname1.setBounds(28, 221, 161, 14);
+		nickname1.setBounds(157, 163, 161, 14);
 		getContentPane().add(nickname1);
 		
 		JLabel fullname1 = new JLabel(fullname11);
-		fullname1.setBounds(28, 333, 130, 14);
+		fullname1.setBounds(144, 286, 130, 14);
 		getContentPane().add(fullname1);
 		
 		JLabel password1 = new JLabel(password11);
-		password1.setBounds(28, 431, 144, 14);
+		password1.setBounds(130, 404, 144, 14);
 		getContentPane().add(password1);
 		
 		JLabel email1 = new JLabel(mail1);
-		email1.setBounds(28, 541, 137, 14);
+		email1.setBounds(137, 522, 137, 14);
 		getContentPane().add(email1);
 		
 		if(admin==1) {
@@ -251,6 +230,7 @@ public class UserEdit extends JFrame {
 						JOptionPane.showMessageDialog(null,"Usunieto konto!" );
 						
 						con.close();
+						if(GlobalVariables.fullname1.equals(user1)) {
 						final Frame[] frames = Frame.getFrames();
 						if (frames != null)
 						    for (final Frame f : frames)
@@ -260,6 +240,17 @@ public class UserEdit extends JFrame {
 						
 						String[] errorSoon = new String[1];
 						Login.main(errorSoon);
+						}else {
+							final Frame[] frames = Frame.getFrames();
+							if (frames != null)
+							    for (final Frame f : frames)
+							    {
+							        f.dispose();
+							    }
+							MainWindow.main1(GlobalVariables.fullname1,1);
+							list_users.main22(true);
+							
+						}
 					} 
 					catch(Exception e){System.out.print(e);}
 					
@@ -274,7 +265,7 @@ public class UserEdit extends JFrame {
 					
 				}
 			});
-			customButton__1.setBounds(28, 671, 153, 46);
+			customButton__1.setBounds(28, 500, 153, 46);
 			getContentPane().add(customButton__1);
 			}
 		
@@ -360,8 +351,24 @@ public class UserEdit extends JFrame {
 				
 			}
 		});
-		customButton_.setBounds(225, 671, 153, 46);
+		customButton_.setBounds(225, 547, 153, 46);
 		getContentPane().add(customButton_);
+		
+		JLabel lblAktualnyNickname = new JLabel("Aktualny Nickname:");
+		lblAktualnyNickname.setBounds(28, 160, 119, 14);
+		contentPane.add(lblAktualnyNickname);
+		
+		JLabel lblAktualnyFullname = new JLabel("Aktualny Fullname:");
+		lblAktualnyFullname.setBounds(28, 286, 106, 14);
+		contentPane.add(lblAktualnyFullname);
+		
+		JLabel lblAktualneHaslo = new JLabel("Aktualne haslo:");
+		lblAktualneHaslo.setBounds(28, 404, 106, 14);
+		contentPane.add(lblAktualneHaslo);
+		
+		JLabel lblAktualnyEmail = new JLabel("Aktualny email:");
+		lblAktualnyEmail.setBounds(28, 522, 106, 14);
+		contentPane.add(lblAktualnyEmail);
 		
 		
 		

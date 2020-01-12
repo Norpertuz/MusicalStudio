@@ -159,7 +159,7 @@ public class list_users extends JFrame {
 		contentPane.add(Users_Label);
 		
 		JLabel add_users = new JLabel("  Dodaj uzytkownika");
-		add_users.setBounds(185, 40, 155, 35);
+		add_users.setBounds(10, 86, 155, 35);
 		add_users.setIcon(new ImageIcon(list_users.class.getResource("/assets/person_add_light.png")));
 		contentPane.add(add_users);
 		add_users.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -173,7 +173,7 @@ public class list_users extends JFrame {
 		});
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 100, 330, 439);
+		scrollPane.setBounds(10, 137, 330, 402);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -194,6 +194,26 @@ public class list_users extends JFrame {
 		scrollPane.setViewportView(table);
 		
 	    table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+	    
+	    JLabel useredit = new JLabel("  Edytuj uzytkownika");
+	    useredit.setBounds(175, 86, 155, 35);
+	    contentPane.add(useredit);
+	    useredit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	    useredit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				if(table.getSelectedRow() != -1) {UserEdit.okno_edycji1(table.getValueAt(table.getSelectedRow(), 0).toString(),1);}
+				else {JOptionPane.showMessageDialog(null, "Nie wybrano uzytkownika");}
+				
+				
+			}
+		});
+	    
+	    if(GlobalVariables.is_admin1==0) {add_users.setVisible(false);useredit.setVisible(false);}
+		
+	    
+	    
 		TableColumnModel colModel=table.getColumnModel();
 		//colModel.getColumn(0).setPreferredWidth(15);    
 		//colModel.getColumn(1).setPreferredWidth(15);  
@@ -216,7 +236,7 @@ public class list_users extends JFrame {
 	       Object[] row = new Object[5];
 	       for(int i = 0; i < list.size(); i++)
 	       {
-	           row[0] = list.get(i).get_Nickname();
+	           row[0] = list.get(i).get_Fullname();
 	           if(list.get(i).get_IsAdmin()==1)
 	           row[1] = "Administrator"; 
 	           else

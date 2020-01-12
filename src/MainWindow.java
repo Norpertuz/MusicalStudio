@@ -292,7 +292,7 @@ public class MainWindow extends JFrame {
 		user_list.setForeground(Colors.DTText);
 		user_list.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/osoby.png")));
 		user_list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		user_list.setBounds(276, 32, 150, 30);
+		user_list.setBounds(320, 32, 150, 30);
 		topPanel.add(user_list);
 		user_list.addMouseListener(new MouseAdapter() {
 			@Override
@@ -306,7 +306,7 @@ public class MainWindow extends JFrame {
 		JLabel albumedit = new JLabel("edycja");
 		albumedit.setForeground(Colors.DTText);
 		albumedit.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/Panel_admin.png")));
-		albumedit.setBounds(160, 32, 104, 30);
+		albumedit.setBounds(160, 32, 150, 30);
 		albumedit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		albumedit.setVisible(false);
 		topPanel.add(albumedit);

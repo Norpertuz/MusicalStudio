@@ -191,7 +191,7 @@ public class UserEdit extends JFrame {
 		getContentPane().add(label_TextField_2);
 		
 		JLabel nickname1 = new JLabel(nickname11);
-		nickname1.setBounds(157, 163, 161, 14);
+		nickname1.setBounds(134, 160, 161, 14);
 		getContentPane().add(nickname1);
 		
 		JLabel fullname1 = new JLabel(fullname11);
@@ -227,7 +227,7 @@ public class UserEdit extends JFrame {
 						
 						stmt.executeUpdate(sql);
 						stmt.close();
-						JOptionPane.showMessageDialog(null,"Usunieto konto!" );
+						
 						
 						con.close();
 						if(GlobalVariables.fullname1.equals(user1)) {
@@ -237,7 +237,7 @@ public class UserEdit extends JFrame {
 						    {
 						        f.dispose();
 						    }
-						
+						JOptionPane.showMessageDialog(null,"Usunieto konto!" );
 						String[] errorSoon = new String[1];
 						Login.main(errorSoon);
 						}else {
@@ -247,6 +247,7 @@ public class UserEdit extends JFrame {
 							    {
 							        f.dispose();
 							    }
+							JOptionPane.showMessageDialog(null,"Usunieto konto!" );
 							MainWindow.main1(GlobalVariables.fullname1,1);
 							list_users.main22(true);
 							
@@ -265,7 +266,7 @@ public class UserEdit extends JFrame {
 					
 				}
 			});
-			customButton__1.setBounds(28, 500, 153, 46);
+			customButton__1.setBounds(28, 547, 153, 46);
 			getContentPane().add(customButton__1);
 			}
 		

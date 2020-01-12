@@ -197,7 +197,7 @@ public class Register extends JFrame {
 				else if(c<6) {
 					JOptionPane.showMessageDialog(null, "Password is too short.");
 				}
-			//	else if((password.passwordfield.getText().toString()) != (repeat_password.passwordfield.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne"+repeat_password.passwordfield.getText().toString()+password.passwordfield.getText().toString());}
+				else if((password.passwordfield.getText().toString()) != (repeat_password.passwordfield.getText().toString())) {JOptionPane.showMessageDialog(null, "Podane hasla nie sa identyczne "+repeat_password.passwordfield.getText().toString()+" "+password.passwordfield.getText().toString());}
 				
 				else{
 			

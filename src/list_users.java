@@ -202,7 +202,7 @@ public class list_users extends JFrame {
 	    useredit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				dispose();
+				
 				if(table.getSelectedRow() != -1) {UserEdit.okno_edycji1(table.getValueAt(table.getSelectedRow(), 0).toString(),1);}
 				else {JOptionPane.showMessageDialog(null, "Nie wybrano uzytkownika");}
 				

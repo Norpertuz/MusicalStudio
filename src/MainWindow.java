@@ -419,8 +419,8 @@ public class MainWindow extends JFrame {
 	          model.addRow(row);
 	          //table.setRowHeight(i, 30);
 	       }
-	     
-		Heading panelH = new Heading("Lista Utworow", Colors.DTPurple);
+	    String panelHLabel = "Lista Utworow";
+		Heading panelH = new Heading(panelHLabel, Colors.DTPurple);
 		panelH.setBounds(27, 27, 163, 38);
 		listPanel.add(panelH);
 		
@@ -576,5 +576,52 @@ public class MainWindow extends JFrame {
 		table.getTableHeader().setEnabled(false);
 		UIManager.getDefaults().put("TableHeader.cellBorder" , BorderFactory.createEmptyBorder(0,0,0,0));
 		table.getTableHeader().setPreferredSize(new Dimension(25, 25));	
+		
+		
+		// theme
+		invert_colors.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("unused")
+			boolean isDark;
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (isDark == false) {
+					contentPane.setBackground(Colors.DTBackground);
+					navigationPanel.setBackground(Colors.DTPurple);
+					topPanel.setBackground(Colors.DTPanel);
+					admin_panel.setForeground(Colors.DTText);
+					user_list.setForeground(Colors.DTText);
+					albumedit.setForeground(Colors.DTText);
+					textArea.setForeground(Colors.DTText);
+					listPanel.setBackground(Colors.DTPanel);
+					panelH.line.setBackground(Colors.DTPurple);
+					panelH.label.setForeground(Colors.DTText);
+					searchBar.setBackground(Colors.DTPanel);
+					table.setForeground(Colors.DTText);
+					table.setBackground(Colors.DTPanel);
+					table.getTableHeader().setBackground(Colors.DTPanel);
+					table.setSelectionBackground(Colors.DTisSelected);
+					table.setSelectionForeground(Color.WHITE);
+					isDark = true;
+				} else {
+					contentPane.setBackground(Color.decode("#F6F6F6"));
+					navigationPanel.setBackground(Colors.LTBlue);
+					topPanel.setBackground(Colors.LTBackground);
+					admin_panel.setForeground(Color.BLACK);
+					user_list.setForeground(Color.BLACK);
+					albumedit.setForeground(Color.BLACK);
+					textArea.setForeground(Color.BLACK);
+					listPanel.setBackground(Colors.LTBackground);
+					panelH.line.setBackground(Colors.LTBlue);
+					panelH.label.setForeground(Color.BLACK);
+					searchBar.setBackground(Colors.LTBackground);
+					table.setForeground(Color.BLACK);
+					table.setBackground(Colors.LTBackground);
+					table.getTableHeader().setBackground(Colors.LTBackground);
+					table.setSelectionBackground(Color.decode("#F6F6F6"));
+					table.setSelectionForeground(Color.BLACK);
+					isDark = false;
+				}
+			}
+		});
 	}
 }

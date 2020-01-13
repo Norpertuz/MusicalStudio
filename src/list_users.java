@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,6 +34,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
@@ -42,6 +45,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 import Components.Heading;
+import Components.Table;
 import Theme.Colors;
 import java.sql.*;
 
@@ -49,14 +53,12 @@ public class list_users extends JFrame {
 
 	private JPanel contentPane;
 	int posX=0,posY=0;
-	private JTable table;
+	private Table table;
 	/**
 	 * Launch the application.
 	 */
 	
-	
-	
-	
+
 	
 	 public ArrayList<user> getUserList()
 	   {
@@ -153,12 +155,8 @@ public class list_users extends JFrame {
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Close);
 		
-		JLabel Users_Label = new JLabel("Lista Uzytkownikow");
-		Users_Label.setBounds(10, 40, 165, 35);
-		Users_Label.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		contentPane.add(Users_Label);
-		
 		JLabel add_users = new JLabel("  Dodaj uzytkownika");
+		add_users.setForeground(Color.WHITE);
 		add_users.setBounds(10, 86, 155, 35);
 		add_users.setIcon(new ImageIcon(list_users.class.getResource("/assets/person_add_light.png")));
 		contentPane.add(add_users);
@@ -175,8 +173,12 @@ public class list_users extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 137, 330, 402);
 		contentPane.add(scrollPane);
+		scrollPane.setOpaque(false);
 		
-		table = new JTable();
+		
+		
+		
+		table = new Table();
 		table.setAutoCreateRowSorter(false);
 		table.setDragEnabled(false);
 		table.getTableHeader().setReorderingAllowed(false);
@@ -196,6 +198,7 @@ public class list_users extends JFrame {
 	    table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 	    
 	    JLabel useredit = new JLabel("  Edytuj uzytkownika");
+	    useredit.setForeground(Color.WHITE);
 	    useredit.setBounds(175, 86, 155, 35);
 	    contentPane.add(useredit);
 	    useredit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -214,18 +217,18 @@ public class list_users extends JFrame {
 		
 	    
 	    
-		TableColumnModel colModel=table.getColumnModel();
+//		TableColumnModel colModel=table.getColumnModel();
 		//colModel.getColumn(0).setPreferredWidth(15);    
 		//colModel.getColumn(1).setPreferredWidth(15);  
 		//colModel.getColumn(2).setPreferredWidth(15);  
 		//colModel.getColumn(3).setPreferredWidth(20);
 		
-		//srodkowanie kolumny isadmin:
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-		//table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
-		//table.setRowHeight(0, 1);
-		//table.setRowSelectionAllowed(true);
+//		//srodkowanie kolumny isadmin:
+//		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+//		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+//		//table.getColumnModel().getColumn(3).setCellRenderer( centerRenderer );
+//		//table.setRowHeight(0, 1);
+//		//table.setRowSelectionAllowed(true);
 		
 		
 		
@@ -237,18 +240,24 @@ public class list_users extends JFrame {
 	       for(int i = 0; i < list.size(); i++)
 	       {
 	           row[0] = list.get(i).get_Fullname();
-	           if(list.get(i).get_IsAdmin()==1)
-	           row[1] = "Administrator"; 
+	           if(list.get(i).get_IsAdmin()==1) {
+	        	   row[1] = "Administrator"; 
+	           }
 	           else
 	           row[1] = "User"; 
 	           
 	          model.addRow(row);
 	       }
 		
-		
-		
-		
-		
-		
+	   table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	   scrollPane.setBorder(BorderFactory.createEmptyBorder());
+	   scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
+	   scrollPane.getViewport().setOpaque(false);
+	   contentPane.setBackground(Colors.DTBackground);
+	   
+	   String listUsers = "List Users";
+	   Heading panel = new Heading(listUsers, Colors.DTPurple);
+	   panel.setBounds(10, 42, 143, 40);
+	   contentPane.add(panel);
 	}
 }

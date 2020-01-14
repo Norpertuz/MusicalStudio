@@ -191,6 +191,7 @@ public class list_users extends JFrame {
 		String[] dane = {"",""};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setColumnIdentifiers(dane);
+		model.fireTableDataChanged();
 		//table.getColumn(1).setPreferredWidth(15);    
 		//table.getColumn(2).setPreferredWidth(400);
 		scrollPane.setViewportView(table);
@@ -264,6 +265,64 @@ public class list_users extends JFrame {
 	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
 	   lblNewLabel.setForeground(Color.WHITE);
 	   lblNewLabel.setBounds(162, 34, 142, 48);
+	   lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	   lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(table.getSelectedRow() != -1) {
+					String fullname111;
+					 fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
+					 JOptionPane.showMessageDialog(null, table.getValueAt(table.getSelectedRow(), 1).toString());
+					
+					
+					
+					
+					  try {
+							Class.forName("com.mysql.jdbc.Driver");
+							Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com/Lf5M3N6QnK","Lf5M3N6QnK","7me26nI8IY");
+							Statement stmt=con.createStatement();
+							String sql;
+							
+							if(table.getValueAt(table.getSelectedRow(), 1).toString().equals("Administrator")) {
+								//fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
+							    sql="update users set isAdmin='0' WHERE fullname='"+fullname111+"'";
+							    JOptionPane.showMessageDialog(null, "Odebrano Admina");
+								}
+							else { 
+								//fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
+								sql="update users set isAdmin='1' WHERE fullname='"+fullname111+"'";
+							    JOptionPane.showMessageDialog(null, "Nadano admina");
+
+								
+								}
+							stmt.executeUpdate(sql);
+							
+							
+						
+				
+						
+							stmt.close();
+							con.close();
+							dispose();
+							list_users.main22(true);
+						} 
+						catch(Exception e){System.out.print(e);}
+				}
+				else {JOptionPane.showMessageDialog(null, "Nie wybrano uzytkownika");}
+				
+				
+			}
+		});
+	   
+	   
+	   
 	   contentPane.add(lblNewLabel);
+	   
+	   
+	   
+	   
+	   
+	   
 	}
 }

@@ -80,6 +80,7 @@ public class Login extends JFrame {
 						if (Username.getText().equals("")) {
 							Username.isEmpty(UsernameLabel);
 							MyPassword.isEmpty(MyPasswordLabel);
+							JOptionPane.showMessageDialog(null, "Podales zle dane");
 						} else {
 							try {
 								Class.forName("com.mysql.jdbc.Driver");
@@ -92,7 +93,18 @@ public class Login extends JFrame {
 									String fullnameX = rs.getString("fullname");
 									int is_admin = rs.getInt("isAdmin");
 									MainWindow.main1(fullnameX,is_admin);
-							} else con.close();
+									
+									
+									
+									
+							} else {
+								JOptionPane.showMessageDialog(null, "Podales zle dane");
+								
+							}
+								
+								
+								
+								con.close();
 							} catch(Exception ex){System.out.print(ex);}	
 						}
 		            }
@@ -110,6 +122,7 @@ public class Login extends JFrame {
 				if (Username.getText().equals("")) {
 					Username.isEmpty(UsernameLabel);
 					MyPassword.isEmpty(MyPasswordLabel);
+					JOptionPane.showMessageDialog(null, "Podales zle dane");
 				} else {
 					try {
 						Class.forName("com.mysql.jdbc.Driver");
@@ -122,7 +135,12 @@ public class Login extends JFrame {
 							String fullnameX = rs.getString("fullname");
 							int is_admin = rs.getInt("isAdmin");
 							MainWindow.main1(fullnameX,is_admin);
-					} else con.close();
+					} else {JOptionPane.showMessageDialog(null, "Podales zle dane");}
+						
+						
+						
+						
+						con.close();
 					} catch(Exception e){System.out.print(e);}	
 				}
 			}

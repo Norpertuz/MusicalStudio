@@ -259,5 +259,11 @@ public class list_users extends JFrame {
 	   Heading panel = new Heading(listUsers, Colors.DTPurple);
 	   panel.setBounds(10, 42, 143, 40);
 	   contentPane.add(panel);
+	   
+	   JLabel lblNewLabel = new JLabel("New label");
+	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
+	   lblNewLabel.setForeground(Color.WHITE);
+	   lblNewLabel.setBounds(162, 34, 142, 48);
+	   contentPane.add(lblNewLabel);
 	}
 }

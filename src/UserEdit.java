@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import Components.Button;
 import Components.PasswordField;
 import Components.Textfield;
+import Theme.Colors;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -271,6 +272,7 @@ public class UserEdit extends JFrame {
 			}
 		
 		Button customButton_ = new Button();
+		customButton_.setBackground(Colors.DTPurple);
 		customButton_.setText("Zapisz zmiany");
 		customButton_.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

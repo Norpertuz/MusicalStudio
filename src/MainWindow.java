@@ -579,12 +579,13 @@ public class MainWindow extends JFrame {
 		
 		
 		// theme
+		GlobalVariables.isDark = true;
 		invert_colors.addMouseListener(new MouseAdapter() {
 			@SuppressWarnings("unused")
-			boolean isDark;
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (isDark == false) {
+				if (GlobalVariables.isDark == false) {
 					contentPane.setBackground(Colors.DTBackground);
 					navigationPanel.setBackground(Colors.DTPurple);
 					topPanel.setBackground(Colors.DTPanel);
@@ -601,7 +602,7 @@ public class MainWindow extends JFrame {
 					table.getTableHeader().setBackground(Colors.DTPanel);
 					table.setSelectionBackground(Colors.DTisSelected);
 					table.setSelectionForeground(Color.WHITE);
-					isDark = true;
+					GlobalVariables.isDark = true;
 				} else {
 					contentPane.setBackground(Color.decode("#F6F6F6"));
 					navigationPanel.setBackground(Colors.LTBlue);
@@ -619,7 +620,7 @@ public class MainWindow extends JFrame {
 					table.getTableHeader().setBackground(Colors.LTBackground);
 					table.setSelectionBackground(Color.decode("#F6F6F6"));
 					table.setSelectionForeground(Color.BLACK);
-					isDark = false;
+					GlobalVariables.isDark = false;
 				}
 			}
 		});

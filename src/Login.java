@@ -220,6 +220,6 @@ public class Login extends JFrame {
 		Wrapper.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
 		boolean isDark = false;
-		Wrapper.setDarkTheme(this, isDark);
+		Wrapper.setDarkTheme(this, GlobalVariables.isDark);
 	}
 }

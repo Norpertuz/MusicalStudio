@@ -124,7 +124,7 @@ public class Add_add extends JFrame {
 		contentPane.add(Description);
 		
 		
-		String link = "Link do obrazka";
+		String link = "Nazwa obrazka";
 		Textfield Link_TextField = new Textfield("default", link);
 		GridBagLayout gbl_Link_TextField = (GridBagLayout) Link_TextField.getLayout();
 		gbl_Link_TextField.rowWeights = new double[]{0.0, 0.0};

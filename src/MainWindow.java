@@ -86,6 +86,7 @@ public class MainWindow extends JFrame {
 	private SearchField searchBar;
 	int posX=0,posY=0;
 	String imgurl;
+	BufferedImage img;
 	private Table table;
 	
 	// get a list of albums from mysql database
@@ -448,8 +449,10 @@ public class MainWindow extends JFrame {
 		albumImage.setBounds(15, 100, 250, 250);
 		infoPanel.add(albumImage);
 		//x
-		LoadImageApp.main222();
+		//LoadImageApp.main222();
 		
+		
+	
 		//try {
 		//    BufferedImage img = ImageIO.read(new File("39.jpg"));
 		//    albumImage.setIcon(new javax.swing.ImageIcon(img));
@@ -535,15 +538,14 @@ public class MainWindow extends JFrame {
 	            	dataDescription.setText(list.get(table.getSelectedRow()).get_Opis());
 	            	imgurl=list.get(table.getSelectedRow()).get_Image();
 	            	//https://forum.arenamody.pl/download/file.php?avatar=10720_1379362804.jpg
+	            	
 	            	try {
-	        		    BufferedImage img = ImageIO.read(new URL(imgurl));
-	        		    albumImage.setIcon(new javax.swing.ImageIcon(img));
-
-	        		}
-	        		catch(IOException ex) {
-
-	        		}
-	            	//System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+	                    img = ImageIO.read(new File("./src/assets/"+imgurl));
+	                   // albumImage.setIcon(new javax.swing.ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
+	                    albumImage.setIcon(new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(254, 254, Image.SCALE_DEFAULT)));
+	                } catch (IOException e) {
+	                }
+	            	
 	            }
 	        }
 	    });

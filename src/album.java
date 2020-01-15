@@ -40,7 +40,7 @@ public class album {
     public String get_Opis() {
     	return Opis;
     }
-    public String get_Imgage() {
+    public String get_Image() {
     	return Image;
     }
     

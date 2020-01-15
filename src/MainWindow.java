@@ -84,6 +84,7 @@ public class MainWindow extends JFrame {
 	private JPanel listPanel;
 	private SearchField searchBar;
 	int posX=0,posY=0;
+	String imgurl;
 	private Table table;
 	
 	// get a list of albums from mysql database
@@ -445,8 +446,9 @@ public class MainWindow extends JFrame {
 		albumImage.setBackground(Colors.DTPanel);
 		albumImage.setBounds(15, 100, 250, 250);
 		infoPanel.add(albumImage);
+		//x
 		try {
-		    BufferedImage img = ImageIO.read(new URL("https://forum.arenamody.pl/download/file.php?avatar=10720_1379362804.jpg"));
+		    BufferedImage img = ImageIO.read(new URL("39.jpg"));
 		    albumImage.setIcon(new javax.swing.ImageIcon(img));
 
 		}
@@ -528,8 +530,16 @@ public class MainWindow extends JFrame {
 	            	dataMusicGenre.setText(table.getValueAt(table.getSelectedRow(), 4).toString());
 	            	dataReleaseDate.setText(table.getValueAt(table.getSelectedRow(), 3).toString());
 	            	dataDescription.setText(list.get(table.getSelectedRow()).get_Opis());
-	            	
-	            	
+	            	imgurl=list.get(table.getSelectedRow()).get_Image();
+	            	//https://forum.arenamody.pl/download/file.php?avatar=10720_1379362804.jpg
+	            	try {
+	        		    BufferedImage img = ImageIO.read(new URL(imgurl));
+	        		    albumImage.setIcon(new javax.swing.ImageIcon(img));
+
+	        		}
+	        		catch(IOException ex) {
+
+	        		}
 	            	//System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
 	            }
 	        }

@@ -74,6 +74,8 @@ import Components.SearchField;
 import Components.Table;
 import Components.headerRenderer;
 import Theme.Colors;
+import Theme.Theme;
+
 import java.sql.*;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
@@ -81,7 +83,8 @@ import javax.swing.border.MatteBorder;
 
 public class MainWindow extends JFrame {
 
-	private JPanel contentPane;
+	JFrame mw = this;
+	private Theme contentPane;
 	private JPanel listPanel;
 	private SearchField searchBar;
 	int posX=0,posY=0;
@@ -161,7 +164,7 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setSize(1000, 787);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBackground(Colors.DTBackground);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -612,47 +615,16 @@ public class MainWindow extends JFrame {
 		
 		
 		// theme
-		GlobalVariables.isDark = true;
+		GlobalVariables.isDark = false;
 		invert_colors.addMouseListener(new MouseAdapter() {
 			@SuppressWarnings("unused")
-			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (GlobalVariables.isDark == false) {
-					contentPane.setBackground(Colors.DTBackground);
-					navigationPanel.setBackground(Colors.DTPurple);
-					topPanel.setBackground(Colors.DTPanel);
-					admin_panel.setForeground(Colors.DTText);
-					user_list.setForeground(Colors.DTText);
-					albumedit.setForeground(Colors.DTText);
-					textArea.setForeground(Colors.DTText);
-					listPanel.setBackground(Colors.DTPanel);
-					panelH.line.setBackground(Colors.DTPurple);
-					panelH.label.setForeground(Colors.DTText);
-					searchBar.setBackground(Colors.DTPanel);
-					table.setForeground(Colors.DTText);
-					table.setBackground(Colors.DTPanel);
-					table.getTableHeader().setBackground(Colors.DTPanel);
-					table.setSelectionBackground(Colors.DTisSelected);
-					table.setSelectionForeground(Color.WHITE);
+					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
 					GlobalVariables.isDark = true;
 				} else {
-					contentPane.setBackground(Color.decode("#F6F6F6"));
-					navigationPanel.setBackground(Colors.LTBlue);
-					topPanel.setBackground(Colors.LTBackground);
-					admin_panel.setForeground(Color.BLACK);
-					user_list.setForeground(Color.BLACK);
-					albumedit.setForeground(Color.BLACK);
-					textArea.setForeground(Color.BLACK);
-					listPanel.setBackground(Colors.LTBackground);
-					panelH.line.setBackground(Colors.LTBlue);
-					panelH.label.setForeground(Color.BLACK);
-					searchBar.setBackground(Colors.LTBackground);
-					table.setForeground(Color.BLACK);
-					table.setBackground(Colors.LTBackground);
-					table.getTableHeader().setBackground(Colors.LTBackground);
-					table.setSelectionBackground(Color.decode("#F6F6F6"));
-					table.setSelectionForeground(Color.BLACK);
+					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
 					GlobalVariables.isDark = false;
 				}
 			}

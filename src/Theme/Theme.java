@@ -1,5 +1,6 @@
 package Theme;
 import java.awt.Button;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +9,33 @@ import Components.Textfield;
 
 @SuppressWarnings("serial")
 public class Theme extends JPanel{
+	
+//	contentPane.setBackground(Color.decode("#F6F6F6"));
+//	navigationPanel.setBackground(Colors.LTBlue);
+//	topPanel.setBackground(Colors.LTBackground);
+//	admin_panel.setForeground(Color.BLACK);
+//	user_list.setForeground(Color.BLACK);
+//	albumedit.setForeground(Color.BLACK);
+//	textArea.setForeground(Color.BLACK);
+//	listPanel.setBackground(Colors.LTBackground);
+//	panelH.line.setBackground(Colors.LTBlue);
+//	panelH.label.setForeground(Color.BLACK);
+//	searchBar.setBackground(Colors.LTBackground);
+//	table.setForeground(Color.BLACK);
+//	table.setBackground(Colors.LTBackground);
+//	table.getTableHeader().setBackground(Colors.LTBackground);
+//	table.setSelectionBackground(Color.decode("#F6F6F6"));
+//	table.setSelectionForeground(Color.BLACK);
+	
+	public void MainWindow(boolean dark, String Parent) {
+		if (dark == true) {
+			if (Parent == "MainWindow") {
+				this.setBackground(Colors.DTBackground);
+			}
+		} else {
+				this.setBackground(Color.decode("#F6F6F6"));
+		}
+	}
 	
 	public void Login(boolean dark, String Parent) {
 		if (dark == true) {
@@ -81,6 +109,7 @@ public class Theme extends JPanel{
 		String Parent = frame.getClass().getName();
 		Login(dark, Parent);
 		Register(dark, Parent);
+		MainWindow(dark,Parent);
 	}
 	public Theme() {
 		//nothing

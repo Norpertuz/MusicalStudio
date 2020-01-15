@@ -50,7 +50,7 @@ public class LoadImageApp extends Component {
 
     public LoadImageApp() {
        try {
-           img = ImageIO.read(new File("/assets/39.jpg"));
+           img = ImageIO.read(new File("./src/assets/39.jpg"));
        } catch (IOException e) {
        }
 

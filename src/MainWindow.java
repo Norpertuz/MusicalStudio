@@ -8,7 +8,16 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.RowFilter;
 import javax.swing.event.*;
 import java.awt.Color;
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.net.URL;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -430,11 +439,20 @@ public class MainWindow extends JFrame {
 		getContentPane().add(infoPanel);
 		infoPanel.setLayout(null);
 		
+		
 		JLabel albumImage = new JLabel("");
 		albumImage.setOpaque(true);
 		albumImage.setBackground(Colors.DTPanel);
 		albumImage.setBounds(15, 100, 250, 250);
 		infoPanel.add(albumImage);
+		try {
+		    BufferedImage img = ImageIO.read(new URL("https://forum.arenamody.pl/download/file.php?avatar=10720_1379362804.jpg"));
+		    albumImage.setIcon(new javax.swing.ImageIcon(img));
+
+		}
+		catch(IOException ex) {
+
+		}
 		
 		JLabel albumTitle = new JLabel("BELLA CIAO");
 		albumTitle.setForeground(Colors.DTText);

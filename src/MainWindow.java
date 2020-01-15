@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.net.URL;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -447,14 +448,16 @@ public class MainWindow extends JFrame {
 		albumImage.setBounds(15, 100, 250, 250);
 		infoPanel.add(albumImage);
 		//x
-		try {
-		    BufferedImage img = ImageIO.read(new URL("39.jpg"));
-		    albumImage.setIcon(new javax.swing.ImageIcon(img));
-
-		}
-		catch(IOException ex) {
-
-		}
+		LoadImageApp.main222();
+		
+		//try {
+		//    BufferedImage img = ImageIO.read(new File("39.jpg"));
+		//    albumImage.setIcon(new javax.swing.ImageIcon(img));
+        //
+		//}
+		//catch(IOException ex) {
+        //
+		//}
 		
 		JLabel albumTitle = new JLabel("BELLA CIAO");
 		albumTitle.setForeground(Colors.DTText);

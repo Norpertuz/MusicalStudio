@@ -620,12 +620,12 @@ public class MainWindow extends JFrame {
 			@SuppressWarnings("unused")
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (GlobalVariables.isDark == false) {
-					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
-					GlobalVariables.isDark = true;
-				} else {
+				if (GlobalVariables.isDark == true) {
 					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
 					GlobalVariables.isDark = false;
+				} else {
+					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
+					GlobalVariables.isDark = true;
 				}
 			}
 		});

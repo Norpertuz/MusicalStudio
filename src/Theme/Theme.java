@@ -4,15 +4,17 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import Components.Heading;
 import Components.PasswordField;
+import Components.Table;
 import Components.Textfield;
 
 @SuppressWarnings("serial")
 public class Theme extends JPanel{
 	
-//	contentPane.setBackground(Color.decode("#F6F6F6"));
-//	navigationPanel.setBackground(Colors.LTBlue);
-//	topPanel.setBackground(Colors.LTBackground);
 //	admin_panel.setForeground(Color.BLACK);
 //	user_list.setForeground(Color.BLACK);
 //	albumedit.setForeground(Color.BLACK);
@@ -31,9 +33,58 @@ public class Theme extends JPanel{
 		if (dark == true) {
 			if (Parent == "MainWindow") {
 				this.setBackground(Colors.DTBackground);
+				this.getComponent(1).setBackground(Colors.DTPurple);
+				JPanel topPanel = (JPanel) this.getComponent(2);
+				topPanel.setBackground(Colors.DTPanel);
+				topPanel.getComponent(0).setForeground(Colors.DTText);
+				topPanel.getComponent(2).setForeground(Colors.DTText);
+				topPanel.getComponent(3).setForeground(Colors.DTText);
+				topPanel.getComponent(4).setForeground(Colors.DTText);
+				
+				JPanel listPanel = (JPanel) this.getComponent(3);
+				listPanel.setBackground(Colors.DTPanel);
+				Heading listPanelH = (Heading) listPanel.getComponent(1);
+				listPanelH.line.setBackground(Colors.DTPurple);
+				listPanelH.label.setForeground(Colors.DTText);
+				
+				JScrollPane listPanelScroll = (JScrollPane) listPanel.getComponent(0);
+				Table listPanelTable = (Table) listPanelScroll.getViewport().getComponent(0);
+				listPanelTable.setForeground(Colors.DTText);
+				listPanelTable.setBackground(Colors.DTPanel);
+				listPanelTable.setSelectionBackground(Colors.DTisSelected);
+				listPanelTable.setSelectionForeground(Colors.DTText);
+				listPanelTable.getTableHeader().setBackground(Colors.DTPanel);
+				
+				this.getComponent(4).setBackground(Colors.DTPanel);
+				this.getComponent(5).setBackground(Colors.DTPanel);
 			}
 		} else {
-				this.setBackground(Color.decode("#F6F6F6"));
+				if (Parent == "MainWindow") {
+					this.setBackground(Color.decode("#F6F6F6"));
+					this.getComponent(1).setBackground(Colors.LTBlue);
+					JPanel topPanel = (JPanel) this.getComponent(2);
+					topPanel.setBackground(Colors.LTBackground);
+					topPanel.getComponent(0).setForeground(Color.BLACK); //username (toppanel)
+					topPanel.getComponent(2).setForeground(Color.BLACK);
+					topPanel.getComponent(3).setForeground(Color.BLACK);
+					topPanel.getComponent(4).setForeground(Color.BLACK);
+					JPanel listPanel = (JPanel) this.getComponent(3);
+					listPanel.setBackground(Colors.LTBackground);
+					Heading listPanelH = (Heading) listPanel.getComponent(1);
+					listPanelH.line.setBackground(Colors.LTBlue);
+					listPanelH.label.setForeground(Color.BLACK);
+
+					JScrollPane listPanelScroll = (JScrollPane) listPanel.getComponent(0);
+					Table listPanelTable = (Table) listPanelScroll.getViewport().getComponent(0);
+					listPanelTable.setForeground(Color.BLACK);
+					listPanelTable.setBackground(Colors.LTBackground);
+					listPanelTable.setSelectionBackground(Color.decode("#F6F6F6"));
+					listPanelTable.setSelectionForeground(Color.BLACK);
+					listPanelTable.getTableHeader().setBackground(Colors.LTBackground);
+					
+					this.getComponent(4).setBackground(Colors.LTBackground);
+					this.getComponent(5).setBackground(Colors.LTBackground); //searchbar foreground?
+				}
 		}
 	}
 	

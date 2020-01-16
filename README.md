@@ -11,16 +11,16 @@
 + uruchomiene aplikacji to ekran logowania
 + na ekranie logowania chcialbym aby istniala mozliwosc rejestracji
 + dane trzymamy w bazie danych
-! gdy startujemy aplikacje, a bazy nie ma, to tworzona jest baza standardowa
+# gdy startujemy aplikacje, a bazy nie ma, to tworzona jest baza standardowa
 ! pierwszy zarejestrowany uzytkownik staje sie administratorem systemu
-! studio pozwala tworzyc, edytowac, usuwac informacje o:
-  - [ ] plytach
-  - [ ] tworcach
-  - [ ] utworach
-  - [ ] oraz przypisywac do plyt utwory i tworcow tych utworow
-  - [ ] jesli w trakcie przypisywania utworow do plyty podamy tworce, to wszystkie
++ studio pozwala tworzyc, edytowac, usuwac informacje o:
+  - [x] plytach
+  - [x] tworcach
+  - [x] utworach
+  - [x] oraz przypisywac do plyt utwory i tworcow tych utworow
+  - [x] jesli w trakcie przypisywania utworow do plyty podamy tworce, to wszystkie
    utwory na plycie naleza automatycznie do tego autora
-! [ ] studio moze miec wiele plyt i mozemy nimi zarzadzac
++ studio moze miec wiele plyt i mozemy nimi zarzadzac
 + zarzadza administrator
 ! administrator moze awansowac innych na administratora
 ! moze tez byc usuniety ale nie gdy byl pierwszym adminem na liscie utworzonych

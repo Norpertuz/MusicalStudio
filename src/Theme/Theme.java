@@ -55,7 +55,25 @@ public class Theme extends JPanel{
 				listPanelTable.setSelectionForeground(Colors.DTText);
 				listPanelTable.getTableHeader().setBackground(Colors.DTPanel);
 				
-				this.getComponent(4).setBackground(Colors.DTPanel);
+				JPanel infoPanel = (JPanel) this.getComponent(4);
+				infoPanel.setBackground(Colors.DTPanel);
+				infoPanel.getComponent(1).setForeground(Colors.DTText);
+				infoPanel.getComponent(2).setForeground(Colors.DTPurple);
+				infoPanel.getComponent(3).setForeground(Colors.DTPurple);
+				infoPanel.getComponent(4).setForeground(Colors.DTPurple);
+				infoPanel.getComponent(5).setForeground(Colors.DTPurple);
+				infoPanel.getComponent(6).setForeground(Colors.DTPurple);
+				infoPanel.getComponent(7).setForeground(Colors.DTText);
+				infoPanel.getComponent(8).setForeground(Colors.DTText);
+				infoPanel.getComponent(9).setForeground(Colors.DTText);
+				infoPanel.getComponent(10).setForeground(Colors.DTText);
+				Heading infoPanelHeading = (Heading) infoPanel.getComponent(11);
+				infoPanelHeading.label.setForeground(Colors.DTText);
+				infoPanelHeading.line.setBackground(Colors.DTPurple);
+				
+				
+				
+				
 				this.getComponent(5).setBackground(Colors.DTPanel);
 			}
 		} else {
@@ -82,7 +100,22 @@ public class Theme extends JPanel{
 					listPanelTable.setSelectionForeground(Color.BLACK);
 					listPanelTable.getTableHeader().setBackground(Colors.LTBackground);
 					
-					this.getComponent(4).setBackground(Colors.LTBackground);
+					JPanel infoPanel = (JPanel) this.getComponent(4);
+					infoPanel.setBackground(Colors.LTBackground);
+					infoPanel.getComponent(1).setForeground(Color.BLACK);
+					infoPanel.getComponent(2).setForeground(Colors.LTBlue);
+					infoPanel.getComponent(3).setForeground(Colors.LTBlue);
+					infoPanel.getComponent(4).setForeground(Colors.LTBlue);
+					infoPanel.getComponent(5).setForeground(Colors.LTBlue);
+					infoPanel.getComponent(6).setForeground(Colors.LTBlue);
+					infoPanel.getComponent(7).setForeground(Color.BLACK);
+					infoPanel.getComponent(8).setForeground(Color.BLACK);
+					infoPanel.getComponent(9).setForeground(Color.BLACK);
+					infoPanel.getComponent(10).setForeground(Color.BLACK);
+					Heading infoPanelHeading = (Heading) infoPanel.getComponent(11);
+					infoPanelHeading.label.setForeground(Color.BLACK);
+					infoPanelHeading.line.setBackground(Colors.LTBlue);
+					
 					this.getComponent(5).setBackground(Colors.LTBackground); //searchbar foreground?
 				}
 		}

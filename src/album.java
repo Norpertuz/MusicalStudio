@@ -7,7 +7,7 @@ public class album {
     private String Autor; //Autor
     private String Gatunek; //Gatunek
     private String Opis; //Opis
-    private String Image; //link do image 
+    private String Image; //Image
 
     
     

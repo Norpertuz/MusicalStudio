@@ -95,7 +95,7 @@ public class Add_edit extends JFrame {
 	public Add_edit() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 370, 800);
+		setBounds(100, 100, 780, 620);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -111,7 +111,7 @@ public class Add_edit extends JFrame {
 		Close.setIcon(new ImageIcon(Add_edit.class.getResource("/assets/closeIcon.png")));
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
-		Close.setBounds(324, 0, 46, 30);
+		Close.setBounds(734, 0, 46, 30);
 		contentPane.add(Close);
 		
 		JLabel DragBar = new JLabel("");
@@ -130,7 +130,7 @@ public class Add_edit extends JFrame {
 			}
 		});
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		DragBar.setBounds(0, 0, 324, 30);
+		DragBar.setBounds(0, 0, 716, 30);
 		contentPane.add(DragBar);
 		
 		JLabel Edit_text = new JLabel("EDYTUJ");
@@ -151,21 +151,21 @@ public class Add_edit extends JFrame {
 		
 		String Author = "Autor";
 		Textfield Author_textfield = new Textfield("default", Author);
-		Author_textfield.setBounds(10, 280, 350, 70);
+		Author_textfield.setBounds(416, 70, 350, 70);
 		contentPane.add(Author_textfield);
 		
 		String Genere = "Gatunek";
 		Textfield Genere_textfield = new Textfield("default", Genere);
-		Genere_textfield.setBounds(10, 390, 350, 70);
+		Genere_textfield.setBounds(416, 170, 350, 70);
 		contentPane.add(Genere_textfield);
 		
 		String Date = "Data Wydania";
 		Textfield Date_textfield = new Textfield("default", Date);
-		Date_textfield.setBounds(10, 500, 350, 70);
+		Date_textfield.setBounds(10, 273, 350, 70);
 		contentPane.add(Date_textfield);
 		
 		JTextArea Description = new JTextArea();
-		Description.setBounds(10, 601, 350, 108);
+		Description.setBounds(10, 379, 756, 108);
 		contentPane.add(Description);
 		
 		
@@ -216,7 +216,7 @@ public class Add_edit extends JFrame {
 					
 				}
 			});
-			customButton__1.setBounds(20, 743, 153, 46);
+			customButton__1.setBounds(439, 517, 153, 46);
 			getContentPane().add(customButton__1);
 			
 		
@@ -231,15 +231,15 @@ public class Add_edit extends JFrame {
 		contentPane.add(lblAktualnyTytulUtworu);
 		
 		JLabel lblAktualnyAutorUtworu = new JLabel("Aktualny autor utworu:");
-		lblAktualnyAutorUtworu.setBounds(10, 365, 128, 14);
+		lblAktualnyAutorUtworu.setBounds(416, 145, 128, 14);
 		contentPane.add(lblAktualnyAutorUtworu);
 		
 		JLabel lblAktualnyGatunekUtworu = new JLabel("Aktualny gatunek utworu:");
-		lblAktualnyGatunekUtworu.setBounds(10, 475, 160, 14);
+		lblAktualnyGatunekUtworu.setBounds(416, 251, 160, 14);
 		contentPane.add(lblAktualnyGatunekUtworu);
 		
 		JLabel lblAktualnaDataWydania = new JLabel("Aktualna data wydania utworu:");
-		lblAktualnaDataWydania.setBounds(10, 576, 176, 14);
+		lblAktualnaDataWydania.setBounds(10, 354, 176, 14);
 		contentPane.add(lblAktualnaDataWydania);
 		
 		JLabel lalbum_name = new JLabel("New label");
@@ -254,21 +254,39 @@ public class Add_edit extends JFrame {
 		
 		JLabel lautor = new JLabel("New label");
 		lautor.setText(autor11);
-		lautor.setBounds(148, 365, 91, 14);
+		lautor.setBounds(540, 145, 91, 14);
 		contentPane.add(lautor);
 		
 		JLabel lgatunek = new JLabel("New label");
 		lgatunek.setText(gatunek11);
-		lgatunek.setBounds(199, 475, 80, 14);
+		lgatunek.setBounds(554, 251, 80, 14);
 		contentPane.add(lgatunek);
 		
 		JLabel ldata = new JLabel("New label");
 		ldata.setText(date11);
-		ldata.setBounds(199, 576, 91, 14);
+		ldata.setBounds(181, 354, 91, 14);
 		contentPane.add(ldata);
 		
+		Textfield image_textfield = new Textfield("default", "Data Wydania");
+		image_textfield.label.setText("Nazwa obrazka");
+		GridBagLayout gbl_image_textfield = (GridBagLayout) image_textfield.getLayout();
+		gbl_image_textfield.rowWeights = new double[]{0.0, 0.0};
+		gbl_image_textfield.rowHeights = new int[]{0, 0};
+		gbl_image_textfield.columnWeights = new double[]{0.0};
+		gbl_image_textfield.columnWidths = new int[]{0};
+		image_textfield.setBounds(416, 273, 350, 70);
+		contentPane.add(image_textfield);
+		
+		JLabel lblAktualnaNazwaObrazka = new JLabel("Aktualna nazwa obrazka:");
+		lblAktualnaNazwaObrazka.setBounds(416, 354, 176, 14);
+		contentPane.add(lblAktualnaNazwaObrazka);
+		
+		JLabel limage = new JLabel((String) null);
+		limage.setBounds(543, 354, 91, 14);
+		contentPane.add(limage);
+		
 		JLabel labelaktualnyopis = new JLabel("Aktualny opis - kliknij by zobaczyc");
-		labelaktualnyopis.setBounds(10, 720, 229, 14);
+		labelaktualnyopis.setBounds(10, 498, 229, 14);
 		labelaktualnyopis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		labelaktualnyopis.addMouseListener(new MouseAdapter() {
 			@Override
@@ -336,6 +354,13 @@ public class Add_edit extends JFrame {
 			
 						JOptionPane.showMessageDialog(null,"Zedytowano Opis" );
 						}
+                    if(!image_textfield.getText().equals("")) {
+						
+						sql="update utowory set Image='"+image_textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
+						stmt.executeUpdate(sql);
+			
+						JOptionPane.showMessageDialog(null,"Zedytowano nazwe obrazka" );
+						}
 					
 					
 					con.close();
@@ -361,8 +386,10 @@ public class Add_edit extends JFrame {
 		});
 		Save.setBackground(Colors.DTPurple);
 		Save.setText("Zapisz Zmiany");
-		Save.setBounds(199, 743, 153, 43);
+		Save.setBounds(613, 519, 153, 43);
 		contentPane.add(Save);
+		
+		
 		
 		
 		

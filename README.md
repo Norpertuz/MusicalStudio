@@ -22,12 +22,12 @@
    utwory na plycie naleza automatycznie do tego autora
 + studio moze miec wiele plyt i mozemy nimi zarzadzac
 + zarzadza administrator
-! administrator moze awansowac innych na administratora
++ administrator moze awansowac innych na administratora
 ! moze tez byc usuniety ale nie gdy byl pierwszym adminem na liscie utworzonych
 ! moze sam zrezygnowac, ale uwaga: musi wskazac kogos innego
-! nie moze byc sytuacji, ze admina nie ma
++ nie moze byc sytuacji, ze admina nie ma
 ! chcialbym miec mozliwosc wyboru wersji jezykowej w moim programie
-# chcialbym miec dwa layouty: jasny na dzień i np ciemny na noc
++ chcialbym miec dwa layouty: jasny na dzień i np ciemny na noc
 # moze byc, ze layout będzie się ustawiac automatycznie
 # dobrze by bylo, aby istniał sklep, gdzie moge sprzedaz klientowi plyte/utwor
 + klient zalogowany ma dane osobowe i adresowe w bazie, ladujemy automatycznie

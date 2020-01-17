@@ -50,7 +50,7 @@ public class Add_add extends JFrame {
 	public Add_add() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 370, 825);
+		setBounds(100, 100, 565, 580);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,7 +66,7 @@ public class Add_add extends JFrame {
 		Close.setIcon(new ImageIcon(Add_edit.class.getResource("/assets/closeIcon.png")));
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Close.setHorizontalAlignment(SwingConstants.CENTER);
-		Close.setBounds(324, 0, 46, 30);
+		Close.setBounds(519, 0, 46, 30);
 		contentPane.add(Close);
 		
 		JLabel DragBar = new JLabel("");
@@ -85,7 +85,7 @@ public class Add_add extends JFrame {
 			}
 		});
 		DragBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		DragBar.setBounds(0, 0, 324, 30);
+		DragBar.setBounds(0, 0, 521, 30);
 		contentPane.add(DragBar);
 		
 		JLabel Edit_text = new JLabel("Dodaj Utwor");
@@ -96,31 +96,32 @@ public class Add_add extends JFrame {
 		
 		String album = "Nazwa Albumu";
 		Textfield Nazwa_Albumu = new Textfield("default", album);
-		Nazwa_Albumu.setBounds(10, 93, 350, 70);
+		Nazwa_Albumu.setBounds(10, 93, 268, 70);
 		contentPane.add(Nazwa_Albumu);
 		
 		String title = "Tytu�";
 		Textfield Title_textfield = new Textfield("default", title);
-		Title_textfield.setBounds(10, 173, 350, 70);
+		Title_textfield.label.setText("Tytul");
+		Title_textfield.setBounds(10, 173, 268, 70);
 		contentPane.add(Title_textfield);
 		
 		String Author = "Autor";
 		Textfield Author_textfield = new Textfield("default", Author);
-		Author_textfield.setBounds(10, 253, 350, 70);
+		Author_textfield.setBounds(10, 253, 268, 70);
 		contentPane.add(Author_textfield);
 		
 		String Genere = "Gatunek";
 		Textfield Genere_textfield = new Textfield("default", Genere);
-		Genere_textfield.setBounds(10, 333, 350, 70);
+		Genere_textfield.setBounds(288, 93, 268, 70);
 		contentPane.add(Genere_textfield);
 		
 		String Date = "Data Wydania";
 		Textfield Date_textfield = new Textfield("default", Date);
-		Date_textfield.setBounds(10, 413, 350, 70);
+		Date_textfield.setBounds(288, 173, 268, 70);
 		contentPane.add(Date_textfield);
 		
 		JTextArea Description = new JTextArea();
-		Description.setBounds(10, 593, 350, 152);
+		Description.setBounds(10, 359, 546, 152);
 		contentPane.add(Description);
 		
 		
@@ -131,7 +132,7 @@ public class Add_add extends JFrame {
 		gbl_Link_TextField.rowHeights = new int[]{0, 0};
 		gbl_Link_TextField.columnWeights = new double[]{0.0};
 		gbl_Link_TextField.columnWidths = new int[]{0};
-		Link_TextField.setBounds(10, 494, 350, 70);
+		Link_TextField.setBounds(288, 253, 268, 70);
 		contentPane.add(Link_TextField);
 		
 		
@@ -193,8 +194,13 @@ public class Add_add extends JFrame {
 			}
 		});
 		Save.setText("Dodaj");
-		Save.setBounds(219, 765, 141, 40);
+		Save.setBounds(217, 522, 141, 40);
 		contentPane.add(Save);
+		
+		JLabel lblNewLabel = new JLabel("Opis");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel.setBounds(10, 334, 46, 14);
+		contentPane.add(lblNewLabel);
 		
 		
 		

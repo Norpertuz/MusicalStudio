@@ -35,6 +35,56 @@ public class Theme extends JPanel{
 //	table.setSelectionBackground(Color.decode("#F6F6F6"));
 //	table.setSelectionForeground(Color.BLACK);
 	
+	public void UserEdit(boolean dark, String Parent) {
+		if (Parent == "UserEdit") {
+			if (dark == true) {
+				this.setBackground(Colors.DTBackground);
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Colors.DTText);
+				top.line.setBackground(Colors.DTPurple);
+				Textfield nickname = (Textfield) this.getComponent(3);
+				nickname.handleFocus(true, nickname.type, nickname.name);
+				Textfield fullname = (Textfield) this.getComponent(4);
+				fullname.handleFocus(true, fullname.type, fullname.name);
+				PasswordField pass = (PasswordField) this.getComponent(5);
+				pass.handleFocus(true, pass.name);
+				Textfield mail = (Textfield) this.getComponent(6);
+				mail.handleFocus(true, mail.type, mail.name);
+				
+				this.getComponent(11).setBackground(Colors.DTPurple);
+				this.getComponent(12).setBackground(Colors.DTPurple);
+				
+				this.getComponent(7).setForeground(Colors.DTPurple);
+				this.getComponent(8).setForeground(Colors.DTPurple);
+				this.getComponent(9).setForeground(Colors.DTPurple);
+				this.getComponent(10).setForeground(Colors.DTPurple);
+
+			} else {
+				this.setBackground(Colors.LTBackground);
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Color.BLACK);
+				top.line.setBackground(Colors.LTBlue);
+				Textfield nickname = (Textfield) this.getComponent(3);
+				nickname.handleFocus(false, nickname.type, nickname.name);
+				Textfield fullname = (Textfield) this.getComponent(4);
+				fullname.handleFocus(false, fullname.type, fullname.name);
+				PasswordField pass = (PasswordField) this.getComponent(5);
+				pass.handleFocus(false, pass.name);
+				Textfield mail = (Textfield) this.getComponent(6);
+				mail.handleFocus(false, mail.type, mail.name);
+				
+				this.getComponent(11).setBackground(Colors.LTBlue);
+				this.getComponent(12).setBackground(Colors.LTBlue);
+				
+				
+				this.getComponent(7).setForeground(Colors.LTBlue);
+				this.getComponent(8).setForeground(Colors.LTBlue);
+				this.getComponent(9).setForeground(Colors.LTBlue);
+				this.getComponent(10).setForeground(Colors.LTBlue);
+			}
+		}
+	}
+	
 	public void Add_add(boolean dark, String Parent) {
 		if (dark == true) {
 			if (Parent == "Add_add") {
@@ -282,6 +332,7 @@ public class Theme extends JPanel{
 		Register(dark, Parent);
 		MainWindow(dark,Parent);
 		Add_add(dark, Parent);
+		UserEdit(dark,Parent);
 	}
 	public Theme() {
 		//nothing

@@ -16,9 +16,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Components.Button;
+import Components.Heading;
 import Components.PasswordField;
 import Components.Textfield;
 import Theme.Colors;
+import Theme.Theme;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -41,7 +43,7 @@ public class UserEdit extends JFrame {
     static int admin;
     static String fullname11, nickname11, password11, mail1;
 
-	private JPanel contentPane;
+	private Theme contentPane;
 
 	/**
 	 * Launch the application.
@@ -98,9 +100,10 @@ public class UserEdit extends JFrame {
 	public UserEdit() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 621);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setBackground(Colors.DTBackground);
 		contentPane.setLayout(null);
 		
 		setUndecorated(true);
@@ -141,9 +144,9 @@ public class UserEdit extends JFrame {
 		getContentPane().add(close);
 		
 		
-		JLabel lblNewLabel = new JLabel("EDYTUJ PROFIL");
+		Heading lblNewLabel = new Heading("EDYTUJ PROFIL", Colors.DTPurple);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(28, 39, 137, 20);
+		lblNewLabel.setBounds(28, 22, 186, 37);
 		getContentPane().add(lblNewLabel);
 		
 		/*
@@ -206,10 +209,12 @@ public class UserEdit extends JFrame {
 		JLabel email1 = new JLabel(mail1);
 		email1.setBounds(137, 522, 137, 14);
 		getContentPane().add(email1);
-		
+		Button customButton__1 = new Button();
+		customButton__1.setBackground(Colors.DTPurple);
+		customButton__1.setText("Usun konto");
+		customButton__1.setVisible(false);
 		if(admin==1) {
-			Button customButton__1 = new Button();
-			customButton__1.setText("Usun konto");
+			customButton__1.setVisible(true);
 			customButton__1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					
@@ -267,10 +272,9 @@ public class UserEdit extends JFrame {
 					
 				}
 			});
-			customButton__1.setBounds(28, 547, 153, 46);
-			getContentPane().add(customButton__1);
 			}
-		
+		customButton__1.setBounds(28, 547, 153, 46);
+		getContentPane().add(customButton__1);
 		Button customButton_ = new Button();
 		customButton_.setBackground(Colors.DTPurple);
 		customButton_.setText("Zapisz zmiany");
@@ -378,7 +382,7 @@ public class UserEdit extends JFrame {
 		
 		
 		
-		
+		contentPane.setDarkTheme(this, GlobalVariables.isDark);
 		
 		
 		

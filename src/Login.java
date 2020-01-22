@@ -1,9 +1,9 @@
 import java.sql.*;
+import java.util.ResourceBundle;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Components.Button;
 import Components.PasswordField;
 import Components.Textfield;
@@ -26,6 +26,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
+	
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme Wrapper;
 	private JLabel Logomark;
@@ -61,13 +64,13 @@ public class Login extends JFrame {
 		Wrapper.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(Wrapper);
 		Wrapper.setLayout(null);
-		String UsernameLabel = "Username";
+		String UsernameLabel = res.getString("username");
 		Textfield Username = new Textfield("default", UsernameLabel);
 		Username.setSize(292, 70);
 		Username.setLocation(38, 127);
 		Wrapper.add(Username);
 		
-		String MyPasswordLabel = "Password";
+		String MyPasswordLabel = res.getString("password");
 		PasswordField MyPassword = new PasswordField(MyPasswordLabel);
 		MyPassword.setBounds(38, 218, 292, 73);
 		Wrapper.add(MyPassword);
@@ -80,7 +83,7 @@ public class Login extends JFrame {
 						if (Username.getText().equals("")) {
 							Username.isEmpty(UsernameLabel);
 							MyPassword.isEmpty(MyPasswordLabel);
-							JOptionPane.showMessageDialog(null, "Podales zle dane");
+							JOptionPane.showMessageDialog(null, res.getString("wrong"));
 						} else {
 							try {
 								Class.forName("com.mysql.jdbc.Driver");
@@ -98,7 +101,7 @@ public class Login extends JFrame {
 									
 									
 							} else {
-								JOptionPane.showMessageDialog(null, "Podales zle dane");
+								JOptionPane.showMessageDialog(null, res.getString("wrong"));
 								
 							}
 								
@@ -115,14 +118,14 @@ public class Login extends JFrame {
 //		contentPane.add(Password);
 		
 		Button SignIn = new Button();
-		String SignInLabel = "Sign in";
+		String SignInLabel = res.getString("login");
 		SignIn.setText(SignInLabel);
 		SignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (Username.getText().equals("")) {
 					Username.isEmpty(UsernameLabel);
 					MyPassword.isEmpty(MyPasswordLabel);
-					JOptionPane.showMessageDialog(null, "Podales zle dane");
+					JOptionPane.showMessageDialog(null, res.getString("wrong"));
 				} else {
 					try {
 						Class.forName("com.mysql.jdbc.Driver");
@@ -135,7 +138,7 @@ public class Login extends JFrame {
 							String fullnameX = rs.getString("fullname");
 							int is_admin = rs.getInt("isAdmin");
 							MainWindow.main1(fullnameX,is_admin);
-					} else {JOptionPane.showMessageDialog(null, "Podales zle dane");}
+					} else {JOptionPane.showMessageDialog(null, res.getString("wrong"));}
 						
 						
 						
@@ -148,7 +151,7 @@ public class Login extends JFrame {
 		
 		SignIn.setBounds(224, 315, 106, 37);
 		Wrapper.add(SignIn);
-		String NameLabel = "Recording studio";
+		String NameLabel = res.getString("studio_name");
 		Name = new JLabel(NameLabel);
 		Name.setInheritsPopupMenu(false);
 		Name.setForeground(new Color(145, 71, 255));
@@ -183,13 +186,13 @@ public class Login extends JFrame {
 		Close.setBounds(324, 5, 46, 30);
 		Wrapper.add(Close);
 		
-		String ForgotPasswordLabel = "Forgot password?";
+		String ForgotPasswordLabel = res.getString("forgot");
 		ForgotPassword = new JLabel(ForgotPasswordLabel);
 		ForgotPassword.setForeground(Color.decode("#4C506D"));
 		ForgotPassword.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JOptionPane.showMessageDialog(null, "To sobie przypomnij... albo skontaktuj sie z administratorem.");
+				JOptionPane.showMessageDialog(null, res.getString("remind"));
 			}
 		});
 		ForgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -197,7 +200,7 @@ public class Login extends JFrame {
 		ForgotPassword.setBounds(38, 315, 121, 37);
 		Wrapper.add(ForgotPassword);
 		
-		String SignUpLabel = "Sign Up!";
+		String SignUpLabel = res.getString("signup");
 		SignUp = new JLabel(SignUpLabel);
 		SignUp.setForeground(Colors.DTPurple);
 		SignUp.addMouseListener(new MouseAdapter() {
@@ -209,7 +212,7 @@ public class Login extends JFrame {
 				
 			}
 		});
-		String AlreadyHaveAnAccountLabel = "Don't have an account?";
+		String AlreadyHaveAnAccountLabel = res.getString("dont");
 		AlreadyHaveAnAccount = new JLabel(AlreadyHaveAnAccountLabel);
 		AlreadyHaveAnAccount.setBounds(38, 386, 157, 44);
 		Wrapper.add(AlreadyHaveAnAccount);

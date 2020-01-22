@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import java.sql.*;
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,6 +32,9 @@ import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class Register extends JFrame {
+	
+//	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme contentPane;
 	private Textfield Nickname;
@@ -70,7 +74,7 @@ public class Register extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel NazwaStudia = new JLabel("Nazwa studia nagra\u0144");
+		JLabel NazwaStudia = new JLabel(res.getString("studio_name"));
 		NazwaStudia.setForeground(new Color(3, 17, 252));
 		NazwaStudia.setFont(new Font("Tahoma", Font.ITALIC, 19));
 		NazwaStudia.setBounds(94, 22, 242, 59);
@@ -90,12 +94,12 @@ public class Register extends JFrame {
 		Close.setBounds(326, 0, 44, 30);
 		contentPane.add(Close);
 		
-		Nickname = new Textfield("default", "Nickname");
+		Nickname = new Textfield("default", res.getString("username"));
 		Nickname.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Nickname.setBounds(38, 133, 292, 70);
 		contentPane.add(Nickname);
 		
-		Imie_Nazwisko = new Textfield("default", "Fullname");
+		Imie_Nazwisko = new Textfield("default", res.getString("fullname"));
 		Imie_Nazwisko.setBounds(38, 225, 292, 70);
 		contentPane.add(Imie_Nazwisko);
 		
@@ -103,20 +107,20 @@ public class Register extends JFrame {
 		mail.setBounds(38, 312, 292, 70);
 		contentPane.add(mail);
 		
-		password = new PasswordField("Hasło");
+		password = new PasswordField(res.getString("password"));
 		password.setBounds(38, 399, 292, 70);
 		contentPane.add(password);
-		repeat_password = new PasswordField("Powtórz hasło");
+		repeat_password = new PasswordField(res.getString("password_repeat"));
 		repeat_password.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 					int c = password.passwordfield.getText().length();
 					if (Nickname.textfield.getText().equals("") || Imie_Nazwisko.textfield.getText().equals("") || mail.textfield.getText().equals("") || password.passwordfield.getText().toString().equals("")){
-						JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
+						JOptionPane.showMessageDialog(null, res.getString("req_data"));
 					     }
 					else if(c<6) {
-						JOptionPane.showMessageDialog(null, "Password is too short");
+						JOptionPane.showMessageDialog(null, res.getString("too_short"));
 					}
 					
 					
@@ -143,7 +147,7 @@ public class Register extends JFrame {
 						
 					
 						if(rs!=0) {
-							JOptionPane.showMessageDialog(null, "Dodano uzytkownika");
+							JOptionPane.showMessageDialog(null, res.getString("user_add"));
 							String[] errorSoon = new String[1];
 							dispose();
 							if(editable1.equals(false)) {
@@ -152,7 +156,7 @@ public class Register extends JFrame {
 							}
 						}
 						else
-							JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
+							JOptionPane.showMessageDialog(null, res.getString("n_user_add"));
 						
 						con.close();
 					} 
@@ -165,13 +169,13 @@ public class Register extends JFrame {
 		repeat_password.setBounds(38, 486, 292, 70);
 		contentPane.add(repeat_password);
 		
-		JLabel lblNewLabel = new JLabel("Masz ju\u017C konto?");
-		lblNewLabel.setForeground(Color.WHITE);
+		JLabel lblNewLabel = new JLabel(res.getString("have_acc"));
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setBounds(38, 577, 110, 28);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("Zaloguj si\u0119!");
-		lblNewLabel_2.setForeground(Color.WHITE);
+		JLabel lblNewLabel_2 = new JLabel(res.getString("signin"));
+		lblNewLabel_2.setForeground(Color.BLACK);
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setBounds(132, 577, 91, 28);
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
@@ -194,16 +198,16 @@ public class Register extends JFrame {
 			lblNewLabel_2.setVisible(false);
 		}
 		Button btnRg = new Button();
-		btnRg.setText("Register");
-		if(editable1.equals(true)) {btnRg.setText("Dodaj");}
+		btnRg.setText(res.getString("register"));
+		if(editable1.equals(true)) {btnRg.setText(res.getString("add"));}
 		btnRg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int c = password.passwordfield.getText().length();
 				if (Nickname.textfield.getText().equals("") || Imie_Nazwisko.textfield.getText().equals("") || mail.textfield.getText().equals("") || password.passwordfield.getText().toString().equals("")){
-					JOptionPane.showMessageDialog(null, "Nie podano wszystkich danych.");
+					JOptionPane.showMessageDialog(null, res.getString("req_data"));
 				     }
 				else if(c<6) {
-					JOptionPane.showMessageDialog(null, "Password is too short.");
+					JOptionPane.showMessageDialog(null, res.getString("too_short"));
 				}
 				
 			
@@ -237,7 +241,7 @@ public class Register extends JFrame {
 					}
 					
 					else
-						JOptionPane.showMessageDialog(null, "Nie dodano uzytkownika(blad)");
+						JOptionPane.showMessageDialog(null, res.getString("n_user_add"));
 					
 					con.close();
 				} 

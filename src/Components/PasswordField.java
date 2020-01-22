@@ -12,12 +12,17 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.ResourceBundle;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class PasswordField extends JPanel {
+	
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	
 	public JPasswordField passwordfield = new JPasswordField();
 	public JLabel label = new JLabel();
 	public GridBagConstraints wrapper = new GridBagConstraints();
@@ -66,7 +71,7 @@ public class PasswordField extends JPanel {
 		if (passwordfield.getPassword().length == 0) {
 			setPasswordField(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
-			label.setText(text + " is empty");
+			label.setText(text + " " + res.getString("empty"));
 		}
 	}
 	
@@ -74,12 +79,12 @@ public class PasswordField extends JPanel {
 		if (passwordfield.getPassword().length == 0) {
 			setPasswordField(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
-			label.setText(text + " is empty");
+			label.setText(text + " " + res.getString("empty"));
 		} else {
 			if (passwordfield.getPassword().length < 3 && passwordfield.getPassword().length > 0) {
 				setPasswordField(ERR, Colors.ERR);
 				label.setForeground(Colors.ERR);
-				label.setText("Password is too short");
+				label.setText(res.getString("too_short"));
 			} else {
 				label.setText(text);
 			}

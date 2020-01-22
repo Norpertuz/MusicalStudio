@@ -1,5 +1,7 @@
 package Components;
 import java.awt.Graphics2D;
+import java.util.ResourceBundle;
+
 import javax.swing.FocusManager;
 import javax.swing.JTextField;
 
@@ -7,7 +9,11 @@ import Theme.Colors;
 
 @SuppressWarnings("serial")
 public class SearchField extends JTextField{
-	public String searchBarLabel = "Enter album title or artist";
+	
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	
+	public String searchBarLabel = res.getString("enter");
 		@Override
 		protected void paintComponent(java.awt.Graphics g) {
 		    super.paintComponent(g);

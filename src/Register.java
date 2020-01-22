@@ -33,8 +33,8 @@ import java.awt.event.KeyEvent;
 @SuppressWarnings("serial")
 public class Register extends JFrame {
 	
-//	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme contentPane;
 	private Textfield Nickname;

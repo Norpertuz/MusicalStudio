@@ -10,11 +10,17 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.ResourceBundle;
+
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class Textfield extends JPanel {
+	
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	
 	public JTextField textfield = new JTextField();
 	public JLabel label = new JLabel();
 	public GridBagConstraints wrapper = new GridBagConstraints();
@@ -75,13 +81,13 @@ public class Textfield extends JPanel {
 		if (textfield.getText().equals("")) {
 			setTextfield(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
-			label.setText(text + " is empty");
+			label.setText(text + "  " + res.getString("empty"));
 		} else {
 			if (type == "default") {
 				if (textfield.getText().length() < 3 && textfield.getText().length() > 0) {
 					setTextfield(ERR, Colors.ERR);
 					label.setForeground(Colors.ERR);
-					label.setText(text + " is too short");
+					label.setText(text + " " + res.getString("is_short"));
 				} else {
 					label.setText(text);
 				}
@@ -90,7 +96,7 @@ public class Textfield extends JPanel {
 				if(textfield.getText().matches(email) != true && textfield.getText().length() > 0) {
 					setTextfield(ERR, Colors.ERR);
 					label.setForeground(Colors.ERR);
-					label.setText(text + " is invalid");
+					label.setText(text + " " + res.getString("invalid"));
 				} else {
 					label.setText(text);
 				}

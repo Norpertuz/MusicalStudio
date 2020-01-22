@@ -1,11 +1,17 @@
 package Theme;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import Components.Heading;
 import Components.PasswordField;
@@ -28,6 +34,87 @@ public class Theme extends JPanel{
 //	table.getTableHeader().setBackground(Colors.LTBackground);
 //	table.setSelectionBackground(Color.decode("#F6F6F6"));
 //	table.setSelectionForeground(Color.BLACK);
+	
+	public void Add_add(boolean dark, String Parent) {
+		if (dark == true) {
+			if (Parent == "Add_add") {
+				this.setBackground(Colors.DTBackground); //main-bg
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Colors.DTText);
+				top.line.setBackground(Colors.DTPurple);
+				Textfield albumTitle = (Textfield) this.getComponent(3);
+				albumTitle.handleFocus(true, albumTitle.type, albumTitle.name);
+				Textfield title = (Textfield) this.getComponent(4);
+				title.handleFocus(true, title.type, title.name);
+				Textfield author = (Textfield) this.getComponent(5);
+				author.handleFocus(true, author.type, author.name);
+				Textfield genre = (Textfield) this.getComponent(6);
+				genre.handleFocus(true, genre.type, genre.name);
+				Textfield date = (Textfield) this.getComponent(7);
+				date.handleFocus(true, date.type, date.name);
+				Textfield img = (Textfield) this.getComponent(8);
+				img.handleFocus(true, img.type, img.name);
+				
+				
+				JLabel descLabel = (JLabel) this.getComponent(9);
+				JTextArea desc = (JTextArea) this.getComponent(10);
+				desc.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
+						descLabel.setForeground(Colors.DTActive);
+						desc.setForeground(Colors.DTText);
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+						descLabel.setForeground(Colors.DTInactive);
+						desc.setForeground(Colors.DTInactive);
+					}
+				});
+				
+				this.getComponent(11).setBackground(Colors.DTPurple);
+			}
+		} else {
+			if (Parent == "Add_add") {
+				this.setBackground(Colors.LTBackground); //main-bg
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Color.BLACK);
+				top.line.setBackground(Colors.LTBlue);
+				Textfield albumTitle = (Textfield) this.getComponent(3);
+				albumTitle.handleFocus(false, albumTitle.type, albumTitle.name);
+				Textfield title = (Textfield) this.getComponent(4);
+				title.handleFocus(false, title.type, title.name);
+				Textfield author = (Textfield) this.getComponent(5);
+				author.handleFocus(false, author.type, author.name);
+				Textfield genre = (Textfield) this.getComponent(6);
+				genre.handleFocus(false, genre.type, genre.name);
+				Textfield date = (Textfield) this.getComponent(7);
+				date.handleFocus(false, date.type, date.name);
+				Textfield img = (Textfield) this.getComponent(8);
+				img.handleFocus(false, img.type, img.name);
+				
+				JLabel descLabel = (JLabel) this.getComponent(9);
+				JTextArea desc = (JTextArea) this.getComponent(10);
+				desc.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.LTBlue));
+						descLabel.setForeground(Colors.LTBlue);
+						desc.setForeground(Color.BLACK);
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive));
+						descLabel.setForeground(Colors.inactive);
+						desc.setForeground(Colors.inactive);
+					}
+				});
+				
+				this.getComponent(11).setBackground(Colors.LTBlue);
+			}
+		}
+	}
 	
 	public void MainWindow(boolean dark, String Parent) {
 		if (dark == true) {
@@ -194,6 +281,7 @@ public class Theme extends JPanel{
 		Login(dark, Parent);
 		Register(dark, Parent);
 		MainWindow(dark,Parent);
+		Add_add(dark, Parent);
 	}
 	public Theme() {
 		//nothing

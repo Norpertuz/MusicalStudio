@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,17 +17,21 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Components.Button;
+import Components.Heading;
 import Components.Textfield;
 import Theme.Colors;
+import Theme.Theme;
 
 import java.sql.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 @SuppressWarnings("serial")
 public class Add_add extends JFrame {
 
-	private JPanel contentPane;
+	private Theme contentPane;
 	int posX=0,posY=0;
 	/**
 	 * Launch the application.
@@ -51,10 +56,11 @@ public class Add_add extends JFrame {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 565, 580);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Colors.DTBackground);
 		
 		JLabel Close = new JLabel("");
 		Close.addMouseListener(new MouseAdapter() {
@@ -88,10 +94,10 @@ public class Add_add extends JFrame {
 		DragBar.setBounds(0, 0, 521, 30);
 		contentPane.add(DragBar);
 		
-		JLabel Edit_text = new JLabel("Dodaj Utwor");
-		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
+		Heading Edit_text = new Heading("Dodaj Utwor", Colors.DTPurple);
+//		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
 		Edit_text.setFont(new Font("Tahoma", Font.BOLD, 17));
-		Edit_text.setBounds(30, 30, 131, 40);
+		Edit_text.setBounds(10, 30, 167, 40);
 		contentPane.add(Edit_text);
 		
 		String album = "Nazwa Albumu";
@@ -120,9 +126,7 @@ public class Add_add extends JFrame {
 		Date_textfield.setBounds(288, 173, 268, 70);
 		contentPane.add(Date_textfield);
 		
-		JTextArea Description = new JTextArea();
-		Description.setBounds(10, 359, 546, 152);
-		contentPane.add(Description);
+
 		
 		
 		String link = "Nazwa obrazka";
@@ -138,6 +142,29 @@ public class Add_add extends JFrame {
 		
 		
 		
+		JLabel lblNewLabel = new JLabel("Opis");
+		lblNewLabel.setForeground(Colors.DTInactive);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel.setBounds(10, 334, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		JTextArea Description = new JTextArea();
+		Description.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
+				lblNewLabel.setForeground(Colors.DTActive);
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+				lblNewLabel.setForeground(Colors.DTInactive);
+			}
+		});
+		Description.setBounds(10, 359, 546, 152);
+		Description.setOpaque(false);
+		Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+		contentPane.add(Description);
 		
 		Button Save = new Button();
 		Save.setBackground(Colors.DTPurple);
@@ -194,21 +221,11 @@ public class Add_add extends JFrame {
 			}
 		});
 		Save.setText("Dodaj");
-		Save.setBounds(217, 522, 141, 40);
+		Save.setBounds(415, 523, 141, 40);
 		contentPane.add(Save);
 		
-		JLabel lblNewLabel = new JLabel("Opis");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(10, 334, 46, 14);
-		contentPane.add(lblNewLabel);
 		
-		
-		
-		
-		
-		
-		
-		
+		contentPane.setDarkTheme(this, GlobalVariables.isDark);		
 		
 		
 		

@@ -12,6 +12,8 @@ import Theme.Theme;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
@@ -27,9 +29,13 @@ import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 	
-	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
-
+//	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+	
+	//ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	
+	
+	
+	
 	private Theme Wrapper;
 	private JLabel Logomark;
 	private JLabel Close;
@@ -37,6 +43,7 @@ public class Login extends JFrame {
 	private JLabel AlreadyHaveAnAccount;
 	private JLabel SignUp;
 	int posX=0,posY=0;
+	static ResourceBundle res;
 	static JLabel Name;	
 	/**
 	 * Launch the application.
@@ -45,6 +52,7 @@ public class Login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -58,6 +66,13 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
+		//JOptionPane.showMessageDialog(null, GlobalVariables.jezyk);
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(190, 228, 370, 468);
 		Wrapper = new Theme();
@@ -149,8 +164,33 @@ public class Login extends JFrame {
 			}
 		});
 		
-		SignIn.setBounds(224, 315, 106, 37);
+		SignIn.setBounds(224, 314, 106, 37);
 		Wrapper.add(SignIn);
+		
+		
+		Button lbutton = new Button();
+		lbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(GlobalVariables.jezyk==1)GlobalVariables.jezyk=0;
+				else {GlobalVariables.jezyk=1;}
+				final Frame[] frames = Frame.getFrames();
+				if (frames != null)
+				    for (final Frame f : frames)
+				    {
+				        f.dispose();
+				    }
+				String[] errorSoon = new String[1];
+				Login.main(errorSoon);
+			
+				
+				
+			}
+		});
+		String lbuttonLabel = res.getString("language_name");
+		lbutton.setText(lbuttonLabel);
+		lbutton.setBounds(205, 434, 155, 23);
+		Wrapper.add(lbutton);
+		
 		String NameLabel = res.getString("studio_name");
 		Name = new JLabel(NameLabel);
 		Name.setInheritsPopupMenu(false);
@@ -214,11 +254,11 @@ public class Login extends JFrame {
 		});
 		String AlreadyHaveAnAccountLabel = res.getString("dont");
 		AlreadyHaveAnAccount = new JLabel(AlreadyHaveAnAccountLabel);
-		AlreadyHaveAnAccount.setBounds(38, 386, 157, 44);
+		AlreadyHaveAnAccount.setBounds(38, 386, 155, 44);
 		Wrapper.add(AlreadyHaveAnAccount);
 		SignUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SignUp.setHorizontalAlignment(SwingConstants.CENTER);
-		SignUp.setBounds(184, 393, 68, 30);		
+		SignUp.setBounds(158, 393, 121, 30);		
 		AlreadyHaveAnAccount.setForeground(Color.decode("#4C506D"));
 		Wrapper.add(SignUp);
 		

@@ -33,9 +33,9 @@ import java.awt.event.KeyEvent;
 @SuppressWarnings("serial")
 public class Register extends JFrame {
 	
-	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
 //	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
-
+//
 	private Theme contentPane;
 	private Textfield Nickname;
 	private Textfield Imie_Nazwisko;
@@ -43,6 +43,7 @@ public class Register extends JFrame {
 	private PasswordField password;
 	private PasswordField repeat_password;
 	int posX=0,posY=0;
+	ResourceBundle res;
     static Boolean editable1;
 
 	/**
@@ -66,6 +67,11 @@ public class Register extends JFrame {
 	 * Create the frame.
 	 */
 	public Register() {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(700, 250, 370, 630);
 		contentPane = new Theme();

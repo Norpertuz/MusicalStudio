@@ -157,7 +157,7 @@ public class list_users extends JFrame {
 		
 		JLabel add_users = new JLabel("  Dodaj uzytkownika");
 		add_users.setForeground(Color.WHITE);
-		add_users.setBounds(10, 86, 155, 35);
+		add_users.setBounds(10, 86, 169, 35);
 		add_users.setIcon(new ImageIcon(list_users.class.getResource("/assets/person_add_light.png")));
 		contentPane.add(add_users);
 		add_users.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -200,7 +200,7 @@ public class list_users extends JFrame {
 	    
 	    JLabel useredit = new JLabel("  Edytuj uzytkownika");
 	    useredit.setForeground(Color.WHITE);
-	    useredit.setBounds(175, 86, 155, 35);
+	    useredit.setBounds(189, 86, 161, 35);
 	    contentPane.add(useredit);
 	    useredit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    useredit.addMouseListener(new MouseAdapter() {
@@ -261,10 +261,10 @@ public class list_users extends JFrame {
 	   panel.setBounds(10, 42, 143, 40);
 	   contentPane.add(panel);
 	   
-	   JLabel lblNewLabel = new JLabel("New label");
+	   JLabel lblNewLabel = new JLabel("Uprawnienia +/-");
 	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
 	   lblNewLabel.setForeground(Color.WHITE);
-	   lblNewLabel.setBounds(162, 34, 142, 48);
+	   lblNewLabel.setBounds(162, 34, 178, 48);
 	   lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	   lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override

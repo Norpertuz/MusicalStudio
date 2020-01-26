@@ -612,7 +612,7 @@ public class MainWindow extends JFrame {
 		table.getTableHeader().setEnabled(false);
 		UIManager.getDefaults().put("TableHeader.cellBorder" , BorderFactory.createEmptyBorder(0,0,0,0));
 		table.getTableHeader().setPreferredSize(new Dimension(25, 25));	
-		
+		contentPane.setDarkTheme(mw, true);
 		
 		// theme
 		GlobalVariables.isDark = false;

@@ -382,7 +382,7 @@ public class UserEdit extends JFrame {
 		
 		
 		
-		contentPane.setDarkTheme(this, GlobalVariables.isDark);
+		contentPane.setDarkTheme(this, true);
 		
 		
 		

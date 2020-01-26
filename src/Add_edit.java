@@ -1,5 +1,7 @@
 
 import Theme.Colors;
+import Theme.Theme;
+
 import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -10,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import Components.Button;
+import Components.Heading;
 import Components.PasswordField;
 import Components.Textfield;
 
@@ -27,6 +31,8 @@ import java.awt.Frame;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -34,7 +40,7 @@ import java.awt.event.MouseMotionAdapter;
 @SuppressWarnings("serial")
 public class Add_edit extends JFrame {
 
-	private JPanel contentPane;
+	private Theme contentPane;
 	int posX=0,posY=0;
 	static String album_name11, date11, autor11, gatunek11, opis11;
 	static String song_name1;
@@ -96,10 +102,11 @@ public class Add_edit extends JFrame {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 780, 620);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Colors.DTBackground);
 		
 		JLabel Close = new JLabel("");
 		Close.addMouseListener(new MouseAdapter() {
@@ -133,10 +140,10 @@ public class Add_edit extends JFrame {
 		DragBar.setBounds(0, 0, 716, 30);
 		contentPane.add(DragBar);
 		
-		JLabel Edit_text = new JLabel("EDYTUJ");
-		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
-		Edit_text.setFont(new Font("Tahoma", Font.BOLD, 17));
-		Edit_text.setBounds(10, 21, 75, 40);
+		Heading Edit_text = new Heading("EDYTUJ", Colors.DTPurple);
+//		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
+//		Edit_text.setFont(new Font("Tahoma", Font.BOLD, 17));
+		Edit_text.setBounds(10, 21, 208, 40);
 		contentPane.add(Edit_text);
 		
 		String album = "Nazwa Albumu";
@@ -166,13 +173,29 @@ public class Add_edit extends JFrame {
 		
 		JTextArea Description = new JTextArea();
 		Description.setBounds(10, 379, 756, 108);
+		Description.setOpaque(false);
+		Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
 		contentPane.add(Description);
-		
+		Description.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
+				Description.setForeground(Colors.DTText);
+				Description.setBorder(BorderFactory.createCompoundBorder(Description.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+				Description.setForeground(Colors.DTInactive);
+				Description.setBorder(BorderFactory.createCompoundBorder(Description.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+			}
+		});
 		
 		
 		
 		
 			Button customButton__1 = new Button();
+			customButton__1.setBackground(Colors.DTPurple);
 			customButton__1.setText("Usun album");
 			customButton__1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -223,47 +246,57 @@ public class Add_edit extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("Aktualna nazwa albumu:");
+		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setBounds(10, 145, 142, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblAktualnyTytulUtworu = new JLabel("Aktualny tytul utworu:");
+		lblAktualnyTytulUtworu.setForeground(Colors.DTInactive);
 		lblAktualnyTytulUtworu.setBounds(10, 251, 128, 14);
 		contentPane.add(lblAktualnyTytulUtworu);
 		
 		JLabel lblAktualnyAutorUtworu = new JLabel("Aktualny autor utworu:");
 		lblAktualnyAutorUtworu.setBounds(416, 145, 128, 14);
+		lblAktualnyAutorUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyAutorUtworu);
 		
 		JLabel lblAktualnyGatunekUtworu = new JLabel("Aktualny gatunek utworu:");
 		lblAktualnyGatunekUtworu.setBounds(416, 251, 160, 14);
+		lblAktualnyGatunekUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyGatunekUtworu);
 		
 		JLabel lblAktualnaDataWydania = new JLabel("Aktualna data wydania utworu:");
 		lblAktualnaDataWydania.setBounds(10, 354, 176, 14);
+		lblAktualnaDataWydania.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaDataWydania);
 		
 		JLabel lalbum_name = new JLabel("New label");
+		lalbum_name.setForeground(Colors.DTPurple);
 		lalbum_name.setText(album_name11);
 		lalbum_name.setBounds(162, 145, 110, 14);
 		contentPane.add(lalbum_name);
 		
 		JLabel lsong_name = new JLabel("New label");
+		lsong_name.setForeground(Colors.DTPurple);
 		lsong_name.setText(song_name1);
 		lsong_name.setBounds(148, 251, 91, 14);
 		contentPane.add(lsong_name);
 		
 		JLabel lautor = new JLabel("New label");
 		lautor.setText(autor11);
+		lautor.setForeground(Colors.DTPurple);
 		lautor.setBounds(540, 145, 91, 14);
 		contentPane.add(lautor);
 		
 		JLabel lgatunek = new JLabel("New label");
 		lgatunek.setText(gatunek11);
+		lgatunek.setForeground(Colors.DTPurple);
 		lgatunek.setBounds(554, 251, 80, 14);
 		contentPane.add(lgatunek);
 		
 		JLabel ldata = new JLabel("New label");
 		ldata.setText(date11);
+		ldata.setForeground(Colors.DTPurple);
 		ldata.setBounds(181, 354, 91, 14);
 		contentPane.add(ldata);
 		
@@ -279,13 +312,16 @@ public class Add_edit extends JFrame {
 		
 		JLabel lblAktualnaNazwaObrazka = new JLabel("Aktualna nazwa obrazka:");
 		lblAktualnaNazwaObrazka.setBounds(416, 354, 176, 14);
+		lblAktualnaNazwaObrazka.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaNazwaObrazka);
 		
 		JLabel limage = new JLabel((String) null);
+		limage.setForeground(Colors.DTPurple);
 		limage.setBounds(543, 354, 91, 14);
 		contentPane.add(limage);
 		
 		JLabel labelaktualnyopis = new JLabel("Aktualny opis - kliknij by zobaczyc");
+		labelaktualnyopis.setForeground(Colors.DTInactive);
 		labelaktualnyopis.setBounds(10, 498, 229, 14);
 		labelaktualnyopis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		labelaktualnyopis.addMouseListener(new MouseAdapter() {
@@ -390,7 +426,7 @@ public class Add_edit extends JFrame {
 		contentPane.add(Save);
 		
 		
-		
+		contentPane.setDarkTheme(this, true);
 		
 		
 		

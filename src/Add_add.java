@@ -141,30 +141,32 @@ public class Add_add extends JFrame {
 		
 		
 		
-		
+		JTextArea Description = new JTextArea();
 		JLabel lblNewLabel = new JLabel("Opis");
 		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblNewLabel.setBounds(10, 334, 46, 14);
 		contentPane.add(lblNewLabel);
-		
-		JTextArea Description = new JTextArea();
+		Description.setBounds(10, 359, 546, 152);
+		Description.setOpaque(false);
+		Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+		Description.setBorder(BorderFactory.createCompoundBorder(Description.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+		contentPane.add(Description);
+	
 		Description.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
 				lblNewLabel.setForeground(Colors.DTActive);
+				Description.setBorder(BorderFactory.createCompoundBorder(Description.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
 				Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
 				lblNewLabel.setForeground(Colors.DTInactive);
+				Description.setBorder(BorderFactory.createCompoundBorder(Description.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
 			}
 		});
-		Description.setBounds(10, 359, 546, 152);
-		Description.setOpaque(false);
-		Description.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
-		contentPane.add(Description);
 		
 		Button Save = new Button();
 		Save.setBackground(Colors.DTPurple);
@@ -225,7 +227,7 @@ public class Add_add extends JFrame {
 		contentPane.add(Save);
 		
 		
-		contentPane.setDarkTheme(this, GlobalVariables.isDark);		
+		contentPane.setDarkTheme(this, true);		
 		
 		
 		

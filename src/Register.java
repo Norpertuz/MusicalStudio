@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import Components.Button;
 import Components.PasswordField;
 import Components.Textfield;
+import Theme.Colors;
 import Theme.Theme;
 
 import java.awt.Color;
@@ -75,13 +76,13 @@ public class Register extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(700, 250, 370, 630);
 		contentPane = new Theme();
-		contentPane.setBackground(new Color(229, 229, 229));
+		contentPane.setBackground(Colors.DTBackground);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel NazwaStudia = new JLabel(res.getString("studio_name"));
-		NazwaStudia.setForeground(new Color(3, 17, 252));
+		NazwaStudia.setForeground(Colors.DTPurple);
 		NazwaStudia.setFont(new Font("Tahoma", Font.ITALIC, 19));
 		NazwaStudia.setBounds(94, 22, 242, 59);
 		contentPane.add(NazwaStudia);
@@ -176,12 +177,12 @@ public class Register extends JFrame {
 		contentPane.add(repeat_password);
 		
 		JLabel lblNewLabel = new JLabel(res.getString("have_acc"));
-		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setBounds(38, 577, 110, 28);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel(res.getString("signin"));
-		lblNewLabel_2.setForeground(Color.BLACK);
+		lblNewLabel_2.setForeground(Colors.DTInactive);
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_2.setBounds(132, 577, 91, 28);
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
@@ -204,6 +205,7 @@ public class Register extends JFrame {
 			lblNewLabel_2.setVisible(false);
 		}
 		Button btnRg = new Button();
+		btnRg.setBackground(Colors.DTPurple);
 		btnRg.setText(res.getString("register"));
 		if(editable1.equals(true)) {btnRg.setText(res.getString("add"));}
 		btnRg.addActionListener(new ActionListener() {
@@ -277,7 +279,6 @@ public class Register extends JFrame {
 		DragBar.setBounds(0, 0, 327, 30);
 		contentPane.add(DragBar);
 		setUndecorated(true); //usuwa ramke
-		boolean isDark = true;
-		contentPane.setDarkTheme(this, GlobalVariables.isDark);
+		contentPane.setDarkTheme(this, true);
 	}
 }

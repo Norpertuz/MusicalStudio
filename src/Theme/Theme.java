@@ -35,6 +35,106 @@ public class Theme extends JPanel{
 //	table.setSelectionBackground(Color.decode("#F6F6F6"));
 //	table.setSelectionForeground(Color.BLACK);
 	
+	public void Add_edit(boolean dark, String Parent) {
+		if (Parent == "Add_edit") {
+			if (dark == true) {
+				this.setBackground(Colors.DTBackground);
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Colors.DTText);
+				top.line.setBackground(Colors.DTPurple);
+				Textfield albumTitle = (Textfield) this.getComponent(3);
+				albumTitle.handleFocus(true, albumTitle.type, albumTitle.name);
+				Textfield title = (Textfield) this.getComponent(4);
+				title.handleFocus(true, title.type, title.name);
+				Textfield author = (Textfield) this.getComponent(5);
+				author.handleFocus(true, author.type, author.name);
+				Textfield genre = (Textfield) this.getComponent(6);
+				genre.handleFocus(true, genre.type, genre.name);
+				Textfield date = (Textfield) this.getComponent(7);
+				date.handleFocus(true, date.type, date.name);
+				JTextArea desc = (JTextArea) this.getComponent(8);
+				desc.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
+						desc.setForeground(Colors.DTText);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
+						desc.setForeground(Colors.DTInactive);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+					}
+				});
+				this.getComponent(9).setBackground(Colors.DTPurple);
+				this.getComponent(10).setBackground(Colors.DTInactive);
+				this.getComponent(11).setBackground(Colors.DTInactive);
+				this.getComponent(12).setBackground(Colors.DTInactive);
+				this.getComponent(13).setBackground(Colors.DTInactive);
+				this.getComponent(14).setBackground(Colors.DTInactive);
+				this.getComponent(15).setBackground(Colors.DTPurple);
+				this.getComponent(16).setBackground(Colors.DTPurple);
+				this.getComponent(17).setBackground(Colors.DTPurple);
+				this.getComponent(18).setBackground(Colors.DTPurple);
+				this.getComponent(19).setBackground(Colors.DTPurple);
+				Textfield img = (Textfield) this.getComponent(20);
+				img.handleFocus(true, img.type, img.name);
+				this.getComponent(21).setBackground(Colors.DTInactive);
+				this.getComponent(22).setBackground(Colors.DTPurple);
+				this.getComponent(23).setBackground(Colors.DTInactive);
+				this.getComponent(24).setBackground(Colors.DTPurple);
+			} else {
+				this.setBackground(Colors.LTBackground);
+				Heading top = (Heading) this.getComponent(2); //title
+				top.label.setForeground(Color.BLACK);
+				top.line.setBackground(Colors.LTBlue);
+				Textfield albumTitle = (Textfield) this.getComponent(3);
+				albumTitle.handleFocus(false, albumTitle.type, albumTitle.name);
+				Textfield title = (Textfield) this.getComponent(4);
+				title.handleFocus(false, title.type, title.name);
+				Textfield author = (Textfield) this.getComponent(5);
+				author.handleFocus(false, author.type, author.name);
+				Textfield genre = (Textfield) this.getComponent(6);
+				genre.handleFocus(false, genre.type, genre.name);
+				Textfield date = (Textfield) this.getComponent(7);
+				date.handleFocus(false, date.type, date.name);
+				JTextArea desc = (JTextArea) this.getComponent(8);
+				desc.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.LTBlue));
+						desc.setForeground(Color.BLACK);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.inactive));
+						desc.setForeground(Colors.inactive);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
+					}
+				});
+				this.getComponent(9).setBackground(Colors.LTBlue);
+				this.getComponent(10).setBackground(Colors.inactive);
+				this.getComponent(11).setBackground(Colors.inactive);
+				this.getComponent(12).setBackground(Colors.inactive);
+				this.getComponent(13).setBackground(Colors.inactive);
+				this.getComponent(14).setBackground(Colors.inactive);
+				this.getComponent(15).setBackground(Colors.LTBlue);
+				this.getComponent(16).setBackground(Colors.LTBlue);
+				this.getComponent(17).setBackground(Colors.LTBlue);
+				this.getComponent(18).setBackground(Colors.LTBlue);
+				this.getComponent(19).setBackground(Colors.LTBlue);
+				Textfield img = (Textfield) this.getComponent(20);
+				img.handleFocus(false, img.type, img.name);
+				this.getComponent(21).setBackground(Colors.inactive);
+				this.getComponent(22).setBackground(Colors.LTBlue);
+				this.getComponent(23).setBackground(Colors.inactive);
+				this.getComponent(24).setBackground(Colors.LTBlue);
+			}
+		}
+	}
+	
 	public void UserEdit(boolean dark, String Parent) {
 		if (Parent == "UserEdit") {
 			if (dark == true) {
@@ -114,12 +214,14 @@ public class Theme extends JPanel{
 						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTActive));
 						descLabel.setForeground(Colors.DTActive);
 						desc.setForeground(Colors.DTText);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
 					}
 					@Override
 					public void focusLost(FocusEvent e) {
 						desc.setBorder(BorderFactory.createMatteBorder(3,3,3,3, Colors.DTInactive));
 						descLabel.setForeground(Colors.DTInactive);
 						desc.setForeground(Colors.DTInactive);
+						desc.setBorder(BorderFactory.createCompoundBorder(desc.getBorder(), BorderFactory.createEmptyBorder(10,10,10,10)));
 					}
 				});
 				
@@ -259,33 +361,31 @@ public class Theme extends JPanel{
 	}
 	
 	public void Login(boolean dark, String Parent) {
-		if (dark == true) {
-			if (Parent == "Login") {
-				//DARK THEME
+		if (Parent == "Login") {
+			if (dark == true) {
 				this.setBackground(Colors.DTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
 				username.handleFocus(true, username.type, username.name);
 				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(true, password.name);
 				this.getComponent(2).setBackground(Colors.DTPurple);
-				this.getComponent(3).setForeground(Colors.DTPurple); 
-				this.getComponent(6).setForeground(Colors.DTInactive);
+				this.getComponent(3).setBackground(Colors.DTPurple);
+				this.getComponent(4).setForeground(Colors.DTPurple);
 				this.getComponent(7).setForeground(Colors.DTInactive);
-				this.getComponent(8).setForeground(Colors.DTPurple);
-			}
-		} else {
-			if (Parent == "Login") {
-				//LIGHT THEME
+				this.getComponent(8).setForeground(Colors.DTInactive);
+				this.getComponent(9).setForeground(Colors.DTPurple);
+			} else {
 				this.setBackground(Colors.LTBackground);
 				Textfield username = (Textfield) this.getComponent(0);
 				username.handleFocus(false, username.type, username.name);
 				PasswordField password = (PasswordField) this.getComponent(1);
 				password.handleFocus(false, password.name);
 				this.getComponent(2).setBackground(Colors.LTBlue);
-				this.getComponent(3).setForeground(Colors.LTBlue);
-				this.getComponent(6).setForeground(Colors.LTGray);
-				this.getComponent(7).setForeground(Colors.LTGray);
-				this.getComponent(8).setForeground(Colors.LTBlue);
+				this.getComponent(3).setBackground(Colors.LTBlue);
+				this.getComponent(4).setForeground(Colors.LTBlue);
+				this.getComponent(7).setForeground(Colors.inactive);
+				this.getComponent(8).setForeground(Colors.inactive);
+				this.getComponent(9).setForeground(Colors.LTBlue);
 			}
 		}
 	}
@@ -333,6 +433,7 @@ public class Theme extends JPanel{
 		MainWindow(dark,Parent);
 		Add_add(dark, Parent);
 		UserEdit(dark,Parent);
+		Add_edit(dark,Parent);
 	}
 	public Theme() {
 		//nothing

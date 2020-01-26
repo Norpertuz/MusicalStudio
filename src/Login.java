@@ -79,6 +79,7 @@ public class Login extends JFrame {
 		Wrapper.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(Wrapper);
 		Wrapper.setLayout(null);
+		Wrapper.setBackground(Colors.DTBackground);
 		String UsernameLabel = res.getString("username");
 		Textfield Username = new Textfield("default", UsernameLabel);
 		Username.setSize(292, 70);
@@ -133,6 +134,7 @@ public class Login extends JFrame {
 //		contentPane.add(Password);
 		
 		Button SignIn = new Button();
+		SignIn.setBackground(Colors.DTPurple);
 		String SignInLabel = res.getString("login");
 		SignIn.setText(SignInLabel);
 		SignIn.addActionListener(new ActionListener() {
@@ -189,12 +191,14 @@ public class Login extends JFrame {
 		String lbuttonLabel = res.getString("language_name");
 		lbutton.setText(lbuttonLabel);
 		lbutton.setBounds(205, 434, 155, 23);
+		lbutton.setBackground(Colors.DTPurple);
+		lbutton.setForeground(Colors.DTText);
 		Wrapper.add(lbutton);
 		
 		String NameLabel = res.getString("studio_name");
 		Name = new JLabel(NameLabel);
 		Name.setInheritsPopupMenu(false);
-		Name.setForeground(new Color(145, 71, 255));
+		Name.setForeground(Colors.DTPurple);
 		Name.setFont(new Font("Tahoma", Font.BOLD, 18));
 		Name.setBounds(96, 48, 234, 67);
 		Wrapper.add(Name);
@@ -280,7 +284,15 @@ public class Login extends JFrame {
 		DragBar.setBounds(0, 0, 324, 30);
 		Wrapper.add(DragBar);
 		setUndecorated(true); // Usuwanie ramki 
-		boolean isDark = false;
-		Wrapper.setDarkTheme(this, GlobalVariables.isDark);
+		
+		
+		Wrapper.setBackground(Colors.DTBackground);
+		Username.handleFocus(true, Username.type, Username.name);
+		MyPassword.handleFocus(true, MyPassword.name);
+		SignIn.setBackground(Colors.DTPurple);
+		
+		
+		
+		Wrapper.setDarkTheme(this, false);
 	}
 }

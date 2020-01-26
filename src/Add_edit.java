@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -39,6 +40,9 @@ import java.awt.event.MouseMotionAdapter;
 
 @SuppressWarnings("serial")
 public class Add_edit extends JFrame {
+	
+	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme contentPane;
 	int posX=0,posY=0;
@@ -70,7 +74,7 @@ public class Add_edit extends JFrame {
 							opis11 =rs.getString("Opis");
 					}
 						else
-							JOptionPane.showMessageDialog(null, "Nie zalogowano");
+							JOptionPane.showMessageDialog(null, res.getString("edit"));
 						
 						con.close();
 					} 
@@ -140,33 +144,33 @@ public class Add_edit extends JFrame {
 		DragBar.setBounds(0, 0, 716, 30);
 		contentPane.add(DragBar);
 		
-		Heading Edit_text = new Heading("EDYTUJ", Colors.DTPurple);
+		Heading Edit_text = new Heading(res.getString("edit"), Colors.DTPurple);
 //		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
 //		Edit_text.setFont(new Font("Tahoma", Font.BOLD, 17));
 		Edit_text.setBounds(10, 21, 208, 40);
 		contentPane.add(Edit_text);
 		
-		String album = "Nazwa Albumu";
+		String album = res.getString("album_title");
 		Textfield Nazwa_Albumu = new Textfield("default", album);
 		Nazwa_Albumu.setBounds(10, 70, 350, 70);
 		contentPane.add(Nazwa_Albumu);
 		
-		String title = "Tytul";
+		String title = res.getString("title");
 		Textfield Title_textfield = new Textfield("default", title);
 		Title_textfield.setBounds(10, 170, 350, 70);
 		contentPane.add(Title_textfield);
 		
-		String Author = "Autor";
+		String Author = res.getString("author");
 		Textfield Author_textfield = new Textfield("default", Author);
 		Author_textfield.setBounds(416, 70, 350, 70);
 		contentPane.add(Author_textfield);
 		
-		String Genere = "Gatunek";
+		String Genere = res.getString("genere");
 		Textfield Genere_textfield = new Textfield("default", Genere);
 		Genere_textfield.setBounds(416, 170, 350, 70);
 		contentPane.add(Genere_textfield);
 		
-		String Date = "Data Wydania";
+		String Date = res.getString("date");
 		Textfield Date_textfield = new Textfield("default", Date);
 		Date_textfield.setBounds(10, 273, 350, 70);
 		contentPane.add(Date_textfield);
@@ -196,7 +200,7 @@ public class Add_edit extends JFrame {
 		
 			Button customButton__1 = new Button();
 			customButton__1.setBackground(Colors.DTPurple);
-			customButton__1.setText("Usun album");
+			customButton__1.setText(res.getString("remove_album"));
 			customButton__1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					
@@ -215,7 +219,7 @@ public class Add_edit extends JFrame {
 						
 						stmt.executeUpdate(sql);
 						stmt.close();
-						JOptionPane.showMessageDialog(null,"Usunieto album!" );
+						JOptionPane.showMessageDialog(null,res.getString("album_removed") );
 						
 						con.close();
 						final Frame[] frames = Frame.getFrames();
@@ -245,27 +249,27 @@ public class Add_edit extends JFrame {
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("Aktualna nazwa albumu:");
+		JLabel lblNewLabel = new JLabel(res.getString("a_album_title"));
 		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setBounds(10, 145, 142, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblAktualnyTytulUtworu = new JLabel("Aktualny tytul utworu:");
+		JLabel lblAktualnyTytulUtworu = new JLabel(res.getString("a_track_title"));
 		lblAktualnyTytulUtworu.setForeground(Colors.DTInactive);
 		lblAktualnyTytulUtworu.setBounds(10, 251, 128, 14);
 		contentPane.add(lblAktualnyTytulUtworu);
 		
-		JLabel lblAktualnyAutorUtworu = new JLabel("Aktualny autor utworu:");
+		JLabel lblAktualnyAutorUtworu = new JLabel(res.getString("a_author"));
 		lblAktualnyAutorUtworu.setBounds(416, 145, 128, 14);
 		lblAktualnyAutorUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyAutorUtworu);
 		
-		JLabel lblAktualnyGatunekUtworu = new JLabel("Aktualny gatunek utworu:");
+		JLabel lblAktualnyGatunekUtworu = new JLabel(res.getString("a_genere"));
 		lblAktualnyGatunekUtworu.setBounds(416, 251, 160, 14);
 		lblAktualnyGatunekUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyGatunekUtworu);
 		
-		JLabel lblAktualnaDataWydania = new JLabel("Aktualna data wydania utworu:");
+		JLabel lblAktualnaDataWydania = new JLabel(res.getString("a_date"));
 		lblAktualnaDataWydania.setBounds(10, 354, 176, 14);
 		lblAktualnaDataWydania.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaDataWydania);
@@ -300,7 +304,7 @@ public class Add_edit extends JFrame {
 		ldata.setBounds(181, 354, 91, 14);
 		contentPane.add(ldata);
 		
-		Textfield image_textfield = new Textfield("default", "Data Wydania");
+		Textfield image_textfield = new Textfield("default", res.getString("date"));
 		image_textfield.label.setText("Nazwa obrazka");
 		GridBagLayout gbl_image_textfield = (GridBagLayout) image_textfield.getLayout();
 		gbl_image_textfield.rowWeights = new double[]{0.0, 0.0};
@@ -310,7 +314,7 @@ public class Add_edit extends JFrame {
 		image_textfield.setBounds(416, 273, 350, 70);
 		contentPane.add(image_textfield);
 		
-		JLabel lblAktualnaNazwaObrazka = new JLabel("Aktualna nazwa obrazka:");
+		JLabel lblAktualnaNazwaObrazka = new JLabel(res.getString("a_picture"));
 		lblAktualnaNazwaObrazka.setBounds(416, 354, 176, 14);
 		lblAktualnaNazwaObrazka.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaNazwaObrazka);
@@ -320,7 +324,7 @@ public class Add_edit extends JFrame {
 		limage.setBounds(543, 354, 91, 14);
 		contentPane.add(limage);
 		
-		JLabel labelaktualnyopis = new JLabel("Aktualny opis - kliknij by zobaczyc");
+		JLabel labelaktualnyopis = new JLabel(res.getString("a_description"));
 		labelaktualnyopis.setForeground(Colors.DTInactive);
 		labelaktualnyopis.setBounds(10, 498, 229, 14);
 		labelaktualnyopis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -352,14 +356,14 @@ public class Add_edit extends JFrame {
 					sql="update utowory set Nazwa_albumu='"+Nazwa_Albumu.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 					stmt.executeUpdate(sql);
 			
-					JOptionPane.showMessageDialog(null,"Zedytowano Nazwa_albumu" );
+					JOptionPane.showMessageDialog(null,res.getString("e_album_title") );
 				
 					}
 					if(!Title_textfield.textfield.getText().equals("")) {
 						sql="update utowory set Nazwa_utworu='"+Title_textfield.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);	
 				        song_name1=Title_textfield.textfield.getText();
-						JOptionPane.showMessageDialog(null,"Zedytowano Nazwa_utworu" );
+						JOptionPane.showMessageDialog(null,res.getString("e_track_title") );
 					
 						
 					}
@@ -367,35 +371,35 @@ public class Add_edit extends JFrame {
 						sql="update utowory set Autor='"+Author_textfield.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);	
 					
-						JOptionPane.showMessageDialog(null,"Zedytowano Autor" );
+						JOptionPane.showMessageDialog(null,res.getString("e_author") );
 					}
 					if(!Genere_textfield.textfield.getText().equals("")) {
 					
 						sql="update utowory set Gatunek='"+Genere_textfield.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);
 					
-						JOptionPane.showMessageDialog(null,"Zedytowano Gatunek" );
+						JOptionPane.showMessageDialog(null,res.getString("e_genere") );
 						}
 					if(!Date_textfield.textfield.getText().equals("")) {
 						
 						sql="update utowory set Data='"+Date_textfield.textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);
 					
-						JOptionPane.showMessageDialog(null,"Zedytowano Data" );
+						JOptionPane.showMessageDialog(null,res.getString("e_date") );
 						}
                     if(!Description.getText().equals("")) {
 						
 						sql="update utowory set Opis='"+Description.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);
 			
-						JOptionPane.showMessageDialog(null,"Zedytowano Opis" );
+						JOptionPane.showMessageDialog(null,res.getString("e_description") );
 						}
                     if(!image_textfield.getText().equals("")) {
 						
 						sql="update utowory set Image='"+image_textfield.getText()+"' WHERE Nazwa_utworu='"+song_name1+"'";
 						stmt.executeUpdate(sql);
 			
-						JOptionPane.showMessageDialog(null,"Zedytowano nazwe obrazka" );
+						JOptionPane.showMessageDialog(null,res.getString("e_picture") );
 						}
 					
 					
@@ -421,7 +425,7 @@ public class Add_edit extends JFrame {
 			}
 		});
 		Save.setBackground(Colors.DTPurple);
-		Save.setText("Zapisz Zmiany");
+		Save.setText(res.getString("save_changes"));
 		Save.setBounds(613, 519, 153, 43);
 		contentPane.add(Save);
 		

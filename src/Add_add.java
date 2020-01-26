@@ -23,6 +23,7 @@ import Theme.Colors;
 import Theme.Theme;
 
 import java.sql.*;
+import java.util.ResourceBundle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
@@ -30,6 +31,9 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 @SuppressWarnings("serial")
 public class Add_add extends JFrame {
+	
+	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme contentPane;
 	int posX=0,posY=0;
@@ -94,34 +98,34 @@ public class Add_add extends JFrame {
 		DragBar.setBounds(0, 0, 521, 30);
 		contentPane.add(DragBar);
 		
-		Heading Edit_text = new Heading("Dodaj Utwor", Colors.DTPurple);
+		Heading Edit_text = new Heading(res.getString("add_track"), Colors.DTPurple);
 //		Edit_text.setHorizontalAlignment(SwingConstants.CENTER);
 		Edit_text.setFont(new Font("Tahoma", Font.BOLD, 17));
 		Edit_text.setBounds(10, 30, 167, 40);
 		contentPane.add(Edit_text);
 		
-		String album = "Nazwa Albumu";
+		String album = res.getString("album_title");
 		Textfield Nazwa_Albumu = new Textfield("default", album);
 		Nazwa_Albumu.setBounds(10, 93, 268, 70);
 		contentPane.add(Nazwa_Albumu);
 		
-		String title = "Tytu�";
+		String title = res.getString("title");
 		Textfield Title_textfield = new Textfield("default", title);
 		Title_textfield.label.setText("Tytul");
 		Title_textfield.setBounds(10, 173, 268, 70);
 		contentPane.add(Title_textfield);
 		
-		String Author = "Autor";
+		String Author = res.getString("author");
 		Textfield Author_textfield = new Textfield("default", Author);
 		Author_textfield.setBounds(10, 253, 268, 70);
 		contentPane.add(Author_textfield);
 		
-		String Genere = "Gatunek";
+		String Genere = res.getString("genere");
 		Textfield Genere_textfield = new Textfield("default", Genere);
 		Genere_textfield.setBounds(288, 93, 268, 70);
 		contentPane.add(Genere_textfield);
 		
-		String Date = "Data Wydania";
+		String Date = res.getString("date");
 		Textfield Date_textfield = new Textfield("default", Date);
 		Date_textfield.setBounds(288, 173, 268, 70);
 		contentPane.add(Date_textfield);
@@ -129,7 +133,7 @@ public class Add_add extends JFrame {
 
 		
 		
-		String link = "Nazwa obrazka";
+		String link = res.getString("picture");
 		Textfield Link_TextField = new Textfield("default", link);
 		GridBagLayout gbl_Link_TextField = (GridBagLayout) Link_TextField.getLayout();
 		gbl_Link_TextField.rowWeights = new double[]{0.0, 0.0};
@@ -142,7 +146,7 @@ public class Add_add extends JFrame {
 		
 		
 		JTextArea Description = new JTextArea();
-		JLabel lblNewLabel = new JLabel("Opis");
+		JLabel lblNewLabel = new JLabel(res.getString("description"));
 		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblNewLabel.setBounds(10, 334, 46, 14);
@@ -174,7 +178,7 @@ public class Add_add extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if (Title_textfield.textfield.getText().equals("") || Nazwa_Albumu.textfield.getText().equals("") || Date_textfield.textfield.getText().equals("") || Author_textfield.textfield.getText().equals("") || Genere_textfield.textfield.getText().equals("")){
-					JOptionPane.showMessageDialog(null, "Nie podano wszystkich wymaganych danych.");
+					JOptionPane.showMessageDialog(null, res.getString("req_data"));
 				     }
 				
 				
@@ -199,7 +203,7 @@ public class Add_add extends JFrame {
 					
 				
 					if(rs!=0) {
-						JOptionPane.showMessageDialog(null, "Dodano utwor");
+						JOptionPane.showMessageDialog(null, res.getString("track_added"));
 						final Frame[] frames = Frame.getFrames();
 						if (frames != null)
 						    for (final Frame f : frames)
@@ -209,7 +213,7 @@ public class Add_add extends JFrame {
 						MainWindow.main1(GlobalVariables.fullname1, 1);
 					}
 					else
-						JOptionPane.showMessageDialog(null, "Nie dodano utworu/blad");
+						JOptionPane.showMessageDialog(null, res.getString("n_track_added"));
 					
 					con.close();
 				} 
@@ -222,7 +226,7 @@ public class Add_add extends JFrame {
 				
 			}
 		});
-		Save.setText("Dodaj");
+		Save.setText(res.getString("add"));
 		Save.setBounds(415, 523, 141, 40);
 		contentPane.add(Save);
 		

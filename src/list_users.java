@@ -33,6 +33,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -52,6 +53,9 @@ import Theme.Theme;
 import java.sql.*;
 
 public class list_users extends JFrame {
+	
+//	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	private Theme contentPane;
 	int posX=0,posY=0;
@@ -157,7 +161,7 @@ public class list_users extends JFrame {
 		Close.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(Close);
 		
-		JLabel add_users = new JLabel("  Dodaj uzytkownika");
+		JLabel add_users = new JLabel(" " + res.getString("addd_user"));
 		add_users.setForeground(Color.WHITE);
 		add_users.setBounds(10, 86, 169, 35);
 		add_users.setIcon(new ImageIcon(list_users.class.getResource("/assets/person_add_light.png")));
@@ -200,7 +204,7 @@ public class list_users extends JFrame {
 		
 	    table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 	    
-	    JLabel useredit = new JLabel("  Edytuj uzytkownika");
+	    JLabel useredit = new JLabel("  " + res.getString("edit"));
 	    useredit.setForeground(Color.WHITE);
 	    useredit.setBounds(189, 86, 161, 35);
 	    contentPane.add(useredit);
@@ -210,7 +214,7 @@ public class list_users extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				
 				if(table.getSelectedRow() != -1) {UserEdit.okno_edycji1(table.getValueAt(table.getSelectedRow(), 0).toString(),1);}
-				else {JOptionPane.showMessageDialog(null, "Nie wybrano uzytkownika");}
+				else {JOptionPane.showMessageDialog(null, res.getString("n_user_select"));}
 				
 				
 			}
@@ -258,12 +262,12 @@ public class list_users extends JFrame {
 	   scrollPane.getViewport().setOpaque(false);
 	   contentPane.setBackground(Colors.DTBackground);
 	   
-	   String listUsers = "List Users";
+	   String listUsers = res.getString("list_users");
 	   Heading panel = new Heading(listUsers, Colors.DTPurple);
 	   panel.setBounds(10, 42, 143, 40);
 	   contentPane.add(panel);
 	   
-	   JLabel lblNewLabel = new JLabel("Uprawnienia +/-");
+	   JLabel lblNewLabel = new JLabel(res.getString("n_user_select"));
 	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
 	   lblNewLabel.setForeground(Color.WHITE);
 	   lblNewLabel.setBounds(162, 34, 178, 48);
@@ -289,12 +293,12 @@ public class list_users extends JFrame {
 							if(table.getValueAt(table.getSelectedRow(), 1).toString().equals("Administrator")) {
 								//fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
 							    sql="update users set isAdmin='0' WHERE fullname='"+fullname111+"'";
-							    JOptionPane.showMessageDialog(null, "Odebrano Admina");
+							    JOptionPane.showMessageDialog(null, res.getString("admin_add"));
 								}
 							else { 
 								//fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
 								sql="update users set isAdmin='1' WHERE fullname='"+fullname111+"'";
-							    JOptionPane.showMessageDialog(null, "Nadano admina");
+							    JOptionPane.showMessageDialog(null, res.getString("admin_remove"));
 
 								
 								}
@@ -311,7 +315,7 @@ public class list_users extends JFrame {
 						} 
 						catch(Exception e){System.out.print(e);}
 				}
-				else {JOptionPane.showMessageDialog(null, "Nie wybrano uzytkownika");}
+				else {JOptionPane.showMessageDialog(null, res.getString("n_user_select"));}
 				
 				
 			}

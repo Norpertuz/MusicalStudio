@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -37,6 +38,9 @@ import java.awt.event.MouseMotionAdapter;
 
 @SuppressWarnings("serial")
 public class UserEdit extends JFrame {
+	
+//	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 	
 	int posX=0,posY=0;
 	static String user1;
@@ -76,7 +80,7 @@ public class UserEdit extends JFrame {
 							mail1 =rs.getString("email");
 					}
 						else
-							JOptionPane.showMessageDialog(null, "Nie zalogowano");
+							JOptionPane.showMessageDialog(null, res.getString("n_logged"));
 						
 						con.close();
 					} 
@@ -144,7 +148,7 @@ public class UserEdit extends JFrame {
 		getContentPane().add(close);
 		
 		
-		Heading lblNewLabel = new Heading("EDYTUJ PROFIL", Colors.DTPurple);
+		Heading lblNewLabel = new Heading(res.getString("edit_profile"), Colors.DTPurple);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(28, 22, 186, 37);
 		getContentPane().add(lblNewLabel);
@@ -154,7 +158,7 @@ public class UserEdit extends JFrame {
 		textField.setBounds(28, 240, 350, 82);
 		getContentPane().add(textField);
 		*/
-		String nickname = "Nickname";
+		String nickname = res.getString("username");
 		Textfield label_TextField_0 = new Textfield("default", nickname);
 		GridBagLayout gridBagLayout_0 = (GridBagLayout) label_TextField_0.getLayout();
 		gridBagLayout_0.rowWeights = new double[]{0.0, 0.0};
@@ -164,7 +168,7 @@ public class UserEdit extends JFrame {
 		label_TextField_0.setBounds(28, 70, 350, 82);
 		getContentPane().add(label_TextField_0);
 		
-		String fullname = "Imie i nazwisko";
+		String fullname = res.getString("fullname");
 		Textfield label_TextField = new Textfield("default", fullname);
 		GridBagLayout gridBagLayout = (GridBagLayout) label_TextField.getLayout();
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0};
@@ -174,7 +178,7 @@ public class UserEdit extends JFrame {
 		label_TextField.setBounds(28, 188, 350, 82);
 		getContentPane().add(label_TextField);
 		
-		String password = "Password";
+		String password = res.getString("password");
 		PasswordField label_TextField_1 = new PasswordField(password);
 		GridBagLayout gridBagLayout_1 = (GridBagLayout) label_TextField_1.getLayout();
 		gridBagLayout_1.rowWeights = new double[]{0.0, 0.0};
@@ -184,7 +188,7 @@ public class UserEdit extends JFrame {
 		label_TextField_1.setBounds(28, 311, 350, 82);
 		getContentPane().add(label_TextField_1);
 		
-		String email = "Email";
+		String email = "E-mail";
 		Textfield label_TextField_2 = new Textfield("default", email);
 		GridBagLayout gridBagLayout_2 = (GridBagLayout) label_TextField_2.getLayout();
 		gridBagLayout_2.rowWeights = new double[]{0.0, 0.0};
@@ -211,7 +215,7 @@ public class UserEdit extends JFrame {
 		getContentPane().add(email1);
 		Button customButton__1 = new Button();
 		customButton__1.setBackground(Colors.DTPurple);
-		customButton__1.setText("Usun konto");
+		customButton__1.setText(res.getString("remove_acc"));
 		customButton__1.setVisible(false);
 		if(admin==1) {
 			customButton__1.setVisible(true);
@@ -243,7 +247,7 @@ public class UserEdit extends JFrame {
 						    {
 						        f.dispose();
 						    }
-						JOptionPane.showMessageDialog(null,"Usunieto konto!" );
+						JOptionPane.showMessageDialog(null,res.getString("acc_removed") );
 						String[] errorSoon = new String[1];
 						Login.main(errorSoon);
 						}else {
@@ -253,7 +257,7 @@ public class UserEdit extends JFrame {
 							    {
 							        f.dispose();
 							    }
-							JOptionPane.showMessageDialog(null,"Usunieto konto!" );
+							JOptionPane.showMessageDialog(null,res.getString("acc_removed") );
 							MainWindow.main1(GlobalVariables.fullname1,1);
 							list_users.main22(true);
 							
@@ -277,7 +281,7 @@ public class UserEdit extends JFrame {
 		getContentPane().add(customButton__1);
 		Button customButton_ = new Button();
 		customButton_.setBackground(Colors.DTPurple);
-		customButton_.setText("Zapisz zmiany");
+		customButton_.setText(res.getString("save_changes"));
 		customButton_.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -297,7 +301,7 @@ public class UserEdit extends JFrame {
 					sql="update users set nickname='"+label_TextField_0.textfield.getText()+"' WHERE fullname='"+fullname11+"'";
 					stmt.executeUpdate(sql);
 					//TimeUnit.SECONDS.sleep(3);
-					JOptionPane.showMessageDialog(null,"Zedytowano nickname" );
+					JOptionPane.showMessageDialog(null,res.getString("e_username") );
 				
 					}
 					if(!label_TextField.textfield.getText().equals("")) {
@@ -305,7 +309,7 @@ public class UserEdit extends JFrame {
 						stmt.executeUpdate(sql);	
 						//TimeUnit.SECONDS.sleep(3);
 						fullname11 = label_TextField.textfield.getText();
-						JOptionPane.showMessageDialog(null,"Zedytowano fullname" );
+						JOptionPane.showMessageDialog(null,res.getString("e_fullname") );
 					
 						
 					}
@@ -313,14 +317,14 @@ public class UserEdit extends JFrame {
 						sql="update users set password='"+label_TextField_1.passwordfield.getText()+"' WHERE fullname='"+fullname11+"'";
 						stmt.executeUpdate(sql);	
 						//TimeUnit.SECONDS.sleep(3);
-						JOptionPane.showMessageDialog(null,"Zedytowano password" );
+						JOptionPane.showMessageDialog(null,res.getString("e_password") );
 					}
 					if(!label_TextField_2.textfield.getText().equals("")) {
 					
 						String sql2="update users set email='"+label_TextField_2.textfield.getText()+"' WHERE fullname='"+fullname11+"'";
 						stmt2.executeUpdate(sql2);
 						//TimeUnit.SECONDS.sleep(3);
-						JOptionPane.showMessageDialog(null,"Zedytowano mail" );
+						JOptionPane.showMessageDialog(null,res.getString("e_mail") );
 						}
 					
 					//con.close();
@@ -364,19 +368,19 @@ public class UserEdit extends JFrame {
 		customButton_.setBounds(225, 547, 153, 46);
 		getContentPane().add(customButton_);
 		
-		JLabel lblAktualnyNickname = new JLabel("Aktualny Nickname:");
+		JLabel lblAktualnyNickname = new JLabel(res.getString("a_username"));
 		lblAktualnyNickname.setBounds(28, 160, 119, 14);
 		contentPane.add(lblAktualnyNickname);
 		
-		JLabel lblAktualnyFullname = new JLabel("Aktualny Fullname:");
+		JLabel lblAktualnyFullname = new JLabel(res.getString("a_fullname"));
 		lblAktualnyFullname.setBounds(28, 286, 106, 14);
 		contentPane.add(lblAktualnyFullname);
 		
-		JLabel lblAktualneHaslo = new JLabel("Aktualne haslo:");
+		JLabel lblAktualneHaslo = new JLabel(res.getString("a_password"));
 		lblAktualneHaslo.setBounds(28, 404, 106, 14);
 		contentPane.add(lblAktualneHaslo);
 		
-		JLabel lblAktualnyEmail = new JLabel("Aktualny email:");
+		JLabel lblAktualnyEmail = new JLabel(res.getString("a_mail"));
 		lblAktualnyEmail.setBounds(28, 522, 106, 14);
 		contentPane.add(lblAktualnyEmail);
 		

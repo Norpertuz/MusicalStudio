@@ -279,6 +279,6 @@ public class Register extends JFrame {
 		DragBar.setBounds(0, 0, 327, 30);
 		contentPane.add(DragBar);
 		setUndecorated(true); //usuwa ramke
-		contentPane.setDarkTheme(this, true);
+		contentPane.setDarkTheme(this, GlobalVariables.isDark);
 	}
 }

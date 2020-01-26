@@ -293,6 +293,6 @@ public class Login extends JFrame {
 		
 		
 		
-		Wrapper.setDarkTheme(this, false);
+		Wrapper.setDarkTheme(this, GlobalVariables.isDark);
 	}
 }

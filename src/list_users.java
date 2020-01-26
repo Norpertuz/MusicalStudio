@@ -323,6 +323,5 @@ public class list_users extends JFrame {
 	   
 	   
 	   
-	   
 	}
 }

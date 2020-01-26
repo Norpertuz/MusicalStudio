@@ -612,20 +612,16 @@ public class MainWindow extends JFrame {
 		table.getTableHeader().setEnabled(false);
 		UIManager.getDefaults().put("TableHeader.cellBorder" , BorderFactory.createEmptyBorder(0,0,0,0));
 		table.getTableHeader().setPreferredSize(new Dimension(25, 25));	
-		contentPane.setDarkTheme(mw, true);
-		
-		// theme
-		GlobalVariables.isDark = false;
+		contentPane.setDarkTheme(mw, GlobalVariables.isDark);
 		invert_colors.addMouseListener(new MouseAdapter() {
-			@SuppressWarnings("unused")
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (GlobalVariables.isDark == true) {
-					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
-					GlobalVariables.isDark = false;
-				} else {
-					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
+				if (GlobalVariables.isDark == false) {
 					GlobalVariables.isDark = true;
+					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
+				} else {
+					GlobalVariables.isDark = false;
+					contentPane.setDarkTheme(mw, GlobalVariables.isDark);
 				}
 			}
 		});

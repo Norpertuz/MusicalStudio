@@ -227,7 +227,7 @@ public class Add_add extends JFrame {
 		contentPane.add(Save);
 		
 		
-		contentPane.setDarkTheme(this, true);		
+		contentPane.setDarkTheme(this, GlobalVariables.isDark);		
 		
 		
 		

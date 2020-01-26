@@ -426,7 +426,7 @@ public class Add_edit extends JFrame {
 		contentPane.add(Save);
 		
 		
-		contentPane.setDarkTheme(this, true);
+		contentPane.setDarkTheme(this, GlobalVariables.isDark);
 		
 		
 		

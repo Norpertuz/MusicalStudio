@@ -21,19 +21,41 @@ import Components.Textfield;
 @SuppressWarnings("serial")
 public class Theme extends JPanel{
 	
-//	admin_panel.setForeground(Color.BLACK);
-//	user_list.setForeground(Color.BLACK);
-//	albumedit.setForeground(Color.BLACK);
-//	textArea.setForeground(Color.BLACK);
-//	listPanel.setBackground(Colors.LTBackground);
-//	panelH.line.setBackground(Colors.LTBlue);
-//	panelH.label.setForeground(Color.BLACK);
-//	searchBar.setBackground(Colors.LTBackground);
-//	table.setForeground(Color.BLACK);
-//	table.setBackground(Colors.LTBackground);
-//	table.getTableHeader().setBackground(Colors.LTBackground);
-//	table.setSelectionBackground(Color.decode("#F6F6F6"));
-//	table.setSelectionForeground(Color.BLACK);
+	public void list_users(boolean dark, String Parent) {
+		if (Parent == "list_users") {
+			if (dark == true) {
+				this.setBackground(Colors.DTBackground);
+				this.getComponent(2).setForeground(Colors.DTText);
+				JScrollPane listPanelScroll = (JScrollPane) this.getComponent(3);
+				Table listPanelTable = (Table) listPanelScroll.getViewport().getComponent(0);
+				listPanelTable.setForeground(Colors.DTText);
+				listPanelTable.setBackground(Colors.DTPanel);
+				listPanelTable.setSelectionBackground(Colors.DTisSelected);
+				listPanelTable.setSelectionForeground(Colors.DTText);
+				listPanelTable.getTableHeader().setBackground(Colors.DTPanel);
+				this.getComponent(4).setForeground(Colors.DTText);
+				Heading top = (Heading) this.getComponent(5);
+				top.label.setForeground(Colors.DTText);
+				top.line.setBackground(Colors.DTPurple);
+				this.getComponent(6).setForeground(Colors.DTText);
+			} else {
+				this.setBackground(Colors.LTBackground);
+				this.getComponent(2).setForeground(Color.BLACK);
+				JScrollPane listPanelScroll = (JScrollPane) this.getComponent(3);
+				Table listPanelTable = (Table) listPanelScroll.getViewport().getComponent(0);
+				listPanelTable.setForeground(Color.BLACK);
+				listPanelTable.setBackground(Colors.LTBackground);
+				listPanelTable.setSelectionBackground(Color.decode("#F6F6F6"));
+				listPanelTable.setSelectionForeground(Color.BLACK);
+				listPanelTable.getTableHeader().setBackground(Colors.LTBackground);
+				this.getComponent(4).setForeground(Color.BLACK);
+				Heading top = (Heading) this.getComponent(5);
+				top.label.setForeground(Color.BLACK);
+				top.line.setBackground(Colors.LTBlue);
+				this.getComponent(6).setForeground(Color.BLACK);
+			}
+		}
+	}
 	
 	public void Add_edit(boolean dark, String Parent) {
 		if (Parent == "Add_edit") {
@@ -434,6 +456,7 @@ public class Theme extends JPanel{
 		Add_add(dark, Parent);
 		UserEdit(dark,Parent);
 		Add_edit(dark,Parent);
+		list_users(dark,Parent);
 	}
 	public Theme() {
 		//nothing

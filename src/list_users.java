@@ -47,11 +47,13 @@ import javax.swing.table.TableColumnModel;
 import Components.Heading;
 import Components.Table;
 import Theme.Colors;
+import Theme.Theme;
+
 import java.sql.*;
 
 public class list_users extends JFrame {
 
-	private JPanel contentPane;
+	private Theme contentPane;
 	int posX=0,posY=0;
 	private Table table;
 	/**
@@ -118,7 +120,7 @@ public class list_users extends JFrame {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 350, 550);
-		contentPane = new JPanel();
+		contentPane = new Theme();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -318,7 +320,7 @@ public class list_users extends JFrame {
 	   
 	   
 	   contentPane.add(lblNewLabel);
-	   
+	   contentPane.setDarkTheme(this, GlobalVariables.isDark);
 	   
 	   
 	   

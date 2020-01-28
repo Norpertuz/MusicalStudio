@@ -32,11 +32,10 @@ import java.awt.event.FocusEvent;
 @SuppressWarnings("serial")
 public class Add_add extends JFrame {
 	
-	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
-
+	
 	private Theme contentPane;
 	int posX=0,posY=0;
+	ResourceBundle res;
 	/**
 	 * Launch the application.
 	 */
@@ -57,6 +56,9 @@ public class Add_add extends JFrame {
 	 * Create the frame.
 	 */
 	public Add_add() {
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 565, 580);
@@ -149,7 +151,7 @@ public class Add_add extends JFrame {
 		JLabel lblNewLabel = new JLabel(res.getString("description"));
 		lblNewLabel.setForeground(Colors.DTInactive);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(10, 334, 46, 14);
+		lblNewLabel.setBounds(10, 334, 148, 14);
 		contentPane.add(lblNewLabel);
 		Description.setBounds(10, 359, 546, 152);
 		Description.setOpaque(false);

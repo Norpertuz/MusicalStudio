@@ -39,14 +39,12 @@ import java.awt.event.MouseMotionAdapter;
 @SuppressWarnings("serial")
 public class UserEdit extends JFrame {
 	
-//	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
-	
+
 	int posX=0,posY=0;
 	static String user1;
     static int admin;
     static String fullname11, nickname11, password11, mail1;
-
+    static ResourceBundle res;
 	private Theme contentPane;
 
 	/**
@@ -102,6 +100,10 @@ public class UserEdit extends JFrame {
 	 * Create the frame.
 	 */
 	public UserEdit() {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 621);
 		contentPane = new Theme();
@@ -199,19 +201,19 @@ public class UserEdit extends JFrame {
 		getContentPane().add(label_TextField_2);
 		
 		JLabel nickname1 = new JLabel(nickname11);
-		nickname1.setBounds(134, 160, 161, 14);
+		nickname1.setBounds(225, 163, 129, 14);
 		getContentPane().add(nickname1);
 		
 		JLabel fullname1 = new JLabel(fullname11);
-		fullname1.setBounds(144, 286, 130, 14);
+		fullname1.setBounds(225, 286, 130, 14);
 		getContentPane().add(fullname1);
 		
 		JLabel password1 = new JLabel(password11);
-		password1.setBounds(130, 404, 144, 14);
+		password1.setBounds(225, 404, 144, 14);
 		getContentPane().add(password1);
 		
 		JLabel email1 = new JLabel(mail1);
-		email1.setBounds(137, 522, 137, 14);
+		email1.setBounds(225, 522, 137, 14);
 		getContentPane().add(email1);
 		Button customButton__1 = new Button();
 		customButton__1.setBackground(Colors.DTPurple);
@@ -369,19 +371,23 @@ public class UserEdit extends JFrame {
 		getContentPane().add(customButton_);
 		
 		JLabel lblAktualnyNickname = new JLabel(res.getString("a_username"));
-		lblAktualnyNickname.setBounds(28, 160, 119, 14);
+		lblAktualnyNickname.setForeground(Color.GRAY);
+		lblAktualnyNickname.setBounds(28, 160, 186, 14);
 		contentPane.add(lblAktualnyNickname);
 		
 		JLabel lblAktualnyFullname = new JLabel(res.getString("a_fullname"));
-		lblAktualnyFullname.setBounds(28, 286, 106, 14);
+		lblAktualnyFullname.setForeground(Color.GRAY);
+		lblAktualnyFullname.setBounds(28, 286, 186, 14);
 		contentPane.add(lblAktualnyFullname);
 		
 		JLabel lblAktualneHaslo = new JLabel(res.getString("a_password"));
-		lblAktualneHaslo.setBounds(28, 404, 106, 14);
+		lblAktualneHaslo.setForeground(Color.GRAY);
+		lblAktualneHaslo.setBounds(28, 404, 186, 14);
 		contentPane.add(lblAktualneHaslo);
 		
 		JLabel lblAktualnyEmail = new JLabel(res.getString("a_mail"));
-		lblAktualnyEmail.setBounds(28, 522, 106, 14);
+		lblAktualnyEmail.setForeground(Color.GRAY);
+		lblAktualnyEmail.setBounds(28, 522, 186, 14);
 		contentPane.add(lblAktualnyEmail);
 		
 		

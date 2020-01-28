@@ -41,14 +41,13 @@ import java.awt.event.MouseMotionAdapter;
 @SuppressWarnings("serial")
 public class Add_edit extends JFrame {
 	
-	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-//	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
-
+	
 	private Theme contentPane;
 	int posX=0,posY=0;
-	static String album_name11, date11, autor11, gatunek11, opis11;
+	static String album_name11, date11, autor11, gatunek11, opis11,image11;
 	static String song_name1;
     static int admin;
+    static ResourceBundle res;
 	/**
 	 * Launch the application.
 	 */
@@ -72,6 +71,7 @@ public class Add_edit extends JFrame {
 							autor11=rs.getString("Autor");
 							gatunek11 =rs.getString("Gatunek");
 							opis11 =rs.getString("Opis");
+							image11 =rs.getString("Image");
 					}
 						else
 							JOptionPane.showMessageDialog(null, res.getString("edit"));
@@ -103,6 +103,9 @@ public class Add_edit extends JFrame {
 	 * Create the frame.
 	 */
 	public Add_edit() {
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 780, 620);
@@ -251,61 +254,61 @@ public class Add_edit extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel(res.getString("a_album_title"));
 		lblNewLabel.setForeground(Colors.DTInactive);
-		lblNewLabel.setBounds(10, 145, 142, 14);
+		lblNewLabel.setBounds(10, 145, 208, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblAktualnyTytulUtworu = new JLabel(res.getString("a_track_title"));
 		lblAktualnyTytulUtworu.setForeground(Colors.DTInactive);
-		lblAktualnyTytulUtworu.setBounds(10, 251, 128, 14);
+		lblAktualnyTytulUtworu.setBounds(10, 251, 162, 14);
 		contentPane.add(lblAktualnyTytulUtworu);
 		
 		JLabel lblAktualnyAutorUtworu = new JLabel(res.getString("a_author"));
-		lblAktualnyAutorUtworu.setBounds(416, 145, 128, 14);
+		lblAktualnyAutorUtworu.setBounds(416, 145, 162, 14);
 		lblAktualnyAutorUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyAutorUtworu);
 		
 		JLabel lblAktualnyGatunekUtworu = new JLabel(res.getString("a_genere"));
-		lblAktualnyGatunekUtworu.setBounds(416, 251, 160, 14);
+		lblAktualnyGatunekUtworu.setBounds(416, 251, 200, 14);
 		lblAktualnyGatunekUtworu.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnyGatunekUtworu);
 		
 		JLabel lblAktualnaDataWydania = new JLabel(res.getString("a_date"));
-		lblAktualnaDataWydania.setBounds(10, 354, 176, 14);
+		lblAktualnaDataWydania.setBounds(10, 354, 230, 14);
 		lblAktualnaDataWydania.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaDataWydania);
 		
 		JLabel lalbum_name = new JLabel("New label");
 		lalbum_name.setForeground(Colors.DTPurple);
 		lalbum_name.setText(album_name11);
-		lalbum_name.setBounds(162, 145, 110, 14);
+		lalbum_name.setBounds(250, 145, 110, 14);
 		contentPane.add(lalbum_name);
 		
 		JLabel lsong_name = new JLabel("New label");
 		lsong_name.setForeground(Colors.DTPurple);
 		lsong_name.setText(song_name1);
-		lsong_name.setBounds(148, 251, 91, 14);
+		lsong_name.setBounds(250, 251, 110, 14);
 		contentPane.add(lsong_name);
 		
 		JLabel lautor = new JLabel("New label");
 		lautor.setText(autor11);
 		lautor.setForeground(Colors.DTPurple);
-		lautor.setBounds(540, 145, 91, 14);
+		lautor.setBounds(675, 151, 91, 14);
 		contentPane.add(lautor);
 		
 		JLabel lgatunek = new JLabel("New label");
 		lgatunek.setText(gatunek11);
 		lgatunek.setForeground(Colors.DTPurple);
-		lgatunek.setBounds(554, 251, 80, 14);
+		lgatunek.setBounds(675, 251, 91, 14);
 		contentPane.add(lgatunek);
 		
 		JLabel ldata = new JLabel("New label");
 		ldata.setText(date11);
 		ldata.setForeground(Colors.DTPurple);
-		ldata.setBounds(181, 354, 91, 14);
+		ldata.setBounds(250, 354, 110, 14);
 		contentPane.add(ldata);
 		
-		Textfield image_textfield = new Textfield("default", res.getString("date"));
-		image_textfield.label.setText("Nazwa obrazka");
+		Textfield image_textfield = new Textfield("default", res.getString("picture"));
+		//image_textfield.label.setText("Nazwa obrazka");
 		GridBagLayout gbl_image_textfield = (GridBagLayout) image_textfield.getLayout();
 		gbl_image_textfield.rowWeights = new double[]{0.0, 0.0};
 		gbl_image_textfield.rowHeights = new int[]{0, 0};
@@ -315,13 +318,14 @@ public class Add_edit extends JFrame {
 		contentPane.add(image_textfield);
 		
 		JLabel lblAktualnaNazwaObrazka = new JLabel(res.getString("a_picture"));
-		lblAktualnaNazwaObrazka.setBounds(416, 354, 176, 14);
+		lblAktualnaNazwaObrazka.setBounds(416, 354, 200, 14);
 		lblAktualnaNazwaObrazka.setForeground(Colors.DTInactive);
 		contentPane.add(lblAktualnaNazwaObrazka);
 		
 		JLabel limage = new JLabel((String) null);
 		limage.setForeground(Colors.DTPurple);
-		limage.setBounds(543, 354, 91, 14);
+		limage.setText(image11);
+		limage.setBounds(675, 354, 91, 14);
 		contentPane.add(limage);
 		
 		JLabel labelaktualnyopis = new JLabel(res.getString("a_description"));

@@ -55,10 +55,11 @@ import java.sql.*;
 public class list_users extends JFrame {
 	
 //	static ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-	static ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+	
 
 	private Theme contentPane;
 	int posX=0,posY=0;
+	static ResourceBundle res;
 	private Table table;
 	/**
 	 * Launch the application.
@@ -121,6 +122,11 @@ public class list_users extends JFrame {
 	 * Create the frame.
 	 */
 	public list_users() {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
+		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 350, 550);
@@ -220,8 +226,7 @@ public class list_users extends JFrame {
 			}
 		});
 	    
-	    if(GlobalVariables.is_admin1==0) {add_users.setVisible(false);useredit.setVisible(false);}
-		
+	    
 	    
 	    
 //		TableColumnModel colModel=table.getColumnModel();
@@ -270,7 +275,7 @@ public class list_users extends JFrame {
 	   JLabel lblNewLabel = new JLabel(res.getString("n_user_select"));
 	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
 	   lblNewLabel.setForeground(Color.WHITE);
-	   lblNewLabel.setBounds(162, 34, 178, 48);
+	   lblNewLabel.setBounds(189, 34, 151, 48);
 	   lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	   lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -279,7 +284,7 @@ public class list_users extends JFrame {
 				if(table.getSelectedRow() != -1) {
 					String fullname111;
 					 fullname111=table.getValueAt(table.getSelectedRow(), 0).toString();
-					 JOptionPane.showMessageDialog(null, table.getValueAt(table.getSelectedRow(), 1).toString());
+					 //JOptionPane.showMessageDialog(null, table.getValueAt(table.getSelectedRow(), 1).toString());
 					
 					
 					
@@ -326,8 +331,8 @@ public class list_users extends JFrame {
 	   contentPane.add(lblNewLabel);
 	   contentPane.setDarkTheme(this, GlobalVariables.isDark);
 	   
-	   
-	   
+	   if(GlobalVariables.is_admin1==0) {lblNewLabel.setVisible(false);add_users.setVisible(false);useredit.setVisible(false);}
+		
 	   
 	}
 }

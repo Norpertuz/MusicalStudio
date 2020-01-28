@@ -217,12 +217,29 @@ public class MainWindow extends JFrame {
 		playlist.setBounds(0, 190, 80, 55);
 		navigationPanel.add(playlist);
 		
-		JLabel cart = new JLabel("");
-		cart.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cart.setHorizontalAlignment(SwingConstants.CENTER);
-		cart.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/shopping_cart.png")));
-		cart.setBounds(0, 250, 80, 55);
-		navigationPanel.add(cart);
+		JLabel lang = new JLabel("");
+		lang.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(GlobalVariables.jezyk==1)GlobalVariables.jezyk=0;
+				else {GlobalVariables.jezyk=1;}
+				final Frame[] frames = Frame.getFrames();
+				if (frames != null)
+				    for (final Frame f : frames)
+				    {
+				        f.dispose();
+				    }
+				
+
+				new MainWindow().setVisible(true); 
+
+			}
+		});
+		lang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lang.setHorizontalAlignment(SwingConstants.CENTER);
+		lang.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/eng_pol.png")));
+		lang.setBounds(0, 250, 80, 55);
+		navigationPanel.add(lang);
 		
 		JLabel invert_colors = new JLabel("");
 		invert_colors.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/invert_colors.png")));

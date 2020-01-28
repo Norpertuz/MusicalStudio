@@ -272,7 +272,7 @@ public class list_users extends JFrame {
 	   panel.setBounds(10, 42, 143, 40);
 	   contentPane.add(panel);
 	   
-	   JLabel lblNewLabel = new JLabel(res.getString("n_user_select"));
+	   JLabel lblNewLabel = new JLabel(res.getString("permission"));
 	   lblNewLabel.setIcon(new ImageIcon(list_users.class.getResource("/assets/upWhite.png")));
 	   lblNewLabel.setForeground(Color.WHITE);
 	   lblNewLabel.setBounds(189, 34, 151, 48);

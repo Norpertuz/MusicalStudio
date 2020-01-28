@@ -493,7 +493,7 @@ public class MainWindow extends JFrame {
 	
 		JLabel albumMusicGenre = new JLabel(res.getString("m_genere"));
 		albumMusicGenre.setForeground(Colors.DTPurple);
-		albumMusicGenre.setBounds(15, 453, 84, 16);
+		albumMusicGenre.setBounds(15, 453, 125, 16);
 		infoPanel.add(albumMusicGenre);
 		
 		JLabel albumReleaseDate = new JLabel(res.getString("date"));
@@ -507,18 +507,18 @@ public class MainWindow extends JFrame {
 		
 		JLabel dataAlbum = new JLabel("Nazwa albumu");
 		dataAlbum.setForeground(Colors.DTText);
-		dataAlbum.setBounds(82, 433, 198, 16);
+		dataAlbum.setBounds(91, 433, 189, 16);
 		infoPanel.add(dataAlbum);
 		
 		
 		JLabel dataMusicGenre = new JLabel("Pop");
 		dataMusicGenre.setForeground(Colors.DTText);
-		dataMusicGenre.setBounds(102, 453, 164, 16);
+		dataMusicGenre.setBounds(132, 453, 116, 16);
 		infoPanel.add(dataMusicGenre);
 		
 		JLabel dataReleaseDate = new JLabel("Test Date");
 		dataReleaseDate.setForeground(Colors.DTText);
-		dataReleaseDate.setBounds(102, 473, 164, 16);
+		dataReleaseDate.setBounds(109, 473, 145, 16);
 		infoPanel.add(dataReleaseDate);
 		
 		JTextArea dataDescription = new JTextArea();

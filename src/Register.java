@@ -184,7 +184,7 @@ public class Register extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel(res.getString("signin"));
 		lblNewLabel_2.setForeground(Colors.DTInactive);
 		lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblNewLabel_2.setBounds(132, 577, 91, 28);
+		lblNewLabel_2.setBounds(149, 577, 91, 28);
 		lblNewLabel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

@@ -16,8 +16,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class Textfield extends JPanel {
+
+
+public class Textfield extends JPanel  {
 	
+	
+	  
 	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
 //	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 	

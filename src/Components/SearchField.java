@@ -16,6 +16,12 @@ public class SearchField extends JTextField{
 	public String searchBarLabel = res.getString("enter");
 		@Override
 		protected void paintComponent(java.awt.Graphics g) {
+			
+			if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+			if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+			
+			
+			searchBarLabel = res.getString("enter");
 		    super.paintComponent(g);
 
 		    if(getText().isEmpty() && ! (FocusManager.getCurrentKeyboardFocusManager().getFocusOwner() == this)){

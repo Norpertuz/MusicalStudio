@@ -73,6 +73,7 @@ import javax.swing.table.TableRowSorter;
 import Components.Heading;
 import Components.SearchField;
 import Components.Table;
+
 import Components.headerRenderer;
 import Theme.Colors;
 import Theme.Theme;
@@ -221,8 +222,8 @@ public class MainWindow extends JFrame {
 		lang.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if(GlobalVariables.jezyk==1)GlobalVariables.jezyk=0;
-				else {GlobalVariables.jezyk=1;}
+				if(GlobalVariables.jezyk==1) {GlobalVariables.jezyk=0; Components.GlobalVariables.jezyk=0;}
+				else {GlobalVariables.jezyk=1;Components.GlobalVariables.jezyk=1;}
 				final Frame[] frames = Frame.getFrames();
 				if (frames != null)
 				    for (final Frame f : frames)
@@ -326,7 +327,7 @@ public class MainWindow extends JFrame {
 			czy_admin.setForeground(Color.BLUE);
 		}
 		
-		czy_admin.setBounds(706, 56, 123, 14);
+		czy_admin.setBounds(706, 56, 191, 14);
 		topPanel.add(czy_admin);
 		
 		JLabel user_list = new JLabel(res.getString("user_list"));

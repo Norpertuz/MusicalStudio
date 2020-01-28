@@ -85,12 +85,13 @@ import javax.swing.border.MatteBorder;
 public class MainWindow extends JFrame {
 	
 //	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
-	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
+//	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	JFrame mw = this;
 	private Theme contentPane;
 	private JPanel listPanel;
 	private SearchField searchBar;
+	static ResourceBundle res;
 	int posX=0,posY=0;
 	String imgurl;
 	BufferedImage img;
@@ -164,6 +165,10 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

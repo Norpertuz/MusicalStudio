@@ -54,6 +54,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javax.swing.BorderFactory;
 import javax.swing.FocusManager;
@@ -82,6 +83,9 @@ import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 
 public class MainWindow extends JFrame {
+	
+//	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
+	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 
 	JFrame mw = this;
 	private Theme contentPane;
@@ -240,7 +244,7 @@ public class MainWindow extends JFrame {
 				    {
 				        f.dispose();
 				    }
-				JOptionPane.showMessageDialog(null, "Wylogowano!");
+				JOptionPane.showMessageDialog(null, res.getString("logout"));
 				Login nw = new Login();
 				Login.main(errorSoon);
 			}
@@ -293,17 +297,17 @@ public class MainWindow extends JFrame {
 		textArea.setForeground(Colors.DTText);
 		JLabel czy_admin = new JLabel("New label");
 		if(GlobalVariables.is_admin1==1) {
-			czy_admin.setText("Administrator");
+			czy_admin.setText(res.getString("admin"));
 			czy_admin.setForeground(Color.RED);
 		}else {
-			czy_admin.setText("Standard user");
+			czy_admin.setText(res.getString("s_user"));
 			czy_admin.setForeground(Color.BLUE);
 		}
 		
 		czy_admin.setBounds(706, 56, 123, 14);
 		topPanel.add(czy_admin);
 		
-		JLabel user_list = new JLabel("Lista Uzytkownikow");
+		JLabel user_list = new JLabel(res.getString("user_list"));
 		user_list.setForeground(Colors.DTText);
 		user_list.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/osoby.png")));
 		user_list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -326,14 +330,14 @@ public class MainWindow extends JFrame {
 		albumedit.setVisible(false);
 		topPanel.add(albumedit);
 		if(GlobalVariables.is_admin1==1) {
-			albumedit.setText("Edytuj/Usun Utwor");
+			albumedit.setText(res.getString("edit_remove"));
 			albumedit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				
 			
 				if(table.getSelectedRow() != -1) {Add_edit.edit_song(table.getValueAt(table.getSelectedRow(), 0).toString(),GlobalVariables.is_admin1);}
-				else {JOptionPane.showMessageDialog(null, "Nie wybrano Utworu");}
+				else {JOptionPane.showMessageDialog(null, res.getString("n_track_choose"));}
 				
 			}
 		});
@@ -350,7 +354,7 @@ public class MainWindow extends JFrame {
 		admin_panel.setVisible(false);
 		topPanel.add(admin_panel);
 		if(GlobalVariables.is_admin1==1) {
-		admin_panel.setText("Dodaj Utwor");
+		admin_panel.setText(res.getString("add_track"));
 		admin_panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -396,7 +400,7 @@ public class MainWindow extends JFrame {
 		//table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setEnabled(true);
-		String[] ListTop = {"Nazwa Utworu","Album","Autor","Data Dodania","Gatunek"};
+		String[] ListTop = {res.getString("title"),res.getString("album_title"),res.getString("author"),res.getString("date"),res.getString("genere")};
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
 		//model.setDataVector(data,ListTop);
@@ -434,7 +438,7 @@ public class MainWindow extends JFrame {
 	          model.addRow(row);
 	          //table.setRowHeight(i, 30);
 	       }
-	    String panelHLabel = "Lista Utworow";
+	    String panelHLabel = res.getString("track_list");
 		Heading panelH = new Heading(panelHLabel, Colors.DTPurple);
 		panelH.setBounds(27, 27, 163, 38);
 		listPanel.add(panelH);
@@ -476,30 +480,29 @@ public class MainWindow extends JFrame {
 		albumAuthor.setBounds(15, 385, 250, 16);
 		infoPanel.add(albumAuthor);
 		
-		JLabel albumAlbum = new JLabel("Album:");
+		JLabel albumAlbum = new JLabel(res.getString("album_title"));
 		albumAlbum.setForeground(Colors.DTPurple);
-		albumAlbum.setBounds(15, 433, 50, 16);
+		albumAlbum.setBounds(15, 433, 84, 16);
 		infoPanel.add(albumAlbum);
 		
 	
-		JLabel albumMusicGenre = new JLabel("Music genre:");
+		JLabel albumMusicGenre = new JLabel(res.getString("m_genere"));
 		albumMusicGenre.setForeground(Colors.DTPurple);
 		albumMusicGenre.setBounds(15, 453, 84, 16);
 		infoPanel.add(albumMusicGenre);
 		
-		JLabel albumReleaseDate = new JLabel("Release date:");
+		JLabel albumReleaseDate = new JLabel(res.getString("date"));
 		albumReleaseDate.setForeground(Colors.DTPurple);
 		albumReleaseDate.setBounds(15, 473, 84, 16);
 		infoPanel.add(albumReleaseDate);
 		
-		JLabel albumDescription = new JLabel("Description:");
+		JLabel albumDescription = new JLabel(res.getString("description"));
 		albumDescription.setForeground(Colors.DTPurple);
-		albumDescription.setBounds(15, 493, 84, 16);
 		infoPanel.add(albumDescription);
 		
 		JLabel dataAlbum = new JLabel("La Casa de Papel - Soundtrack");
 		dataAlbum.setForeground(Colors.DTText);
-		dataAlbum.setBounds(68, 433, 198, 16);
+		dataAlbum.setBounds(82, 433, 198, 16);
 		infoPanel.add(dataAlbum);
 		
 		

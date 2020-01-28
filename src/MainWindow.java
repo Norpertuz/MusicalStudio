@@ -465,13 +465,13 @@ public class MainWindow extends JFrame {
         //
 		//}
 		
-		JLabel albumTitle = new JLabel("BELLA CIAO");
+		JLabel albumTitle = new JLabel("Tytul");
 		albumTitle.setForeground(Colors.DTText);
 		albumTitle.setBounds(15, 365, 250, 16);
 		//albumTitle.setText((String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()));
 		infoPanel.add(albumTitle);
 		
-		JLabel albumAuthor = new JLabel("Sergio y Andres");
+		JLabel albumAuthor = new JLabel("Autor");
 		albumAuthor.setForeground(Colors.DTPurple);
 		albumAuthor.setBounds(15, 385, 250, 16);
 		infoPanel.add(albumAuthor);
@@ -497,7 +497,7 @@ public class MainWindow extends JFrame {
 		albumDescription.setBounds(15, 493, 84, 16);
 		infoPanel.add(albumDescription);
 		
-		JLabel dataAlbum = new JLabel("La Casa de Papel - Soundtrack");
+		JLabel dataAlbum = new JLabel("Nazwa albumu");
 		dataAlbum.setForeground(Colors.DTText);
 		dataAlbum.setBounds(68, 433, 198, 16);
 		infoPanel.add(dataAlbum);
@@ -508,7 +508,7 @@ public class MainWindow extends JFrame {
 		dataMusicGenre.setBounds(102, 453, 164, 16);
 		infoPanel.add(dataMusicGenre);
 		
-		JLabel dataReleaseDate = new JLabel("01 January 2018");
+		JLabel dataReleaseDate = new JLabel("Test Date");
 		dataReleaseDate.setForeground(Colors.DTText);
 		dataReleaseDate.setBounds(102, 473, 164, 16);
 		infoPanel.add(dataReleaseDate);

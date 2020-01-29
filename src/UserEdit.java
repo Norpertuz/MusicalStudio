@@ -347,7 +347,7 @@ public class UserEdit extends JFrame {
 					    }
 					if(GlobalVariables.fullname1.equals(fullname11)) {MainWindow.main1(fullname11, admin);}
 					else {
-					MainWindow.main1(GlobalVariables.fullname1, admin);
+					MainWindow.main1(fullname11, admin);
 					}
 					/*
 					JOptionPane.showMessageDialog(null,"Wymagane jest ponowne uruchomienie aplikacji." );

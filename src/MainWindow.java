@@ -547,8 +547,8 @@ public class MainWindow extends JFrame {
 		dataDescription.setBounds(15, 513, 250, 69);
 		infoPanel.add(dataDescription);
 		dataDescription.setOpaque(false);
-		Heading panelh2 = new Heading("Something", Colors.DTPurple);
-		panelh2.setBounds(32, 43, 145, 38);
+		Heading panelh2 = new Heading(res.getString("album_info"), Colors.DTPurple);
+		panelh2.setBounds(32, 43, 233, 38);
 		infoPanel.add(panelh2);
 	       
 		

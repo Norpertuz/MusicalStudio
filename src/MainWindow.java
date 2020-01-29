@@ -324,7 +324,7 @@ public class MainWindow extends JFrame {
 			czy_admin.setForeground(Color.RED);
 		}else {
 			czy_admin.setText(res.getString("s_user"));
-			czy_admin.setForeground(Color.BLUE);
+			czy_admin.setForeground(Colors.DTPurple);
 		}
 		
 		czy_admin.setBounds(706, 56, 191, 14);

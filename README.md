@@ -26,10 +26,10 @@
 ! moze tez byc usuniety ale nie gdy byl pierwszym adminem na liscie utworzonych
 ! moze sam zrezygnowac, ale uwaga: musi wskazac kogos innego
 + nie moze byc sytuacji, ze admina nie ma
-! chcialbym miec mozliwosc wyboru wersji jezykowej w moim programie
++ chcialbym miec mozliwosc wyboru wersji jezykowej w moim programie
 + chcialbym miec dwa layouty: jasny na dzień i np ciemny na noc
 # moze byc, ze layout będzie się ustawiac automatycznie
-# dobrze by bylo, aby istniał sklep, gdzie moge sprzedaz klientowi plyte/utwor
+! dobrze by bylo, aby istniał sklep, gdzie moge sprzedaz klientowi plyte/utwor
 + klient zalogowany ma dane osobowe i adresowe w bazie, ladujemy automatycznie
-# klient niezalogowany musi swoje dane podac
++ klient niezalogowany musi swoje dane podac
 ```

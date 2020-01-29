@@ -250,6 +250,13 @@ public class MainWindow extends JFrame {
 		navigationPanel.add(invert_colors);
 
 		JLabel Settings = new JLabel("");
+		Settings.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new optionPane();
+				System.out.println(GlobalVariables.name);
+			}
+		});
 		Settings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Settings.setHorizontalAlignment(SwingConstants.CENTER);
 		Settings.setIcon(new ImageIcon(MainWindow.class.getResource("/assets/settings.png")));

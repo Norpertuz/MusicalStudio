@@ -5,4 +5,5 @@ public class GlobalVariables {
 	static int is_admin1;
 	static boolean isDark = true;
 	static int jezyk=1;
+	static String name = "Queue";
 }

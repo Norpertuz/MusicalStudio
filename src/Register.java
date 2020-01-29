@@ -81,7 +81,7 @@ public class Register extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel NazwaStudia = new JLabel(res.getString("studio_name"));
+		JLabel NazwaStudia = new JLabel(GlobalVariables.name);
 		NazwaStudia.setForeground(Colors.DTPurple);
 		NazwaStudia.setFont(new Font("Tahoma", Font.ITALIC, 19));
 		NazwaStudia.setBounds(94, 22, 242, 59);

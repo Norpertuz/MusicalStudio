@@ -196,7 +196,7 @@ public class Login extends JFrame {
 		Wrapper.add(lbutton);
 		
 		String NameLabel = res.getString("studio_name");
-		Name = new JLabel(NameLabel);
+		Name = new JLabel(GlobalVariables.name);
 		Name.setInheritsPopupMenu(false);
 		Name.setForeground(Colors.DTPurple);
 		Name.setFont(new Font("Tahoma", Font.BOLD, 18));

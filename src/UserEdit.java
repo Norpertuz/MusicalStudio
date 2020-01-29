@@ -249,7 +249,7 @@ public class UserEdit extends JFrame {
 						    {
 						        f.dispose();
 						    }
-						JOptionPane.showMessageDialog(null,res.getString("acc_removed") );
+						JOptionPane.showMessageDialog(null,res.getString("acc_remove") );
 						String[] errorSoon = new String[1];
 						Login.main(errorSoon);
 						}else {
@@ -259,7 +259,7 @@ public class UserEdit extends JFrame {
 							    {
 							        f.dispose();
 							    }
-							JOptionPane.showMessageDialog(null,res.getString("acc_removed") );
+							JOptionPane.showMessageDialog(null,res.getString("acc_remove") );
 							MainWindow.main1(GlobalVariables.fullname1,1);
 							list_users.main22(true);
 							

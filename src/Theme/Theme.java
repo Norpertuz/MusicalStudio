@@ -342,9 +342,9 @@ public class Theme extends JPanel{
 					this.setBackground(Color.decode("#F6F6F6"));
 					this.getComponent(1).setBackground(Colors.LTBlue);
 					JPanel topPanel = (JPanel) this.getComponent(2);
-					topPanel.setBackground(Colors.LTBackground);
+					topPanel.setBackground(Color.decode("#B0B5FF"));
 					topPanel.getComponent(0).setForeground(Color.BLACK); //username (toppanel)
-					topPanel.getComponent(2).setForeground(Color.BLACK);
+					topPanel.getComponent(2).setForeground(Color.black);
 					topPanel.getComponent(3).setForeground(Color.BLACK);
 					topPanel.getComponent(4).setForeground(Color.BLACK);
 					JPanel listPanel = (JPanel) this.getComponent(3);

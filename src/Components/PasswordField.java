@@ -23,6 +23,8 @@ public class PasswordField extends JPanel {
 	ResourceBundle res= ResourceBundle.getBundle("lang_PL");
 //	ResourceBundle res= ResourceBundle.getBundle("lang_EN");
 	
+	
+	
 	public JPasswordField passwordfield = new JPasswordField();
 	public JLabel label = new JLabel();
 	public GridBagConstraints wrapper = new GridBagConstraints();
@@ -68,6 +70,9 @@ public class PasswordField extends JPanel {
 	}
 	
 	public void isEmpty(String text) {
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		if (passwordfield.getPassword().length == 0) {
 			setPasswordField(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
@@ -76,6 +81,9 @@ public class PasswordField extends JPanel {
 	}
 	
 	public void handleValidation(String text) {
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
 		if (passwordfield.getPassword().length == 0) {
 			setPasswordField(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);

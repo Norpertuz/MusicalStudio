@@ -173,8 +173,8 @@ public class Login extends JFrame {
 		Button lbutton = new Button();
 		lbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(GlobalVariables.jezyk==1)GlobalVariables.jezyk=0;
-				else {GlobalVariables.jezyk=1;}
+				if(GlobalVariables.jezyk==1) {GlobalVariables.jezyk=0; Components.GlobalVariables.jezyk=0;}
+				else {GlobalVariables.jezyk=1;Components.GlobalVariables.jezyk=1;}
 				final Frame[] frames = Frame.getFrames();
 				if (frames != null)
 				    for (final Frame f : frames)

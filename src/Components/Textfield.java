@@ -82,6 +82,11 @@ public class Textfield extends JPanel  {
 	}
 	
 	public void handleValidation(String type, String text) {
+		
+		if(GlobalVariables.jezyk==1)res = ResourceBundle.getBundle("lang_PL");
+		if(GlobalVariables.jezyk==0)res = ResourceBundle.getBundle("lang_EN");
+		
+		
 		if (textfield.getText().equals("")) {
 			setTextfield(ERR, Colors.ERR);
 			label.setForeground(Colors.ERR);
